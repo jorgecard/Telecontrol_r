@@ -21,9 +21,9 @@ data_dict = {
   'Tensión L1-N': {'offset': 1, 'reg': 2, 'color': '#9103A6', 'label': 'Tensión L1-N', 'unit': '[V]', 'graphic':1, 'factor':1},
   'Tensión L2-N': {'offset': 3, 'reg': 2, 'color': '#9103A6', 'label': 'Tension L2-N', 'unit': '[V]','graphic':1, 'factor':1},
   'Tensión L3-N': {'offset': 5, 'reg': 2, 'color': '#9103A6', 'label': 'Tensión L3-N', 'unit': '[V]','graphic':1,'factor':1},
-  'Tensión L1-L2': {'offset': 7, 'reg': 2, 'color': '#A6036A', 'label': 'Tensión L1-L2', 'unit': '[V]','graphic':1,'factor':1},
-  'Tensión L2-L3': {'offset': 9, 'reg': 2, 'color': '#A6036A', 'label': 'Tensión L2-L3', 'unit': '[V]','graphic':1,'factor':1},
-  'Tensión L3-L1': {'offset': 11, 'reg': 2, 'color': '#A6036A', 'label': 'Tensión L3-L1', 'unit': '[V]','graphic':1,'factor':1},
+  'Tensión L1-L2': {'offset': 7, 'reg': 2, 'color': '#19A63C', 'label': 'Tensión L1-L2', 'unit': '[V]','graphic':1,'factor':1},
+  'Tensión L2-L3': {'offset': 9, 'reg': 2, 'color': '#19A63C', 'label': 'Tensión L2-L3', 'unit': '[V]','graphic':1,'factor':1},
+  'Tensión L3-L1': {'offset': 11, 'reg': 2, 'color': '#19A63C', 'label': 'Tensión L3-L1', 'unit': '[V]','graphic':1,'factor':1},
   'I-L1': {'offset': 13, 'reg': 2, 'color': '#DF8905', 'label': 'I-L1', 'unit': '[A]','graphic':2,'factor':1},
   'I-L2': {'offset': 15, 'reg': 2, 'color': '#DF8905', 'label': 'I-L2', 'unit': '[A]','graphic':2,'factor':1},
   'I-L3': {'offset': 17, 'reg': 2, 'color': '#DF8905', 'label': 'I-L3', 'unit': '[A]','graphic':2,'factor':1},
@@ -80,10 +80,11 @@ xmin = 0
 xmax = Samples
 
 # Crear gráficas -------------------------------------------------------
-fig, ((ax1, ax2, ax3), (ax4, ax5, _)) = plt.subplots(2, 3, figsize=(12, 6), facecolor='0.94')
+# fig, ((ax1, ax2, ax3), (ax4, ax5, _)) = plt.subplots(2, 3, figsize=(12, 6), facecolor='0.94')
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(12, 6), facecolor='0.94')
 
 # Primera subtrama
-ax1.set_title('Monitoreo en tiempo real - Izquierda Superior')
+ax1.set_title('VOLTAJES')
 ax1.grid()
 ax1.set_xlabel('Muestras')
 ax1.set_ylabel('Magnitud')
@@ -91,7 +92,7 @@ ax1.set_xlim(xmin, xmax)
 ax1.set_ylim(0, 300)
 
 # Segunda subtrama
-ax2.set_title('Monitoreo en tiempo real - Centro Superior')
+ax2.set_title('CORRIENTES')
 ax2.grid()
 ax2.set_xlabel('Muestras')
 ax2.set_ylabel('Magnitud')
@@ -99,7 +100,7 @@ ax2.set_xlim(xmin, xmax)
 ax2.set_ylim(0, 5)
 
 # Tercera subtrama
-ax3.set_title('Monitoreo en tiempo real - Derecha Superior')
+ax3.set_title('POTENCIAS')
 ax3.grid()
 ax3.set_xlabel('Muestras')
 ax3.set_ylabel('Magnitud')
@@ -107,20 +108,12 @@ ax3.set_xlim(xmin, xmax)
 ax3.set_ylim(0, 800)
 
 # Cuarta subtrama
-ax4.set_title('Monitoreo en tiempo real - Izquierda Inferior')
+ax4.set_title('THD')
 ax4.grid()
 ax4.set_xlabel('Muestras')
 ax4.set_ylabel('Magnitud')
 ax4.set_xlim(xmin, xmax)
-ax4.set_ylim(0, 5)
-
-# Quinta subtrama
-ax5.set_title('Monitoreo en tiempo real - Izquierda Inferior')
-ax5.grid()
-ax5.set_xlabel('Muestras')
-ax5.set_ylabel('Magnitud')
-ax5.set_xlim(xmin, xmax)
-ax5.set_ylim(0, 6)
+ax4.set_ylim(0, 5.5)
 
 lines = {}
 lineValueText = {}
@@ -129,7 +122,6 @@ count1 = 0
 count2 = 0
 count3 = 0
 count4 = 0
-count5 = 0
 for i, (key, val) in enumerate(data_dict.items()):
     if val['graphic'] == 1:
         ax = ax1
@@ -147,13 +139,9 @@ for i, (key, val) in enumerate(data_dict.items()):
         ax = ax4
         count4 += 1
         count = count4
-    elif val['graphic'] == 5:
-        ax = ax5
-        count5 += 1
-        count = count5
     lines[key], = ax.plot([], [], val['color'], label=val['label'])
-    # lineValueText[key] = ax.text(0.65, 0.95 - count * 0.05, '', transform=ax.transAxes)
-    lineValueText[key] = ax.text(0.30, 0.95 - count * 0.05, '', transform=ax.transAxes)
+    lineValueText[key] = ax.text(0.65, 0.95 - count * 0.05, '', transform=ax.transAxes)
+    # lineValueText[key] = ax.text(0.30, 0.95 - count * 0.05, '', transform=ax.transAxes)
 
 ########## Recibir datos en segundo plano ##################
 thread = Thread(target=getData)
