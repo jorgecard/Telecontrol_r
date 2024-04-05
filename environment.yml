@@ -1,0 +1,31 @@
+name: telecontrol
+channels:
+  - defaults
+dependencies:
+  - ca-certificates=2024.3.11=haa95532_0
+  - libffi=3.4.4=hd77b12b_0
+  - openssl=3.0.13=h2bbff1b_0
+  - pip=23.3.1=py38haa95532_0
+  - python=3.8.19=h1aa4202_0
+  - setuptools=68.2.2=py38haa95532_0
+  - sqlite=3.41.2=h2bbff1b_0
+  - vc=14.2=h21ff451_1
+  - vs2015_runtime=14.27.29016=h5e58377_2
+  - wheel=0.41.2=py38haa95532_0
+  - pip:
+      - contourpy==1.1.1
+      - cycler==0.12.1
+      - fonttools==4.50.0
+      - importlib-resources==6.4.0
+      - kiwisolver==1.4.5
+      - matplotlib==3.7.5
+      - numpy==1.24.4
+      - packaging==24.0
+      - pillow==10.3.0
+      - pymodbus==2.5.3
+      - pyparsing==3.1.2
+      - pyserial==3.5
+      - python-dateutil==2.9.0.post0
+      - six==1.16.0
+      - zipp==3.18.1
+prefix: C:\Users\jorge\anaconda3\envs\telecontrol

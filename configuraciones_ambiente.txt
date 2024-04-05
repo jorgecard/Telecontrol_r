@@ -1,0 +1,25 @@
+******** INSTRUCCIONES exportar e importar environment ***********
+
+Para replicar el mismo ambiente en otra computadora, necesitarías crear un archivo environment.yml que especifique todas las dependencias del ambiente. Aquí tienes los pasos para hacerlo:
+
+* exportar:
+
+Abre Anaconda Prompt en tu computadora actual y activa el ambiente tesis1 si no lo has hecho ya:
+
+conda activate tesis1
+
+Utiliza el comando conda env export para exportar las especificaciones del ambiente a un archivo YAML:
+
+conda env export > environment.yml
+
+Transfiere el archivo environment.yml a la otra computadora, puedes hacerlo a través de una unidad USB, correo electrónico, o cualquier otro método de transferencia de archivos que prefieras.
+
+* importar
+
+En la otra computadora, abre Anaconda Prompt, asegúrate de que Anaconda esté instalado y luego crea el ambiente usando el archivo environment.yml con el siguiente comando:
+
+conda env create -f environment.yml
+
+Este comando leerá el archivo environment.yml y creará un nuevo ambiente llamado tesis1 con las mismas dependencias y versiones que tenías en tu computadora original.
+
+Después de ejecutar estos pasos, tendrás el mismo ambiente recreado en la otra computadora.
