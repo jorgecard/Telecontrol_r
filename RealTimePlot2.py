@@ -81,7 +81,10 @@ xmax = Samples
 
 # Crear gráficas -------------------------------------------------------
 # fig, ((ax1, ax2, ax3), (ax4, ax5, _)) = plt.subplots(2, 3, figsize=(12, 6), facecolor='0.94')
-fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(12, 6), facecolor='0.94')
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(14, 6), facecolor='0.94')
+# plt.subplots_adjust(hspace=0.4)
+# plt.subplots_adjust(left=0.05, right=0.48, bottom=0.05, top=0.95, hspace=0.4)
+plt.subplots_adjust(left=0.05, right=0.70, bottom=0.05, top=0.95, hspace=0.4)
 
 # Primera subtrama
 ax1.set_title('VOLTAJES')
@@ -113,7 +116,7 @@ ax4.grid()
 ax4.set_xlabel('Muestras')
 ax4.set_ylabel('Magnitud')
 ax4.set_xlim(xmin, xmax)
-ax4.set_ylim(0, 5.5)
+ax4.set_ylim(0, 8)
 
 lines = {}
 lineValueText = {}
@@ -127,21 +130,28 @@ for i, (key, val) in enumerate(data_dict.items()):
         ax = ax1
         count1 += 1
         count = count1
+        x_space = 0.53
     elif val['graphic'] == 2:
         ax = ax2
         count2 += 1
         count = count2
+        x_space = 0.73
     elif val['graphic'] == 3:
         ax = ax3
         count3 += 1
         count = count3
+        x_space = 0.65
     elif val['graphic'] == 4:
         ax = ax4
         count4 += 1
         count = count4
+        x_space = 0.63
     lines[key], = ax.plot([], [], val['color'], label=val['label'])
-    lineValueText[key] = ax.text(0.65, 0.95 - count * 0.05, '', transform=ax.transAxes)
-    # lineValueText[key] = ax.text(0.30, 0.95 - count * 0.05, '', transform=ax.transAxes)
+    lineValueText[key] = ax.text(x_space, 0.95 - count * 0.065, '', transform=ax.transAxes)
+
+# Texto adicional en la interfaz gráfica
+additional_text = 'APE 1 Monitoreo en tiempo real'
+plt.figtext(0.8, 0.8, additional_text, ha='center')
 
 ########## Recibir datos en segundo plano ##################
 thread = Thread(target=getData)
