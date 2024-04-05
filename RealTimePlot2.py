@@ -18,25 +18,25 @@ client.connect()
 
 # Definir un diccionario para almacenar los datos
 data_dict = {
-  'Tensión L1-N': {'offset': 1, 'reg': 2, 'color': '#9103A6', 'label': 'Tensión L1-N', 'unit': '[V]', 'graphic':1, 'factor':1},
-  'Tensión L2-N': {'offset': 3, 'reg': 2, 'color': '#9103A6', 'label': 'Tension L2-N', 'unit': '[V]','graphic':1, 'factor':1},
-  'Tensión L3-N': {'offset': 5, 'reg': 2, 'color': '#9103A6', 'label': 'Tensión L3-N', 'unit': '[V]','graphic':1,'factor':1},
-  'Tensión L1-L2': {'offset': 7, 'reg': 2, 'color': '#19A63C', 'label': 'Tensión L1-L2', 'unit': '[V]','graphic':1,'factor':1},
-  'Tensión L2-L3': {'offset': 9, 'reg': 2, 'color': '#19A63C', 'label': 'Tensión L2-L3', 'unit': '[V]','graphic':1,'factor':1},
-  'Tensión L3-L1': {'offset': 11, 'reg': 2, 'color': '#19A63C', 'label': 'Tensión L3-L1', 'unit': '[V]','graphic':1,'factor':1},
-  'I-L1': {'offset': 13, 'reg': 2, 'color': '#DF8905', 'label': 'I-L1', 'unit': '[A]','graphic':2,'factor':1},
-  'I-L2': {'offset': 15, 'reg': 2, 'color': '#DF8905', 'label': 'I-L2', 'unit': '[A]','graphic':2,'factor':1},
-  'I-L3': {'offset': 17, 'reg': 2, 'color': '#DF8905', 'label': 'I-L3', 'unit': '[A]','graphic':2,'factor':1},
-  'E-S': {'offset': 63, 'reg': 2, 'color': '#54548D', 'label': 'E-S', 'unit': '[VA]','graphic':3,'factor':1},
-  'E-P': {'offset': 65, 'reg': 2, 'color': '#558D54', 'label': 'E-P', 'unit': '[W]','graphic':3,'factor':1},
-  'E-Q': {'offset': 63, 'reg': 2, 'color': '#547E8D', 'label': 'E-Q', 'unit': '[VAR]','graphic':3,'factor':1},
-  'THD-V1': {'offset': 261, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V1', 'unit': '[%]','graphic':4,'factor':1},
-  'THD-V2': {'offset': 263, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V2', 'unit': '[%]','graphic':4,'factor':1},
-  'THD-V3': {'offset': 265, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V3', 'unit': '[%]','graphic':4,'factor':1},
-  'THD-I1': {'offset': 267, 'reg': 2, 'color': '#EF2110', 'label': 'THD-I1', 'unit': '[%]','graphic':4,'factor':1},
-  'THD-I2': {'offset': 269, 'reg': 2, 'color': '#EF2110', 'label': 'THD-I2', 'unit': '[%]','graphic':4,'factor':1},
-  'THD-I3': {'offset': 271, 'reg': 2, 'color': '#EF2110', 'label': 'THD-I3', 'unit': '[%]','graphic':4,'factor':1},
-  'Energía Aparente': {'offset': 2817, 'reg': 2, 'color': '#A74CEE', 'label': 'Energía Aparente', 'unit': '[kVAh]','graphic':5,'factor':1}
+  'Tensión L1-N': {'offset': 1, 'reg': 2, 'color': '#9103A6', 'label': 'Tensión L1-N', 'unit': ' [V]', 'graphic':1, 'factor':1},
+  'Tensión L2-N': {'offset': 3, 'reg': 2, 'color': '#9103A6', 'label': 'Tension L2-N', 'unit': ' [V]','graphic':1, 'factor':1},
+  'Tensión L3-N': {'offset': 5, 'reg': 2, 'color': '#9103A6', 'label': 'Tensión L3-N', 'unit': ' [V]','graphic':1,'factor':1},
+  'Tensión L1-L2': {'offset': 7, 'reg': 2, 'color': '#19A63C', 'label': 'Tensión L1-L2', 'unit': ' [V]','graphic':1,'factor':1},
+  'Tensión L2-L3': {'offset': 9, 'reg': 2, 'color': '#19A63C', 'label': 'Tensión L2-L3', 'unit': ' [V]','graphic':1,'factor':1},
+  'Tensión L3-L1': {'offset': 11, 'reg': 2, 'color': '#19A63C', 'label': 'Tensión L3-L1', 'unit': ' [V]','graphic':1,'factor':1},
+  'I-L1': {'offset': 13, 'reg': 2, 'color': '#DF8905', 'label': 'I-L1', 'unit': ' [A]','graphic':2,'factor':1},
+  'I-L2': {'offset': 15, 'reg': 2, 'color': '#DF8905', 'label': 'I-L2', 'unit': ' [A]','graphic':2,'factor':1},
+  'I-L3': {'offset': 17, 'reg': 2, 'color': '#DF8905', 'label': 'I-L3', 'unit': ' [A]','graphic':2,'factor':1},
+  'E-S': {'offset': 63, 'reg': 2, 'color': '#54548D', 'label': 'E-S', 'unit': ' [VA]','graphic':3,'factor':1},
+  'E-P': {'offset': 65, 'reg': 2, 'color': '#558D54', 'label': 'E-P', 'unit': ' [W]','graphic':3,'factor':-1},
+  'E-Q': {'offset': 63, 'reg': 2, 'color': '#547E8D', 'label': 'E-Q', 'unit': ' [VAR]','graphic':3,'factor':1},
+  'THD-V1': {'offset': 261, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V1', 'unit': ' [%]','graphic':4,'factor':1},
+  'THD-V2': {'offset': 263, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V2', 'unit': ' [%]','graphic':4,'factor':1},
+  'THD-V3': {'offset': 265, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V3', 'unit': ' [%]','graphic':4,'factor':1},
+  'THD-I1': {'offset': 267, 'reg': 2, 'color': '#EF2110', 'label': 'THD-I1', 'unit': ' [%]','graphic':4,'factor':1},
+  'THD-I2': {'offset': 269, 'reg': 2, 'color': '#EF2110', 'label': 'THD-I2', 'unit': ' [%]','graphic':4,'factor':1},
+  'THD-I3': {'offset': 271, 'reg': 2, 'color': '#EF2110', 'label': 'THD-I3', 'unit': ' [%]','graphic':4,'factor':1},
+  'Energía Aparente': {'offset': 2817, 'reg': 2, 'color': '-w', 'label': 'Energía Aparente', 'unit': ' [kVAh]','graphic':5,'factor':0}
 }
 
 def getData():
@@ -51,17 +51,18 @@ def getData():
     isReceiving = True
 
 def onClosing():
-  global isRun
-  isRun = False
-  thread.join()
-  root.quit()
-  root.destroy()
+    global isRun
+    isRun = False
+    thread.join()
+    root.quit()
+    root.destroy()
 
 def plotData(self, lines, lineValueText, lineLabel):
-  for key, val in data_dict.items():
-    data[key].append(value[key])
-    lines[key].set_data(range(Samples), data[key])
-    lineValueText[key].set_text(val['label'] +' = '+ str(value[key]) + val['unit'])
+    for key, val in data_dict.items():
+        value_scaled = value[key] * val['factor']
+        data[key].append(value_scaled)
+        lines[key].set_data(range(Samples), data[key])
+        lineValueText[key].set_text(val['label'] +' = '+ str(value[key]) + val['unit'])
 
 # Plot Parameters -----------------
 Samples = 100
@@ -146,12 +147,18 @@ for i, (key, val) in enumerate(data_dict.items()):
         count4 += 1
         count = count4
         x_space = 0.63
-    lines[key], = ax.plot([], [], val['color'], label=val['label'])
-    lineValueText[key] = ax.text(x_space, 0.95 - count * 0.065, '', transform=ax.transAxes)
+    elif val['graphic'] == 5:
+        ax = ax4
+    if val['graphic'] != 5:
+        lines[key], = ax.plot([], [], val['color'], label=val['label'])
+        lineValueText[key] = ax.text(x_space, 0.95 - count * 0.065, '', transform=ax.transAxes)
+    else:
+        lines[key], = ax.plot([], [], val['color'], label=val['label'])
+        lineValueText[key] = ax.text(1.2, 0.95, '', transform=ax.transAxes)
 
 # Texto adicional en la interfaz gráfica
-additional_text = 'APE 1 Monitoreo en tiempo real'
-plt.figtext(0.8, 0.8, additional_text, ha='center')
+plt.figtext(0.85, 0.75, 'APE 2:\nMonitoreo en tiempo real\nProtocolo de Comunicación TCP-IP', ha='center', fontsize=15)
+plt.figtext(0.85, 0.65, 'Docente: Ing. Edisson Villa A. MSc. PhD\nJorge Cárdenas B. & Augusto Rodas V.', ha='center', fontsize=15)
 
 ########## Recibir datos en segundo plano ##################
 thread = Thread(target=getData)
