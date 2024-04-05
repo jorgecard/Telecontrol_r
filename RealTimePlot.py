@@ -18,10 +18,25 @@ client.connect()
 
 # Definir un diccionario para almacenar los datos
 data_dict = {
-    'Voltage': {'offset': 1, 'reg': 2, 'color': 'b-', 'label': 'Voltaje', 'unit': ' [V]'},
-    'Voltage2': {'offset': 3, 'reg': 2, 'color': '#ADD8E6', 'label': 'Voltaje2', 'unit': ' [V]'},
-    'Current': {'offset': 13, 'reg': 2, 'color': 'r-', 'label': 'Corriente', 'unit': ' [A]'},
-    'Current2': {'offset': 15, 'reg': 2, 'color': 'r-', 'label': 'Corriente', 'unit': ' [A]'}
+  'Tensión L1-N': {'offset': 1, 'reg': 2, 'color': 'b-', 'label': 'Tensión L1-N', 'unit': '[V]'},
+  'Tensión L2-N': {'offset': 3, 'reg': 2, 'color': 'b-', 'label': 'Tension L2-N', 'unit': '[V]'},
+  'Tensión L3-N': {'offset': 5, 'reg': 2, 'color': 'b-', 'label': 'Tensión L3-N', 'unit': '[V]'},
+  'Tensión L1-L2': {'offset': 7, 'reg': 2, 'color': 'b-', 'label': 'Tensión L1-L2', 'unit': '[V]'},
+  'Tensión L2-L3': {'offset': 9, 'reg': 2, 'color': 'b-', 'label': 'Tensión L2-L3', 'unit': '[V]'},
+  'Tensión L3-L1': {'offset': 11, 'reg': 2, 'color': 'b-', 'label': 'Tensión L3-L1', 'unit': '[V]'},
+  'I-L1': {'offset': 13, 'reg': 2, 'color': '#ADD8E6', 'label': 'I-L1', 'unit': '[A]'},
+  'I-L2': {'offset': 15, 'reg': 2, 'color': '#ADD8E6', 'label': 'I-L2', 'unit': '[A]'},
+  'I-L3': {'offset': 17, 'reg': 2, 'color': '#ADD8E6', 'label': 'I-L3', 'unit': '[A]'},
+  'E-S': {'offset': 63, 'reg': 2, 'color': '#ADD8E6', 'label': 'E-S', 'unit': '[kVA]'},
+  'E-P': {'offset': 65, 'reg': 2, 'color': '#ADD8E6', 'label': 'E-P', 'unit': '[kW]'},
+  'E-Q': {'offset': 63, 'reg': 2, 'color': '#ADD8E6', 'label': 'E-Q', 'unit': '[kVAR]'},
+  'THD-V1': {'offset': 261, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V1', 'unit': '[%]'},
+  'THD-V2': {'offset': 263, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V2', 'unit': '[%]'},
+  'THD-V3': {'offset': 265, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V3', 'unit': '[%]'},
+  'THD-I1': {'offset': 267, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-I1', 'unit': '[%]'},
+  'THD-I2': {'offset': 269, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-I2', 'unit': '[%]'},
+  'THD-I3': {'offset': 271, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-I3', 'unit': '[%]'},
+  'Energía Aparente': {'offset': 271, 'reg': 2, 'color': '#ADD8E6', 'label': 'Energía Aparente', 'unit': '[kVAh]'}
 }
 
 def getData():
