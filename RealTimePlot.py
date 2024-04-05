@@ -36,7 +36,7 @@ data_dict = {
   'THD-I1': {'offset': 267, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-I1', 'unit': '[%]'},
   'THD-I2': {'offset': 269, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-I2', 'unit': '[%]'},
   'THD-I3': {'offset': 271, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-I3', 'unit': '[%]'},
-  'Energía Aparente': {'offset': 271, 'reg': 2, 'color': '#ADD8E6', 'label': 'Energía Aparente', 'unit': '[kVAh]'}
+  'Energía Aparente': {'offset': 849, 'reg': 4, 'color': '#ADD8E6', 'label': 'Energía Aparente', 'unit': '[kVAh]'}
 }
 
 def getData():

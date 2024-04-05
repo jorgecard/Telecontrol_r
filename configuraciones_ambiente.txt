@@ -1,3 +1,9 @@
+conda env remove --name telecontrol
+conda create --name telecontrol python=3.8
+conda activate telecontrol
+pip install pymodbus==2.5.3
+
+
 ******** INSTRUCCIONES exportar e importar environment ***********
 
 Para replicar el mismo ambiente en otra computadora, necesitarías crear un archivo environment.yml que especifique todas las dependencias del ambiente. Aquí tienes los pasos para hacerlo:
