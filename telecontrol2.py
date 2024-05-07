@@ -23,12 +23,12 @@ def read_modbus_data(ip_address, port, address, count):
     finally:
         client.close()
 
-ip_address = '192.168.0.76'
+ip_address = '192.168.222.136'
 port = 502
 
-count = 2
+count = 10
 
-voltage = read_modbus_data(ip_address, port, 1, count)
+voltage = read_modbus_data(ip_address, port, 2, count)
 current = read_modbus_data(ip_address, port, 13, count)
 
 if voltage is not None and current is not None:
