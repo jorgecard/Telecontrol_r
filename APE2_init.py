@@ -107,18 +107,23 @@ client = ModbusTcpClient(ip, port=502, timeout=3)
 client.connect()
 
 while True:
-    for address in range(0, 25):  # Cambiar la dirección de 1 a 24
+    for address in range(0, 3100):  # Cambiar la dirección de 1 a 24
         # Descargar datos de un solo registro de entrada con una instrucción 0x04
         raw_value = client.read_input_registers(address=address, count=1, unit=1)
 
         # Convertir el valor uint16 a su equivalente con signo
         value = struct.unpack('<h', struct.pack('<H', raw_value.registers[0]))[0]
 
-        print("Address:", address, "Value:", value)
+        # print("Address:", address, "Value:", value)
+        # Imprimir la dirección y el valor en tres columnas
+        if address % 4 == 0:  # Imprimir un salto de línea cada tres direcciones
+            print("")
+        if value != 0:
+            print(f"Address: {address}   Value: {value}", end="\t \t")  # Usar tabulación para separar las columnas
 
     # Esperar un segundo antes de la siguiente solicitud
-    print("")
-    time.sleep(1)
+    print("--------- \n")
+    time.sleep(2)
 
 # Cerramos la conexión
 client.close()
