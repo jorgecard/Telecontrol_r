@@ -143,6 +143,9 @@ class PyShine_LIVE_PLOT_APP(QtWidgets.QMainWindow):
     def update_plot(self):
         try:
             data=np.zeros((0,len(self.channels)))
+            print("data:")
+            print(data.shape)
+            # print(data)
             
             while True:
                 try: 
