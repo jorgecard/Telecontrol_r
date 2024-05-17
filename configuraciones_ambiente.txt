@@ -29,3 +29,9 @@ conda env create -f environment.yml
 Este comando leerá el archivo environment.yml y creará un nuevo ambiente llamado tesis1 con las mismas dependencias y versiones que tenías en tu computadora original.
 
 Después de ejecutar estos pasos, tendrás el mismo ambiente recreado en la otra computadora.
+
+
+-------------------------------- opc 2 requirements.txt
+
+PySide6.exe
+C:\Users\jorge\anaconda3\envs\telecontrol\Lib\site-packages\PySide6
