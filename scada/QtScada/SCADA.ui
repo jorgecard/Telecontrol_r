@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>882</width>
+    <width>814</width>
     <height>534</height>
    </rect>
   </property>
@@ -168,7 +168,7 @@ font: 77 10pt &quot;Arial Black&quot;
                 </size>
                </property>
                <property name="text">
-                <string>Login</string>
+                <string>Log in</string>
                </property>
                <property name="icon">
                 <iconset>
@@ -224,6 +224,29 @@ font: 77 10pt &quot;Arial Black&quot;
                 <size>
                  <width>35</width>
                  <height>35</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_5">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Registros</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>hoja.svg</normaloff>hoja.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
                 </size>
                </property>
               </widget>
@@ -317,7 +340,7 @@ font-size: 12;
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
                <property name="currentIndex">
-                <number>1</number>
+                <number>3</number>
                </property>
                <widget class="QWidget" name="page_login">
                 <widget class="QLabel" name="label">
@@ -339,8 +362,8 @@ font-size: 12;
                 <widget class="QPushButton" name="bt_log_in">
                  <property name="geometry">
                   <rect>
-                   <x>170</x>
-                   <y>290</y>
+                   <x>260</x>
+                   <y>270</y>
                    <width>211</width>
                    <height>80</height>
                   </rect>
@@ -352,7 +375,7 @@ font-size: 12;
                   </size>
                  </property>
                  <property name="text">
-                  <string>Registrar</string>
+                  <string>Log in</string>
                  </property>
                 </widget>
                 <widget class="QLabel" name="label_6">
@@ -387,107 +410,171 @@ font-size: 12;
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
-                <widget class="QLineEdit" name="username">
+                <widget class="QPushButton" name="pushButton_4">
                  <property name="geometry">
                   <rect>
-                   <x>280</x>
-                   <y>120</y>
-                   <width>191</width>
-                   <height>22</height>
+                   <x>494</x>
+                   <y>170</y>
+                   <width>32</width>
+                   <height>32</height>
                   </rect>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgb(255, 255, 255);</string>
+                 <property name="minimumSize">
+                  <size>
+                   <width>32</width>
+                   <height>32</height>
+                  </size>
                  </property>
-                </widget>
-                <widget class="QLineEdit" name="password">
-                 <property name="geometry">
-                  <rect>
-                   <x>280</x>
-                   <y>180</y>
-                   <width>191</width>
-                   <height>22</height>
-                  </rect>
+                 <property name="maximumSize">
+                  <size>
+                   <width>32</width>
+                   <height>32</height>
+                  </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color: rgb(255, 255, 255);</string>
+                  <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+background-color: rgb(245, 245, 245);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset>
+                   <normaloff>OJO.svg</normaloff>OJO.svg</iconset>
+                 </property>
+                 <property name="iconSize">
+                  <size>
+                   <width>30</width>
+                   <height>30</height>
+                  </size>
                  </property>
                 </widget>
                 <widget class="QLineEdit" name="message_lg">
                  <property name="geometry">
                   <rect>
-                   <x>200</x>
-                   <y>250</y>
+                   <x>270</x>
+                   <y>230</y>
                    <width>191</width>
                    <height>22</height>
                   </rect>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color: rgb(255, 255, 255);</string>
+                  <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);</string>
                  </property>
                 </widget>
+                <widget class="QLineEdit" name="username">
+                 <property name="geometry">
+                  <rect>
+                   <x>260</x>
+                   <y>101</y>
+                   <width>191</width>
+                   <height>51</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+                <widget class="QLineEdit" name="password">
+                 <property name="geometry">
+                  <rect>
+                   <x>260</x>
+                   <y>160</y>
+                   <width>191</width>
+                   <height>51</height>
+                  </rect>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+                 </property>
+                </widget>
+               </widget>
+               <widget class="QWidget" name="page_registros">
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <item>
+                  <widget class="QFrame" name="frame_4">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_6">
+                    <item>
+                     <widget class="QLineEdit" name="lineEdit">
+                      <property name="minimumSize">
+                       <size>
+                        <width>50</width>
+                        <height>390</height>
+                       </size>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>CrossCursor</cursorShape>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
                <widget class="QWidget" name="page_sentron">
-                <widget class="QWidget" name="widget_2" native="true">
-                 <property name="geometry">
-                  <rect>
-                   <x>0</x>
-                   <y>0</y>
-                   <width>621</width>
-                   <height>381</height>
-                  </rect>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgb(0, 0, 0);</string>
-                 </property>
-                </widget>
-                <widget class="QLabel" name="varn1">
-                 <property name="geometry">
-                  <rect>
-                   <x>80</x>
-                   <y>390</y>
-                   <width>231</width>
-                   <height>31</height>
-                  </rect>
-                 </property>
-                 <property name="text">
-                  <string>ener</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-                <widget class="QLabel" name="varn1_2">
-                 <property name="geometry">
-                  <rect>
-                   <x>320</x>
-                   <y>390</y>
-                   <width>231</width>
-                   <height>31</height>
-                  </rect>
-                 </property>
-                 <property name="text">
-                  <string>var1</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <item>
+                  <widget class="QWidget" name="widget_2" native="true"/>
+                 </item>
+                </layout>
                </widget>
                <widget class="QWidget" name="page_ampere">
-                <widget class="QWidget" name="widget" native="true">
-                 <property name="geometry">
-                  <rect>
-                   <x>0</x>
-                   <y>0</y>
-                   <width>621</width>
-                   <height>431</height>
-                  </rect>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgb(0, 0, 0);</string>
-                 </property>
-                </widget>
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                 <item>
+                  <widget class="QWidget" name="widget" native="true">
+                   <widget class="QLabel" name="varn1_2">
+                    <property name="geometry">
+                     <rect>
+                      <x>220</x>
+                      <y>380</y>
+                      <width>91</width>
+                      <height>31</height>
+                     </rect>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+                    </property>
+                    <property name="text">
+                     <string>0</string>
+                    </property>
+                   </widget>
+                   <widget class="QLabel" name="varn1">
+                    <property name="geometry">
+                     <rect>
+                      <x>50</x>
+                      <y>380</y>
+                      <width>141</width>
+                      <height>31</height>
+                     </rect>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+                    </property>
+                    <property name="text">
+                     <string>Energía</string>
+                    </property>
+                   </widget>
+                  </widget>
+                 </item>
+                </layout>
                </widget>
               </widget>
              </item>

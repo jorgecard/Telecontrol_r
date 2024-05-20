@@ -75,7 +75,7 @@ data_dict_2 = {
 
 dir_actual = os.path.dirname(os.path.abspath(__file__))
 dir_interfaz = dir_actual + r"\QtScada"
-nombre_interfaz = "SCADA2.ui"
+nombre_interfaz = "SCADA.ui"
 ruta_interfaz = os.path.join(dir_interfaz, nombre_interfaz)
 nombre_logo = "nano.png"
 ruta_logo = os.path.join(dir_interfaz, nombre_logo)

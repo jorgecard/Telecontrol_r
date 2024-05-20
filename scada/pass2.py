@@ -21,13 +21,13 @@
 # print("Texto agregado al archivo con éxito.")
 
 
-from datetime import datetime
+# from datetime import datetime
 
-# Obtener la fecha y hora actual
-fecha_hora_actual = datetime.now()
+# # Obtener la fecha y hora actual
+# fecha_hora_actual = datetime.now()
 
-# Formatear la fecha y hora en el formato deseado
-formato_fecha_hora = fecha_hora_actual.strftime("%Y-%m-%d %H:%M:%S")
+# # Formatear la fecha y hora en el formato deseado
+# formato_fecha_hora = fecha_hora_actual.strftime("%Y-%m-%d %H:%M:%S")
 
-# Imprimir la fecha y hora exactas
-print("Fecha y hora exactas:", formato_fecha_hora)
+# # Imprimir la fecha y hora exactas
+# print("Fecha y hora exactas:", formato_fecha_hora)
