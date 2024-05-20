@@ -24,10 +24,10 @@ from pass1 import *
 
 # Variables
 dic_equipment = {
-    'Sentrum': {'Name': 'Sentrum', 'ip': '192.168.222.222', 'port': 502, 'timeout': 3,
-                'page': 1, 'data_dict': 'data_dict_1', 'comand': 'read_holding_registers', 'pack_method': 'method_1'},
     'Inversor': {'Name': 'Inversor', 'ip': '192.168.222.136', 'port': 502, 'timeout': 3,
                  'page': 2, 'data_dict': 'data_dict_2', 'comand': 'read_input_registers', 'pack_method': 'method_2'},
+    'Sentrum': {'Name': 'Sentrum', 'ip': '192.168.222.222', 'port': 502, 'timeout': 3,
+                'page': 1, 'data_dict': 'data_dict_1', 'comand': 'read_holding_registers', 'pack_method': 'method_1'},
 }
 
 # Definir un diccionario para almacenar los datos
@@ -120,11 +120,14 @@ class PyShine_LIVE_PLOT_APP(QtWidgets.QMainWindow):
         #menu lateral
         self.ui.bt_menu.clicked.connect(self.mover_menu)
         # estado inicial botones
-        self.pushButton_2.setEnabled(False)
-        self.pushButton_3.setEnabled(False)
-        self.pushButton_3.setEnabled(False)
+        # self.pushButton_2.setEnabled(False)
+        # self.pushButton_3.setEnabled(False)
+        # self.pushButton_5.setEnabled(False)
+        self.pushButton_2.setEnabled(True)
+        self.pushButton_3.setEnabled(True)
+        self.pushButton_5.setEnabled(True)
         self.password.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.pushButton_5.clicked.connect(self.toggle_password_visibility)
+        self.pushButton_4.clicked.connect(self.toggle_password_visibility)
 
         self.canvas = MplCanvas(self, width=5, height=4, dpi=100)
         # self.ui.widget.addWidget(self.canvas, 2, 1, 1, 1)
@@ -158,7 +161,7 @@ class PyShine_LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # Configurar el timer para getData
         self.data_timer = QtCore.QTimer()
         # self.data_timer.setInterval(1/self.samplerate)  # Establece el intervalo de actualización de datos en milisegundos
-        self.data_timer.setInterval(100)
+        self.data_timer.setInterval(200)
         self.data_timer.timeout.connect(self.getData)
 
         # self.lineEdit.textChanged['QString'].connect(self.update_window_length)
@@ -399,7 +402,6 @@ class PyShine_LIVE_PLOT_APP(QtWidgets.QMainWindow):
     def log_in(self):
         self.message = getGroup(self.username.text(), self.password.text())
         self.message_lg.setText(self.message)
-        print('dfdsff')
         if (self.message == 'JerarquiaA'):
             # Borro de pantalla
             self.username.setText('')
@@ -415,6 +417,7 @@ class PyShine_LIVE_PLOT_APP(QtWidgets.QMainWindow):
             # estado inicial botones
             self.pushButton_2.setEnabled(True)
             self.pushButton_3.setEnabled(False)
+            self.pushButton_5.setEnabled(False)
             
     def activate_sheet_2(self):
         layout = QVBoxLayout(self.widget)

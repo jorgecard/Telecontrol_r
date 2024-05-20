@@ -15,6 +15,8 @@ kp = PyKeePass(ruta_db, password=master_password)
 kp_entries = [{'title': entry.title, 'username': entry.username, 'password': entry.password, 'group': entry.group.name}
               for entry in kp.entries]
 
+# print(kp_entries)
+
 def getGroup(username, password):
     message = 'Usuario no identificado'
     user_found = False
