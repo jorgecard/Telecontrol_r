@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'SCADA.ui'
+## Form generated from reading UI file 'SCADA2.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.3
 ##
@@ -23,7 +23,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(882, 534)
+        MainWindow.resize(814, 534)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -137,6 +137,16 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.pushButton_3)
 
+        self.pushButton_5 = QPushButton(self.frame_control)
+        self.pushButton_5.setObjectName(u"pushButton_5")
+        self.pushButton_5.setMinimumSize(QSize(0, 40))
+        icon4 = QIcon()
+        icon4.addFile(u"hoja.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_5.setIcon(icon4)
+        self.pushButton_5.setIconSize(QSize(40, 40))
+
+        self.verticalLayout_3.addWidget(self.pushButton_5)
+
 
         self.horizontalLayout_2.addWidget(self.frame_control)
 
@@ -216,7 +226,7 @@ class Ui_MainWindow(object):
         self.label.setAlignment(Qt.AlignCenter)
         self.bt_log_in = QPushButton(self.page_login)
         self.bt_log_in.setObjectName(u"bt_log_in")
-        self.bt_log_in.setGeometry(QRect(170, 290, 211, 80))
+        self.bt_log_in.setGeometry(QRect(260, 270, 211, 80))
         self.bt_log_in.setMinimumSize(QSize(150, 80))
         self.label_6 = QLabel(self.page_login)
         self.label_6.setObjectName(u"label_6")
@@ -226,40 +236,84 @@ class Ui_MainWindow(object):
         self.label_7.setObjectName(u"label_7")
         self.label_7.setGeometry(QRect(20, 160, 201, 51))
         self.label_7.setAlignment(Qt.AlignCenter)
-        self.username = QLineEdit(self.page_login)
-        self.username.setObjectName(u"username")
-        self.username.setGeometry(QRect(280, 120, 191, 22))
-        self.username.setStyleSheet(u"background-color: rgb(255, 255, 255);")
-        self.password = QLineEdit(self.page_login)
-        self.password.setObjectName(u"password")
-        self.password.setGeometry(QRect(280, 180, 191, 22))
-        self.password.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.pushButton_4 = QPushButton(self.page_login)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+        self.pushButton_4.setGeometry(QRect(494, 170, 32, 32))
+        self.pushButton_4.setMinimumSize(QSize(32, 32))
+        self.pushButton_4.setMaximumSize(QSize(32, 32))
+        self.pushButton_4.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+"background-color: rgb(245, 245, 245);")
+        icon5 = QIcon()
+        icon5.addFile(u"OJO.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_4.setIcon(icon5)
+        self.pushButton_4.setIconSize(QSize(30, 30))
         self.message_lg = QLineEdit(self.page_login)
         self.message_lg.setObjectName(u"message_lg")
-        self.message_lg.setGeometry(QRect(200, 250, 191, 22))
-        self.message_lg.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.message_lg.setGeometry(QRect(270, 230, 191, 22))
+        self.message_lg.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: rgb(0, 0, 0);")
+        self.username = QLineEdit(self.page_login)
+        self.username.setObjectName(u"username")
+        self.username.setGeometry(QRect(260, 101, 191, 51))
+        self.username.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);")
+        self.password = QLineEdit(self.page_login)
+        self.password.setObjectName(u"password")
+        self.password.setGeometry(QRect(260, 160, 191, 51))
+        self.password.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);")
         self.stackedWidget.addWidget(self.page_login)
+        self.page_registros = QWidget()
+        self.page_registros.setObjectName(u"page_registros")
+        self.horizontalLayout_5 = QHBoxLayout(self.page_registros)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.frame_4 = QFrame(self.page_registros)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_6 = QHBoxLayout(self.frame_4)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.lineEdit = QLineEdit(self.frame_4)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setMinimumSize(QSize(50, 390))
+        self.lineEdit.setCursor(QCursor(Qt.CrossCursor))
+        self.lineEdit.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+
+        self.horizontalLayout_6.addWidget(self.lineEdit)
+
+
+        self.horizontalLayout_5.addWidget(self.frame_4)
+
+        self.stackedWidget.addWidget(self.page_registros)
         self.page_sentron = QWidget()
         self.page_sentron.setObjectName(u"page_sentron")
+        self.horizontalLayout_4 = QHBoxLayout(self.page_sentron)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.widget_2 = QWidget(self.page_sentron)
         self.widget_2.setObjectName(u"widget_2")
-        self.widget_2.setGeometry(QRect(0, 0, 621, 381))
-        self.widget_2.setStyleSheet(u"background-color: rgb(0, 0, 0);")
-        self.varn1 = QLabel(self.page_sentron)
-        self.varn1.setObjectName(u"varn1")
-        self.varn1.setGeometry(QRect(80, 390, 231, 31))
-        self.varn1.setAlignment(Qt.AlignCenter)
-        self.varn1_2 = QLabel(self.page_sentron)
-        self.varn1_2.setObjectName(u"varn1_2")
-        self.varn1_2.setGeometry(QRect(320, 390, 231, 31))
-        self.varn1_2.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_4.addWidget(self.widget_2)
+
         self.stackedWidget.addWidget(self.page_sentron)
         self.page_ampere = QWidget()
         self.page_ampere.setObjectName(u"page_ampere")
+        self.horizontalLayout_3 = QHBoxLayout(self.page_ampere)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.widget = QWidget(self.page_ampere)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(0, 0, 621, 431))
-        self.widget.setStyleSheet(u"background-color: rgb(0, 0, 0);")
+        self.varn1_2 = QLabel(self.widget)
+        self.varn1_2.setObjectName(u"varn1_2")
+        self.varn1_2.setGeometry(QRect(220, 380, 91, 31))
+        self.varn1_2.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);")
+        self.varn1 = QLabel(self.widget)
+        self.varn1.setObjectName(u"varn1")
+        self.varn1.setGeometry(QRect(50, 380, 141, 31))
+        self.varn1.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(255, 255, 255);")
+
+        self.horizontalLayout_3.addWidget(self.widget)
+
         self.stackedWidget.addWidget(self.page_ampere)
 
         self.verticalLayout_4.addWidget(self.stackedWidget)
@@ -278,7 +332,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -287,14 +341,17 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.bt_menu.setText("")
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Login", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Ampere", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Sentron", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Log in", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Sentron", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Ampere", None))
+        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"Registros", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Inicio de Sesi\u00f3n", None))
-        self.bt_log_in.setText(QCoreApplication.translate("MainWindow", u"Registrar", None))
+        self.bt_log_in.setText(QCoreApplication.translate("MainWindow", u"Log in", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Usuario:", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Contrase\u00f1a:", None))
-        self.varn1.setText(QCoreApplication.translate("MainWindow", u"ener", None))
-        self.varn1_2.setText(QCoreApplication.translate("MainWindow", u"var1", None))
+        self.pushButton_4.setText("")
+        self.username.setText("")
+        self.varn1_2.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.varn1.setText(QCoreApplication.translate("MainWindow", u"Energ\u00eda", None))
     # retranslateUi
 

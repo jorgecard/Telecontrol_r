@@ -107,7 +107,7 @@ client = ModbusTcpClient(ip, port=502, timeout=3)
 client.connect()
 
 while True:
-    for address in range(0, 3100):  # Cambiar la dirección de 1 a 24
+    for address in range(0, 20):  # Cambiar la dirección de 1 a 24
         # Descargar datos de un solo registro de entrada con una instrucción 0x04
         raw_value = client.read_input_registers(address=address, count=1, unit=1)
 

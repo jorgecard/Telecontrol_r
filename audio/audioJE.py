@@ -1,9 +1,6 @@
-# Welcome to PyShine
-# This is part 10 of the PyQt5 learning series
-# Based on parameters, the GUI will plot live voice data using Matplotlib in PyQt5
-# We will use Qthreads to run the audio stream data.
-
 # https://www.youtube.com/watch?v=Ng00Mj5Tt8o&t=934s
+
+# 2 canales (2do canal ficticio)
 
 import sys
 import matplotlib
@@ -22,11 +19,12 @@ from PyQt5.QtMultimedia import QAudioDeviceInfo,QAudio,QCameraInfo
 import os
 input_audio_deviceInfos = QAudioDeviceInfo.availableDevices(QAudio.AudioInput)
 
-directorio_actual = os.path.dirname(os.path.abspath(__file__))
-nombre_interfaz = "main.ui"
-ruta_interfaz = os.path.join(directorio_actual, nombre_interfaz)
+dir_actual = os.path.dirname(os.path.abspath(__file__))
+dir_interfaz = dir_actual + r"\QtScada"
+nombre_interfaz = "scada0.ui"
+ruta_interfaz = os.path.join(dir_interfaz, nombre_interfaz)
 nombre_logo = "nano.png"
-ruta_logo = os.path.join(directorio_actual, nombre_logo)
+ruta_logo = os.path.join(dir_interfaz, nombre_logo)
 
 class MplCanvas(FigureCanvas):
 	def __init__(self, parent=None, width=5, height=4, dpi=100):
@@ -62,7 +60,7 @@ class PyShine_LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.device = self.devices_list[0]
         self.window_length = 1000        # Establece la longitud de la ventana de visualización en milisegundos
         self.downsample = 1              # Establece el factor de submuestreo. Un valor de 1 significa que no se realizará submuestreo.
-        self.channels = [2]              # Establece los canales de audio ([1] mono)
+        self.channels = [1,2]              # Establece los canales de audio ([1] mono)
         self.interval = 30               # Establece el intervalo de actualización del gráfico en milisegundos.
         
         # device_info =  sd.query_devices(self.device, 'input')
@@ -142,25 +140,34 @@ class PyShine_LIVE_PLOT_APP(QtWidgets.QMainWindow):
 
     def update_plot(self):
         try:
-            data=[0]
+            data=np.zeros((1,len(self.channels)))
             
             while True:
                 try: 
                     data = self.q.get_nowait()
                 except queue.Empty:
                     break
+                data = np.hstack((data, data + 0.3))
                 shift = len(data)
                 self.plotdata = np.roll(self.plotdata, -shift,axis = 0)
-                self.plotdata[-shift:,:] = data
+                self.plotdata[-shift:, :] = data
+                
+                # Copia de los datos para el canal 2 con un desplazamiento de 0.3 unidades
+                # self.plotdata[:, 1] = self.plotdata[:, 0] + 0.3
+                # data = np.hstack((data, data + 0.3))
+                
                 self.ydata = self.plotdata[:]
-                self.canvas.axes.set_facecolor((0,0,0))
+                # self.canvas.axes.set_facecolor((0,0,0))
                 
         
                 if self.reference_plot is None:
-                    plot_refs = self.canvas.axes.plot( self.ydata, color='#9103A6')
-                    self.reference_plot = plot_refs[0]				
+                    # Crea dos líneas en la gráfica, una para cada canal
+                    self.reference_plot = self.canvas.axes.plot(self.ydata[:, 0], color='#9103A6')[0]
+                    self.reference_plot_2 = self.canvas.axes.plot(self.ydata[:, 1], color='#FF5733')[0]			
                 else:
-                    self.reference_plot.set_ydata(self.ydata)
+                    # Actualiza los datos de las dos líneas
+                    self.reference_plot.set_ydata(self.ydata[:, 0])
+                    self.reference_plot_2.set_ydata(self.ydata[:, 1])
 
             
             self.canvas.axes.yaxis.grid(True,linestyle='--')
@@ -169,7 +176,8 @@ class PyShine_LIVE_PLOT_APP(QtWidgets.QMainWindow):
             self.canvas.axes.yaxis.set_major_formatter(ticker.FormatStrFormatter('%0.1f'))
             self.canvas.axes.set_ylim( ymin=-0.5, ymax=0.5)		
             self.canvas.draw()
-        except:
+        except Exception as e:
+            print("Error en la actualización de la gráfica:", e)
             pass
 
 

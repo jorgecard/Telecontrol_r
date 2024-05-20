@@ -17,7 +17,7 @@ import struct # Para decodificar los datos
 from pymodbus.client.sync import ModbusTcpClient # Para la conexión
 
 # Realizar la conexión
-ip = '192.168.222.136' # Coloca la dirección IP de tu multímetro
+ip = '192.168.222.222' # Coloca la dirección IP de tu multímetro
 client = ModbusTcpClient(ip, port=502, timeout=3)
 client.connect()
 
