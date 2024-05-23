@@ -32,3 +32,9 @@
 2024-05-20 11:52:08	username:Orlando Velez	password:*+=rr:miAa55w$J'krqi.KZ03	JerarquiaB=
 2024-05-20 11:52:35	username:Orlando Velez	password:*+=rr:miAa55w$J'krqi.KZ03	JerarquiaB=
 2024-05-20 11:53:24	username:Jorge Cardenas	password:.%u`B,s6m)v//?5jH=Ae5+<k)	JerarquiaA=
+2024-05-23 12:24:01	username:tutusa	password:logo	Usuario no identificado=
+2024-05-23 12:27:23	username:dfdf	password:asdfasd	Usuario no identificado=
+2024-05-23 12:28:19	username:sdsfd	password:sdffds	Usuario no identificado=
+2024-05-23 12:28:52	username:sdfsd	password:sdsdf	Usuario no identificado=
+2024-05-23 12:32:50	username:asdds	password:asdas	Usuario no identificado=
+2024-05-23 12:36:53	username:ewew	password:werewr	Usuario no identificado=
