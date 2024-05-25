@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(814, 534)
+        MainWindow.resize(915, 529)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -118,25 +118,35 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.pushButton)
 
+        self.pushButton_gen = QPushButton(self.frame_control)
+        self.pushButton_gen.setObjectName(u"pushButton_gen")
+
+        self.verticalLayout_3.addWidget(self.pushButton_gen)
+
+        self.pushButton_1 = QPushButton(self.frame_control)
+        self.pushButton_1.setObjectName(u"pushButton_1")
+        self.pushButton_1.setMinimumSize(QSize(0, 40))
+        icon2 = QIcon()
+        icon2.addFile(u"estacion-de-carga.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_1.setIcon(icon2)
+        self.pushButton_1.setIconSize(QSize(35, 35))
+
+        self.verticalLayout_3.addWidget(self.pushButton_1)
+
         self.pushButton_2 = QPushButton(self.frame_control)
         self.pushButton_2.setObjectName(u"pushButton_2")
         self.pushButton_2.setMinimumSize(QSize(0, 40))
-        icon2 = QIcon()
-        icon2.addFile(u"estacion-de-carga.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_2.setIcon(icon2)
+        icon3 = QIcon()
+        icon3.addFile(u"sentron.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_2.setIcon(icon3)
         self.pushButton_2.setIconSize(QSize(35, 35))
 
         self.verticalLayout_3.addWidget(self.pushButton_2)
 
-        self.pushButton_3 = QPushButton(self.frame_control)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMinimumSize(QSize(0, 40))
-        icon3 = QIcon()
-        icon3.addFile(u"sentron.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_3.setIcon(icon3)
-        self.pushButton_3.setIconSize(QSize(35, 35))
+        self.pushButton_alarms = QPushButton(self.frame_control)
+        self.pushButton_alarms.setObjectName(u"pushButton_alarms")
 
-        self.verticalLayout_3.addWidget(self.pushButton_3)
+        self.verticalLayout_3.addWidget(self.pushButton_alarms)
 
         self.pushButton_log_ins = QPushButton(self.frame_control)
         self.pushButton_log_ins.setObjectName(u"pushButton_log_ins")
@@ -237,22 +247,17 @@ class Ui_MainWindow(object):
         self.label_7.setObjectName(u"label_7")
         self.label_7.setGeometry(QRect(20, 160, 201, 51))
         self.label_7.setAlignment(Qt.AlignCenter)
-        self.pushButton_4 = QPushButton(self.page_login)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        self.pushButton_4.setGeometry(QRect(494, 170, 32, 32))
-        self.pushButton_4.setMinimumSize(QSize(32, 32))
-        self.pushButton_4.setMaximumSize(QSize(32, 32))
-        self.pushButton_4.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+        self.pushButton_eye = QPushButton(self.page_login)
+        self.pushButton_eye.setObjectName(u"pushButton_eye")
+        self.pushButton_eye.setGeometry(QRect(494, 170, 32, 32))
+        self.pushButton_eye.setMinimumSize(QSize(32, 32))
+        self.pushButton_eye.setMaximumSize(QSize(32, 32))
+        self.pushButton_eye.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "background-color: rgb(245, 245, 245);")
         icon5 = QIcon()
         icon5.addFile(u"OJO.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_4.setIcon(icon5)
-        self.pushButton_4.setIconSize(QSize(30, 30))
-        self.message_lg = QLineEdit(self.page_login)
-        self.message_lg.setObjectName(u"message_lg")
-        self.message_lg.setGeometry(QRect(270, 230, 191, 22))
-        self.message_lg.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"background-color: rgb(0, 0, 0);")
+        self.pushButton_eye.setIcon(icon5)
+        self.pushButton_eye.setIconSize(QSize(30, 30))
         self.username = QLineEdit(self.page_login)
         self.username.setObjectName(u"username")
         self.username.setGeometry(QRect(260, 101, 191, 51))
@@ -263,6 +268,16 @@ class Ui_MainWindow(object):
         self.password.setGeometry(QRect(260, 160, 191, 51))
         self.password.setStyleSheet(u"color: rgb(0, 0, 0);\n"
 "background-color: rgb(255, 255, 255);")
+        self.message_lg = QLabel(self.page_login)
+        self.message_lg.setObjectName(u"message_lg")
+        self.message_lg.setGeometry(QRect(200, 230, 211, 21))
+        font = QFont()
+        font.setFamilies([u"Arial Black"])
+        font.setPointSize(20)
+        font.setWeight(QFont.)
+        font.setItalic(False)
+        self.message_lg.setFont(font)
+        self.message_lg.setStyleSheet(u"color:rgba(255, 255, 255, 140);")
         self.stackedWidget.addWidget(self.page_login)
         self.page_registros = QWidget()
         self.page_registros.setObjectName(u"page_registros")
@@ -290,7 +305,7 @@ class Ui_MainWindow(object):
         self.page_log_ins.setObjectName(u"page_log_ins")
         self.frame_5 = QFrame(self.page_log_ins)
         self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setGeometry(QRect(10, 10, 537, 411))
+        self.frame_5.setGeometry(QRect(10, 10, 537, 401))
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.frame_5)
@@ -300,22 +315,26 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_7.addWidget(self.table_log_in)
 
+        self.bt_usernames = QPushButton(self.page_log_ins)
+        self.bt_usernames.setObjectName(u"bt_usernames")
+        self.bt_usernames.setGeometry(QRect(20, 490, 181, 80))
+        self.bt_usernames.setMinimumSize(QSize(150, 80))
         self.stackedWidget.addWidget(self.page_log_ins)
-        self.page_sentron = QWidget()
-        self.page_sentron.setObjectName(u"page_sentron")
-        self.horizontalLayout_4 = QHBoxLayout(self.page_sentron)
+        self.page_2 = QWidget()
+        self.page_2.setObjectName(u"page_2")
+        self.horizontalLayout_4 = QHBoxLayout(self.page_2)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.widget_2 = QWidget(self.page_sentron)
+        self.widget_2 = QWidget(self.page_2)
         self.widget_2.setObjectName(u"widget_2")
 
         self.horizontalLayout_4.addWidget(self.widget_2)
 
-        self.stackedWidget.addWidget(self.page_sentron)
-        self.page_ampere = QWidget()
-        self.page_ampere.setObjectName(u"page_ampere")
-        self.horizontalLayout_3 = QHBoxLayout(self.page_ampere)
+        self.stackedWidget.addWidget(self.page_2)
+        self.page_1 = QWidget()
+        self.page_1.setObjectName(u"page_1")
+        self.horizontalLayout_3 = QHBoxLayout(self.page_1)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.widget = QWidget(self.page_ampere)
+        self.widget = QWidget(self.page_1)
         self.widget.setObjectName(u"widget")
         self.varn1_2 = QLabel(self.widget)
         self.varn1_2.setObjectName(u"varn1_2")
@@ -330,7 +349,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.widget)
 
-        self.stackedWidget.addWidget(self.page_ampere)
+        self.stackedWidget.addWidget(self.page_1)
 
         self.verticalLayout_4.addWidget(self.stackedWidget)
 
@@ -348,7 +367,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -358,15 +377,19 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.bt_menu.setText("")
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Log in", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Ampere", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Sentron", None))
+        self.pushButton_gen.setText(QCoreApplication.translate("MainWindow", u"General", None))
+        self.pushButton_1.setText(QCoreApplication.translate("MainWindow", u"Ampere", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Sentron", None))
+        self.pushButton_alarms.setText(QCoreApplication.translate("MainWindow", u"Alarmas", None))
         self.pushButton_log_ins.setText(QCoreApplication.translate("MainWindow", u"Registros", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Inicio de Sesi\u00f3n", None))
         self.bt_log_in.setText(QCoreApplication.translate("MainWindow", u"Log in", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Usuario:", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Contrase\u00f1a:", None))
-        self.pushButton_4.setText("")
+        self.pushButton_eye.setText("")
         self.username.setText("")
+        self.message_lg.setText(QCoreApplication.translate("MainWindow", u"Forgot your User Name or Password? ", None))
+        self.bt_usernames.setText(QCoreApplication.translate("MainWindow", u"Usuarios", None))
         self.varn1_2.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.varn1.setText(QCoreApplication.translate("MainWindow", u"Energ\u00eda", None))
     # retranslateUi

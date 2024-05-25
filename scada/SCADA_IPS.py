@@ -109,26 +109,23 @@ class PyShine_LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_login)
         #acceder a las paginas
         self.ui.pushButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_login))			
-        self.ui.pushButton_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_ampere))
-        self.pushButton_2.clicked.connect(self.activate_sheet_2)
-        self.ui.pushButton_3.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_sentron))
-        self.pushButton_3.clicked.connect(self.activate_sheet_3)
+        self.ui.pushButton_1.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_1))
+        self.pushButton_1.clicked.connect(self.activate_sheet_2)
+        self.ui.pushButton_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_2))
+        self.pushButton_2.clicked.connect(self.activate_sheet_3)
         self.ui.pushButton_log_ins.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_log_ins))
         self.pushButton_log_ins.clicked.connect(self.activate_sheet_log_ins)
         # cambio de device
-        self.ui.pushButton_2.clicked.connect(lambda: self.update_now(self.devices_list[0]))
-        self.ui.pushButton_3.clicked.connect(lambda: self.update_now(self.devices_list[1]))
+        self.ui.pushButton_1.clicked.connect(lambda: self.update_now(self.devices_list[0]))
+        self.ui.pushButton_2.clicked.connect(lambda: self.update_now(self.devices_list[1]))
         #menu lateral
         self.ui.bt_menu.clicked.connect(self.mover_menu)
         # estado inicial botones
-        # self.pushButton_2.setEnabled(False)
-        # self.pushButton_3.setEnabled(False)
-        # self.pushButton_5.setEnabled(False)
+        self.pushButton_1.setEnabled(True)
         self.pushButton_2.setEnabled(True)
-        self.pushButton_3.setEnabled(True)
         self.pushButton_log_ins.setEnabled(True)
         self.password.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.pushButton_4.clicked.connect(self.toggle_password_visibility)
+        self.pushButton_eye.clicked.connect(self.toggle_password_visibility)
 
         self.canvas = MplCanvas(self, width=5, height=4, dpi=100)
         # self.ui.widget.addWidget(self.canvas, 2, 1, 1, 1)
@@ -169,10 +166,10 @@ class PyShine_LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # self.lineEdit_2.textChanged['QString'].connect(self.update_sample_rate)
         # self.lineEdit_3.textChanged['QString'].connect(self.update_down_sample)
         # self.lineEdit_4.textChanged['QString'].connect(self.update_interval)
+        self.pushButton_1.clicked.connect(self.start_worker)
+        self.pushButton_1.clicked.connect(self.start_data_worker)
         self.pushButton_2.clicked.connect(self.start_worker)
         self.pushButton_2.clicked.connect(self.start_data_worker)
-        self.pushButton_3.clicked.connect(self.start_worker)
-        self.pushButton_3.clicked.connect(self.start_data_worker)
         self.bt_log_in.clicked.connect(self.log_in)
 
     def getData(self):
@@ -402,22 +399,23 @@ class PyShine_LIVE_PLOT_APP(QtWidgets.QMainWindow):
             
     def log_in(self):
         self.message = getGroup(self.username.text(), self.password.text())
-        self.message_lg.setText(self.message)
+        _translate = QtCore.QCoreApplication.translate
+        self.message_lg.setText(_translate("Form", self.message))
         if (self.message == 'JerarquiaA'):
             # Borro de pantalla
             self.username.setText('')
             self.password.setText('')
             # estado inicial botones
+            self.pushButton_1.setEnabled(True)
             self.pushButton_2.setEnabled(True)
-            self.pushButton_3.setEnabled(True)
             self.pushButton_log_ins.setEnabled(True)
         elif (self.message == 'JerarquiaB'):
             # Borro de pantalla
             self.username.setText('')
             self.password.setText('')
             # estado inicial botones
-            self.pushButton_2.setEnabled(True)
-            self.pushButton_3.setEnabled(False)
+            self.pushButton_1.setEnabled(True)
+            self.pushButton_2.setEnabled(False)
             self.pushButton_log_ins.setEnabled(False)
             
     def activate_sheet_2(self):
@@ -428,20 +426,15 @@ class PyShine_LIVE_PLOT_APP(QtWidgets.QMainWindow):
         layout = QVBoxLayout(self.widget_2)
         layout.addWidget(self.canvas)
         self.widget_2.setLayout(layout)
-    def activate_sheet_log_ins(self):
-        # # self.lineEdit.setText('')
-        # self.txt = readtxt()
-        # self.lineEdit.setText(self.txt)
-        
+    def activate_sheet_log_ins(self):     
         df = pd.read_csv('registros.csv')
+        df = df.drop(df.columns[0], axis=1)
         self.table_log_in.setColumnCount(len(df.columns))
         self.table_log_in.setRowCount(len(df))
         self.table_log_in.setHorizontalHeaderLabels(df.columns)
         for i in range(len(df)):
             for j in range(len(df.columns)):
                 self.table_log_in.setItem(i, j, QtWidgets.QTableWidgetItem(str(df.iat[i, j])))
-                # self.table_log_in.setItem(i, j, QTableWidgetItem(str(df.iat[i, j])))
-                # self.table_log_in.setItem(i,j,QtWidgets().QTableWidgetItem(str(df.iat[i,j])))
         
     def toggle_password_visibility(self):
         if self.password.echoMode() == QtWidgets.QLineEdit.Password:

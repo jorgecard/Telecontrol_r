@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>814</width>
-    <height>534</height>
+    <width>915</width>
+    <height>529</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -183,7 +183,14 @@ font: 77 10pt &quot;Arial Black&quot;
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_2">
+              <widget class="QPushButton" name="pushButton_gen">
+               <property name="text">
+                <string>General</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_1">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -206,7 +213,7 @@ font: 77 10pt &quot;Arial Black&quot;
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_3">
+              <widget class="QPushButton" name="pushButton_2">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -225,6 +232,13 @@ font: 77 10pt &quot;Arial Black&quot;
                  <width>35</width>
                  <height>35</height>
                 </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_alarms">
+               <property name="text">
+                <string>Alarmas</string>
                </property>
               </widget>
              </item>
@@ -340,7 +354,7 @@ font-size: 12;
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
                <property name="currentIndex">
-                <number>2</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="page_login">
                 <widget class="QLabel" name="label">
@@ -410,7 +424,7 @@ font-size: 12;
                   <set>Qt::AlignCenter</set>
                  </property>
                 </widget>
-                <widget class="QPushButton" name="pushButton_4">
+                <widget class="QPushButton" name="pushButton_eye">
                  <property name="geometry">
                   <rect>
                    <x>494</x>
@@ -449,20 +463,6 @@ background-color: rgb(245, 245, 245);</string>
                   </size>
                  </property>
                 </widget>
-                <widget class="QLineEdit" name="message_lg">
-                 <property name="geometry">
-                  <rect>
-                   <x>270</x>
-                   <y>230</y>
-                   <width>191</width>
-                   <height>22</height>
-                  </rect>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(0, 0, 0);</string>
-                 </property>
-                </widget>
                 <widget class="QLineEdit" name="username">
                  <property name="geometry">
                   <rect>
@@ -492,6 +492,30 @@ background-color: rgb(255, 255, 255);</string>
                  <property name="styleSheet">
                   <string notr="true">color: rgb(0, 0, 0);
 background-color: rgb(255, 255, 255);</string>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="message_lg">
+                 <property name="geometry">
+                  <rect>
+                   <x>200</x>
+                   <y>230</y>
+                   <width>211</width>
+                   <height>21</height>
+                  </rect>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Arial Black</family>
+                   <pointsize>20</pointsize>
+                   <italic>false</italic>
+                   <fontweight></fontweight>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color:rgba(255, 255, 255, 140);</string>
+                 </property>
+                 <property name="text">
+                  <string>Forgot your User Name or Password? </string>
                  </property>
                 </widget>
                </widget>
@@ -534,7 +558,7 @@ background-color: rgb(255, 255, 255);</string>
                    <x>10</x>
                    <y>10</y>
                    <width>537</width>
-                   <height>411</height>
+                   <height>401</height>
                   </rect>
                  </property>
                  <property name="frameShape">
@@ -549,15 +573,34 @@ background-color: rgb(255, 255, 255);</string>
                   </item>
                  </layout>
                 </widget>
+                <widget class="QPushButton" name="bt_usernames">
+                 <property name="geometry">
+                  <rect>
+                   <x>20</x>
+                   <y>490</y>
+                   <width>181</width>
+                   <height>80</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>80</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Usuarios</string>
+                 </property>
+                </widget>
                </widget>
-               <widget class="QWidget" name="page_sentron">
+               <widget class="QWidget" name="page_2">
                 <layout class="QHBoxLayout" name="horizontalLayout_4">
                  <item>
                   <widget class="QWidget" name="widget_2" native="true"/>
                  </item>
                 </layout>
                </widget>
-               <widget class="QWidget" name="page_ampere">
+               <widget class="QWidget" name="page_1">
                 <layout class="QHBoxLayout" name="horizontalLayout_3">
                  <item>
                   <widget class="QWidget" name="widget" native="true">
