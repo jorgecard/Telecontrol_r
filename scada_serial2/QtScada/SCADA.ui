@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1121</width>
+    <width>1013</width>
     <height>691</height>
    </rect>
   </property>
@@ -386,7 +386,7 @@ font-size: 12;
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
                <property name="currentIndex">
-                <number>2</number>
+                <number>1</number>
                </property>
                <widget class="QWidget" name="page_login">
                 <widget class="QLabel" name="label">
@@ -665,6 +665,23 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                    <string>KW</string>
                   </property>
                  </widget>
+                 <widget class="QLabel" name="label_27">
+                  <property name="geometry">
+                   <rect>
+                    <x>30</x>
+                    <y>20</y>
+                    <width>121</width>
+                    <height>31</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(170, 0, 0);</string>
+                  </property>
+                  <property name="text">
+                   <string>CARGA</string>
+                  </property>
+                 </widget>
                 </widget>
                 <widget class="QFrame" name="frame_3">
                  <property name="geometry">
@@ -810,7 +827,11 @@ background-color: rgb(0, 0, 0);</string>
                    </rect>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+                  </property>
+                  <property name="text">
+                   <string/>
                   </property>
                  </widget>
                  <widget class="QLabel" name="label_11">
@@ -857,7 +878,8 @@ background-color: rgb(0, 0, 0);</string>
                    </rect>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                   </property>
                  </widget>
                  <widget class="QLineEdit" name="lineEdit_5">
@@ -870,7 +892,8 @@ background-color: rgb(0, 0, 0);</string>
                    </rect>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                   </property>
                  </widget>
                  <widget class="QLineEdit" name="lineEdit_6">
@@ -883,7 +906,8 @@ background-color: rgb(0, 0, 0);</string>
                    </rect>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                   </property>
                  </widget>
                  <widget class="QLineEdit" name="lineEdit_7">
@@ -896,7 +920,8 @@ background-color: rgb(0, 0, 0);</string>
                    </rect>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                   </property>
                  </widget>
                  <widget class="QLineEdit" name="lineEdit_8">
@@ -909,7 +934,8 @@ background-color: rgb(0, 0, 0);</string>
                    </rect>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                   </property>
                  </widget>
                  <widget class="QLabel" name="label_13">
@@ -973,7 +999,8 @@ background-color: rgb(0, 0, 0);</string>
                    </rect>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                   </property>
                  </widget>
                  <widget class="QLineEdit" name="lineEdit_10">
@@ -986,7 +1013,8 @@ background-color: rgb(0, 0, 0);</string>
                    </rect>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                   </property>
                  </widget>
                  <widget class="QLineEdit" name="lineEdit_11">
@@ -999,7 +1027,8 @@ background-color: rgb(0, 0, 0);</string>
                    </rect>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                   </property>
                  </widget>
                  <widget class="QLabel" name="label_16">
@@ -1212,7 +1241,7 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
                  </widget>
                 </widget>
                </widget>
-               <widget class="QWidget" name="page_3">
+               <widget class="QWidget" name="page_alarms">
                 <widget class="QFrame" name="frame_7">
                  <property name="geometry">
                   <rect>
@@ -1384,42 +1413,7 @@ color: rgb(255,255,255);
                <widget class="QWidget" name="page_1">
                 <layout class="QHBoxLayout" name="horizontalLayout_3">
                  <item>
-                  <widget class="QWidget" name="widget" native="true">
-                   <widget class="QLabel" name="varn1_2">
-                    <property name="geometry">
-                     <rect>
-                      <x>220</x>
-                      <y>380</y>
-                      <width>91</width>
-                      <height>31</height>
-                     </rect>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
-                    </property>
-                    <property name="text">
-                     <string>0</string>
-                    </property>
-                   </widget>
-                   <widget class="QLabel" name="varn1">
-                    <property name="geometry">
-                     <rect>
-                      <x>50</x>
-                      <y>380</y>
-                      <width>141</width>
-                      <height>31</height>
-                     </rect>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
-                    </property>
-                    <property name="text">
-                     <string>Energía</string>
-                    </property>
-                   </widget>
-                  </widget>
+                  <widget class="QWidget" name="widget_1" native="true"/>
                  </item>
                 </layout>
                </widget>
