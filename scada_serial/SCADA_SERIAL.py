@@ -17,7 +17,7 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 import pyqtgraph as pg
 from PyQt5.QtCore import QPropertyAnimation
 from PyQt5 import uic
-from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtCore import pyqtSlot, QTimer
 from PyQt5.QtWidgets import QVBoxLayout, QWidget
 # from PyQt5.QtMultimedia import QAudioDeviceInfo, QAudio, QCameraInfo
 import os
@@ -27,41 +27,41 @@ from pass1 import *
 # Variables
 dic_equipment = {
     'ESP-32': {'Name': 'ESP-32', 'Manufacturer': 'Silicon Labs', 'baudrate':115200,
-                'ip': '192.168.222.222', 'port': 'COM6', 'timeout':3,
-                'page': 1, 'data_dict': 'data_dict_1', 'comand': 'read_holding_registers', 'pack_method': 'method_2'},
+                'port': 'COM6', 'timeout':3,
+                'widget': 'widget_1', 'data_dict': 'data_dict_1',},
     'Arduino nano': {'Name': 'Arduino nano', 'Manufacturer': 'wch.cn', 'baudrate':9600,
-                 'ip': '192.168.222.180', 'port': 'COM8', 'timeout':3,
-                 'page': 2, 'data_dict': 'data_dict_2', 'comand': 'read_input_registers', 'pack_method': 'method_1'},
+                 'port': 'COM8', 'timeout':3,
+                 'widget': 'widget_2', 'data_dict': 'data_dict_2',},
 }
 
 # Diccionario para las variables del equipo 1:
 data_dict_1 = {
   'Tensión L1-N': {'offset': 1, 'reg': 2, 'color': '#9103A6', 'label': 'Tensión L1-N', 'unit': ' [V]', 'graphic':0, 'factor':1,},
   'Tensión L2-N': {'offset': 3, 'reg': 2, 'color': '#9103A6', 'label': 'Tension L2-N', 'unit': ' [V]','graphic':0, 'factor':1,},
-  'Tensión L3-N': {'offset': 5, 'reg': 2, 'color': '#9103A6', 'label': 'Tensión L3-N', 'unit': ' [V]','graphic':0,'factor':1,},
+#   'Tensión L3-N': {'offset': 5, 'reg': 2, 'color': '#ADD8E6', 'label': 'Tensión L3-N', 'unit': ' [V]','graphic':0,'factor':1,},
 #   'Tensión L1-L2': {'offset': 7, 'reg': 2, 'color': '#19A63C', 'label': 'Tensión L1-L2', 'unit': ' [V]','graphic':0,'factor':1},
 #   'Tensión L2-L3': {'offset': 9, 'reg': 2, 'color': '#19A63C', 'label': 'Tensión L2-L3', 'unit': ' [V]','graphic':0,'factor':1},
 #   'Tensión L3-L1': {'offset': 11, 'reg': 2, 'color': '#19A63C', 'label': 'Tensión L3-L1', 'unit': ' [V]','graphic':0,'factor':1},
-#   'I-L1': {'offset': 13, 'reg': 2, 'color': '#DF8905', 'label': 'I-L1', 'unit': ' [A]','graphic':1,'factor':1},
+  'I-L1': {'offset': 13, 'reg': 2, 'color': '#DF8905', 'label': 'I-L1', 'unit': ' [A]','graphic':1,'factor':1},
 #   'I-L2': {'offset': 15, 'reg': 2, 'color': '#DF8905', 'label': 'I-L2', 'unit': ' [A]','graphic':1,'factor':1},
 #   'I-L3': {'offset': 17, 'reg': 2, 'color': '#DF8905', 'label': 'I-L3', 'unit': ' [A]','graphic':1,'factor':1},
-#   'E-S': {'offset': 63, 'reg': 2, 'color': '#54548D', 'label': 'E-S', 'unit': ' [VA]','graphic':2,'factor':1},
+  'E-S': {'offset': 63, 'reg': 2, 'color': '#54548D', 'label': 'E-S', 'unit': ' [VA]','graphic':2,'factor':1},
 #   'E-P': {'offset': 65, 'reg': 2, 'color': '#558D54', 'label': 'E-P', 'unit': ' [W]','graphic':2,'factor':-1},
 #   'E-Q': {'offset': 63, 'reg': 2, 'color': '#547E8D', 'label': 'E-Q', 'unit': ' [VAR]','graphic':2,'factor':1},
-#   'THD-V1': {'offset': 261, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V1', 'unit': ' [%]','graphic':3,'factor':1},
+  'THD-V1': {'offset': 261, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V1', 'unit': ' [%]','graphic':3,'factor':1},
 #   'THD-V2': {'offset': 263, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V2', 'unit': ' [%]','graphic':3,'factor':1},
 #   'THD-V3': {'offset': 265, 'reg': 2, 'color': '#ADD8E6', 'label': 'THD-V3', 'unit': ' [%]','graphic':3,'factor':1},
 #   'THD-I1': {'offset': 267, 'reg': 2, 'color': '#EF2110', 'label': 'THD-I1', 'unit': ' [%]','graphic':3,'factor':1},
 #   'THD-I2': {'offset': 269, 'reg': 2, 'color': '#EF2110', 'label': 'THD-I2', 'unit': ' [%]','graphic':3,'factor':1},
-#   'THD-I3': {'offset': 271, 'reg': 2, 'color': '#EF2110', 'label': 'THD-I3', 'unit': ' [%]','graphic':3,'factor':1},
+  'THD-I3': {'offset': 271, 'reg': 2, 'color': '#EF2110', 'label': 'THD-I3', 'unit': ' [%]','graphic':3,'factor':1},
 #   'Energía Aparente': {'offset': 2817, 'reg': 2, 'label': 'Energía Aparente', 'unit': ' [kVAh]','factor':1/1000000},
 }
 # Diccionario para las variables del equipo 2:
 data_dict_2 = {
-    'Voltaje DC1': {'offset': 9, 'reg': 1, 'color': '#9103A6', 'label': 'Voltaje DC1', 'unit': ' [V]', 'graphic': 0, 'factor': 1},
-    # 'Voltaje AC': {'offset': 21, 'reg': 1, 'color': '#19A63C', 'label': 'Voltaje AC', 'unit': ' [V]', 'graphic': 1, 'factor': 0.1},
-    # 'Corriente DC': {'offset': 31, 'reg': 1, 'color': '#DF8905', 'label': 'Corriente DC', 'unit': ' [A]', 'graphic': 2, 'factor': 1},
-    # 'Potencia DC': {'offset': 29, 'reg': 1, 'color': '#54548D', 'label': 'Potencia DC', 'unit': ' [kW]', 'graphic': 3, 'factor': 0.01},
+    'Voltaje DC1': {'offset': 9, 'reg': 1, 'color': '#54548D', 'label': 'Voltaje DC1', 'unit': ' [V]', 'graphic': 0, 'factor': 1},
+    'Voltaje AC': {'offset': 21, 'reg': 1, 'color': '#19A63C', 'label': 'Voltaje AC', 'unit': ' [V]', 'graphic': 1, 'factor': 0.1},
+    'Corriente DC': {'offset': 31, 'reg': 1, 'color': '#DF8905', 'label': 'Corriente DC', 'unit': ' [A]', 'graphic': 2, 'factor': 1},
+    'Potencia DC': {'offset': 29, 'reg': 1, 'color': '#54548D', 'label': 'Potencia DC', 'unit': ' [kW]', 'graphic': 3, 'factor': 0.01},
     # 'THD': {'offset': 19, 'reg': 1, 'color': '#ADD8E6', 'label': 'THD', 'unit': ' [%]', 'graphic': 4, 'factor': 0.01},
     # 'Energía Neta': {'offset': 33, 'reg': 1, 'color': '-w', 'label': 'Energía Neta', 'unit': ' [kWh]', 'graphic': 5, 'factor': 1},
     # 'Frecuencia': {'offset': 23, 'reg': 1, 'label': 'Frecuencia', 'unit': ' [Hz]', 'factor': 1},
@@ -99,14 +99,14 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # Establecer la página predeterminada al arrancar
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_login)
         self.bt_log_in.clicked.connect(self.log_in)
-        #acceder a las paginas
+        # acceder a las paginas
         self.ui.pushButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_login))			
         self.ui.pushButton_1.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_1))
         self.ui.pushButton_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_2))
         self.ui.pushButton_log_ins.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_log_ins))
         self.pushButton_log_ins.clicked.connect(self.activate_sheet_log_ins)
 
-        #menu lateral
+        # menu lateral
         self.ui.bt_menu.clicked.connect(self.mover_menu)
         # estado inicial botones
         self.pushButton_1.setEnabled(True)
@@ -121,6 +121,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
 
         self.plot_list = []
         self.legends = []
+        self.data_store = {}  # Inicializar el data_store
         
         # Inicializar gráficos
         self.init_graphics()
@@ -128,17 +129,22 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # Iniciar los hilos de lectura de los dispositivos
         self.threads = []
         self.init_serial_threads()
+                
+        # Inicializar el temporizador para actualizar los gráficos
+        self.timer = QTimer()
+        self.timer.timeout.connect(self.update_all_plots)
+        self.timer.start(self.interval)
     
     def init_graphics(self):
         self.graphs = {}
-        self.graph_widgets = [self.ui.widget_1, self.ui.widget_2]
-
-        for i, widget in enumerate(self.graph_widgets):
+        for key, val in dic_equipment.items():
+            widget_name = val['widget']
+            widget = getattr(self.ui, widget_name)
             layout = QVBoxLayout()
             canvas = MplCanvas(self, width=5, height=4, dpi=100)
             layout.addWidget(canvas)
             widget.setLayout(layout)
-            self.graphs[i] = canvas.axes
+            self.graphs[widget_name] = canvas.axes
  
     def init_serial_threads(self):
         for equipment in dic_equipment.values():
@@ -147,38 +153,51 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
                 equipment['baudrate'],
                 timeout=equipment['timeout'],
                 data_dict=globals()[equipment['data_dict']],
-                widget_id=equipment['page'] - 1  # Ajustamos a índice 0
+                widget_id=equipment['widget']
             )
             self.threads.append(thread)
-            thread.new_data.connect(self.update_plot)
+            thread.new_data.connect(self.store_data)
             thread.start()
+            
+    def store_data(self, data, widget_id):
+        self.data_store[widget_id] = data
+
+    def update_all_plots(self):
+        for widget_id, data in self.data_store.items():
+            self.update_plot(data, widget_id)
 
     def update_plot(self, data, widget_id):
         axes = self.graphs[widget_id]
         axes.clear()
         for key, value in data.items():
+            color = self.find_color(widget_id, key)
             if len(value) > self.window_length:
                 value_to_plot = value[-self.window_length:]
             else:
                 value_to_plot = value
-            axes.plot(value_to_plot, label=key)
+            axes.plot(value_to_plot, label=key, color=color)
         axes.legend()
-        self.graph_widgets[widget_id].layout().itemAt(0).widget().draw()
+        # Utilizamos el canvas del gráfico para actualizar el widget
+        canvas = self.graphs[widget_id].figure.canvas
+        canvas.draw()
 
+    def find_color(self, widget_id, key):
+        for eq_name, eq_data in dic_equipment.items():
+            if eq_data['widget'] == widget_id:
+                data_dict = globals()[eq_data['data_dict']]
+                return data_dict[key]['color']
+        return '#000000'  # Default color if not found
+    
     def mover_menu(self):
-        if True:
-            width = self.ui.frame_control.width()
-            normal = 0
-            if width==0:
-                extender = 200
-            else:
-                extender = normal
-            self.animacion = QPropertyAnimation(self.ui.frame_control, b'minimumWidth')
-            self.animacion.setDuration(300)
-            self.animacion.setStartValue(width)
-            self.animacion.setEndValue(extender)
-            self.animacion.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
-            self.animacion.start()
+        width = self.ui.frame_control.width()
+        normal = 0
+        extender = 200 if width == 0 else normal
+        self.animacion = QPropertyAnimation(self.ui.frame_control, b'minimumWidth')
+        self.animacion.setDuration(300)
+        self.animacion.setStartValue(width)
+        self.animacion.setEndValue(extender)
+        self.animacion.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+        self.animacion.start()
             
     def log_in(self):
         self.message = getGroup(self.username.text(), self.password.text())
@@ -218,7 +237,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             self.password.setEchoMode(QtWidgets.QLineEdit.Password)
 
 class SerialPlot(QtCore.QThread):
-    new_data = QtCore.pyqtSignal(dict, int)
+    new_data = QtCore.pyqtSignal(dict, str)
 
     def __init__(self, port, baudrate, timeout, data_dict, widget_id):
         super().__init__()
@@ -252,7 +271,7 @@ class SerialPlot(QtCore.QThread):
             # print(f'i: {i}, key: {key}')
             # pos = settings['pos']
             # value = float(values[pos])
-            value = float(values[i])
+            value = float(values[i]) * settings['factor']
             self.data_buffer[key].append(value)
 
 def main():
@@ -262,7 +281,4 @@ def main():
     sys.exit(app.exec_())
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-    main_window = LIVE_PLOT_APP()
-    main_window.show()
-    sys.exit(app.exec_())
+    main()

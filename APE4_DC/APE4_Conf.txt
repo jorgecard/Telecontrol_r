@@ -1,0 +1,31 @@
+IP Adress
+192.168.222.101
+
+Subnet mask
+255.255.255.0
+
+Gateway
+192.168.222.1
+
+DNS
+192.168.222.1
+
+Fuente programable
+ping 192.168.222.58 -t
+
+Carga programable
+ping 192.168.222.59 -t
+[23,80,111]
+
+TI
+ping 192.168.222.60 -t
+
+21 no funca
+1036 no funca
+1040 no funca
+
+# Profe:
+44
+Puerto 80
+Puerto 23 no da nada
+Holdinregisters

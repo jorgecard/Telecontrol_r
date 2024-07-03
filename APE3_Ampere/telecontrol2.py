@@ -23,8 +23,13 @@ def read_modbus_data(ip_address, port, address, count):
     finally:
         client.close()
 
+# Ampere
 ip_address = '192.168.222.136'
 port = 502
+
+# # carga
+# ip_address = '192.168.222.58'
+# port = 2101
 
 count = 10
 

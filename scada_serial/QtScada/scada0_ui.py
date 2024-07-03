@@ -148,7 +148,7 @@ class Ui_MainWindow(object):
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Window Length", None))
         self.lineEdit.setText(QCoreApplication.translate("MainWindow", u"1000", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Sampling Rate (Hz)", None))
-        self.lineEdit_2.setText(QCoreApplication.translate("MainWindow", u"10", None))
+        self.lineEdit_2.setText(QCoreApplication.translate("MainWindow", u"20", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Down Sample", None))
         self.lineEdit_3.setText(QCoreApplication.translate("MainWindow", u"1", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Update Interval (ms)", None))
