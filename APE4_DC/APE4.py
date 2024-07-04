@@ -29,8 +29,8 @@ dic_equipment = {
                 'open_resource': 'TCPIP0::192.168.222.58::2101::SOCKET', 'timeout':100,
                 'widget': 'widget_1', 'data_dict': 'data_dict_1',},
     'Carga programable': {'Name': 'Chroma_LOAD', 'write_termination' : '\n', 'read_termination' : '\n',
-                 'open_resource': 'TCPIP0::192.168.222.59::2101::SOCKET', 'timeout':100,
-                 'widget': 'widget_2', 'data_dict': 'data_dict_2',},
+                'open_resource': 'TCPIP0::192.168.222.59::2101::SOCKET', 'timeout':100,
+                'widget': 'widget_2', 'data_dict': 'data_dict_2',},
 }
 
 # Diccionario para las variables del equipo 1:
@@ -50,7 +50,9 @@ data_dict_2 = {
   'Corriente':{'command': 'MEAS:CURR?', 'color': '#DF8905', 'label': 'I', 'unit': ' [A]', 'graphic':1, 'factor':1},
   'Potencia': {'command': 'MEAS:POW?',  'color': '#54548D', 'label': 'P', 'unit': ' [W]', 'graphic':2, 'factor':1},
   'THD-V2':   {'command': 'MEAS:VOLT?', 'color': '#ADD8E6', 'label': 'THD-V1', 'unit': ' [%]','graphic':3,'factor':1},
-  'Voltaje2': {'command': 'MEAS:VOLT?', 'label': 'Voltaje2', 'unit': ' [kVAh]','factor':1, 'QLabel': 'lineEdit_3'},
+  'Voltaje2': {'command': 'MEAS:VOLT?', 'label': 'Voltaje1', 'unit': ' [kVAh]','factor':1, 'QLabel': 'lineEdit_12'},
+  'Corriente2': {'command': 'MEAS:CURR?', 'label': 'Corriente1', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_13'},
+  'Potencia2': {'command': 'MEAS:POW?', 'label': 'Potencia1', 'unit': ' [w]','factor':1, 'QLabel': 'lineEdit_14'},
 }
 
 # Diccionario de labels del eje y para cada gráfico
@@ -63,6 +65,7 @@ y_labels = {
 
 dir_actual = os.path.dirname(os.path.abspath(__file__))
 dir_interfaz = os.path.join(dir_actual, "QtScada")
+# nombre_interfaz = "SCADA.ui"
 nombre_interfaz = "SCADA.ui"
 ruta_interfaz = os.path.join(dir_interfaz, nombre_interfaz)
 nombre_logo = "nano.png"
@@ -80,6 +83,9 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         super().__init__()
         self.ui = uic.loadUi(ruta_interfaz, self)
         self.resize(888, 600)
+        
+        self.ui.label_2.setPixmap(QtGui.QPixmap(os.path.join(dir_interfaz, "esquema3.png")))
+        
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(ruta_logo), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.setWindowIcon(icon)

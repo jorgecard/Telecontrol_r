@@ -18,10 +18,10 @@ instrument.read_termination = '\n'
 # instrument.write(f'SOUR:POW {potencia_deseada}')
 
 # Enviar el comando de medición
-# instrument.write('MEAS:VOLT?')
+instrument.write('MEAS:VOLT?')
 # instrument.write('LOAD:ID?') # (ID de la carga)
 # instrument.write('MEAS:CURR?')
-instrument.write('MEAS:POW?')
+# instrument.write('MEAS:POW?')
 
 # Leer la respuesta del instrumento
 try:

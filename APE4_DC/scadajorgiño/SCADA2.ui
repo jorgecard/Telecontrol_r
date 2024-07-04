@@ -649,7 +649,8 @@ font: 10pt &quot;Segoe UI&quot;;</string>
                    </rect>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true"/>
+                   <string notr="true">background-image: url(:/prefijoNuevo/esquema4.png);
+background-image: url(:/prefijoNuevo/esquema3.png);</string>
                   </property>
                   <property name="text">
                    <string/>
@@ -820,6 +821,192 @@ background-color: rgb(0, 0, 0);</string>
                    </property>
                   </widget>
                  </widget>
+                 <widget class="QFrame" name="frame_9">
+                  <property name="geometry">
+                   <rect>
+                    <x>640</x>
+                    <y>300</y>
+                    <width>251</width>
+                    <height>131</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color:rgb(84, 84, 84);</string>
+                  </property>
+                  <property name="frameShape">
+                   <enum>QFrame::StyledPanel</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <widget class="QLabel" name="label_13">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>40</y>
+                     <width>111</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string>% VENTILADORES</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_14">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>70</y>
+                     <width>111</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string>TEMPERATURA</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_15">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>100</y>
+                     <width>111</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string>FLUJO DE H2</string>
+                   </property>
+                  </widget>
+                  <widget class="QLineEdit" name="lineEdit_9">
+                   <property name="geometry">
+                    <rect>
+                     <x>130</x>
+                     <y>40</y>
+                     <width>71</width>
+                     <height>22</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_27">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>10</y>
+                     <width>91</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string>HIDRÓGENO</string>
+                   </property>
+                  </widget>
+                  <widget class="QLineEdit" name="lineEdit_10">
+                   <property name="geometry">
+                    <rect>
+                     <x>130</x>
+                     <y>70</y>
+                     <width>71</width>
+                     <height>22</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   </property>
+                  </widget>
+                  <widget class="QLineEdit" name="lineEdit_11">
+                   <property name="geometry">
+                    <rect>
+                     <x>130</x>
+                     <y>100</y>
+                     <width>71</width>
+                     <height>22</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_28">
+                   <property name="geometry">
+                    <rect>
+                     <x>210</x>
+                     <y>40</y>
+                     <width>31</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>V</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_29">
+                   <property name="geometry">
+                    <rect>
+                     <x>210</x>
+                     <y>70</y>
+                     <width>31</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>A</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_30">
+                   <property name="geometry">
+                    <rect>
+                     <x>210</x>
+                     <y>100</y>
+                     <width>31</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>KW</string>
+                   </property>
+                  </widget>
+                 </widget>
                  <widget class="QFrame" name="frame_3">
                   <property name="geometry">
                    <rect>
@@ -951,9 +1138,6 @@ background-color: rgb(0, 0, 0);</string>
                    </property>
                    <property name="styleSheet">
                     <string notr="true">background-color: rgb(255, 255, 255);</string>
-                   </property>
-                   <property name="text">
-                    <string/>
                    </property>
                   </widget>
                   <widget class="QLabel" name="label_11">
@@ -1095,7 +1279,7 @@ color: rgb(255, 255, 255);
 font: 700 14pt &quot;Segoe UI&quot;;</string>
                    </property>
                    <property name="text">
-                    <string>kW</string>
+                    <string>KW</string>
                    </property>
                   </widget>
                   <widget class="QLabel" name="label_19">
@@ -1113,7 +1297,7 @@ color: rgb(255, 255, 255);
 font: 700 10pt &quot;Segoe UI&quot;;</string>
                    </property>
                    <property name="text">
-                    <string>Kwh</string>
+                    <string>Kw/h</string>
                    </property>
                   </widget>
                   <widget class="QLabel" name="label_20">
@@ -1324,17 +1508,17 @@ color: rgb(255, 255, 255);
 font: 700 14pt &quot;Segoe UI&quot;;</string>
                    </property>
                    <property name="text">
-                    <string>kW</string>
+                    <string>KW</string>
                    </property>
                   </widget>
                  </widget>
                  <widget class="QFrame" name="frame_13">
                   <property name="geometry">
                    <rect>
-                    <x>630</x>
-                    <y>290</y>
-                    <width>231</width>
-                    <height>221</height>
+                    <x>640</x>
+                    <y>430</y>
+                    <width>251</width>
+                    <height>101</height>
                    </rect>
                   </property>
                   <property name="styleSheet">
@@ -1350,8 +1534,8 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                    <property name="geometry">
                     <rect>
                      <x>10</x>
-                     <y>40</y>
-                     <width>91</width>
+                     <y>0</y>
+                     <width>111</width>
                      <height>21</height>
                     </rect>
                    </property>
@@ -1367,8 +1551,8 @@ background-color: rgb(0, 0, 0);</string>
                    <property name="geometry">
                     <rect>
                      <x>10</x>
-                     <y>70</y>
-                     <width>91</width>
+                     <y>30</y>
+                     <width>111</width>
                      <height>21</height>
                     </rect>
                    </property>
@@ -1384,8 +1568,8 @@ background-color: rgb(0, 0, 0);</string>
                    <property name="geometry">
                     <rect>
                      <x>10</x>
-                     <y>100</y>
-                     <width>91</width>
+                     <y>60</y>
+                     <width>111</width>
                      <height>21</height>
                     </rect>
                    </property>
@@ -1397,62 +1581,11 @@ background-color: rgb(0, 0, 0);</string>
                     <string>POTENCIA</string>
                    </property>
                   </widget>
-                  <widget class="QLabel" name="label_34">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>130</y>
-                     <width>91</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 0, 0);</string>
-                   </property>
-                   <property name="text">
-                    <string>VENTILADORES</string>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="label_38">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>160</y>
-                     <width>91</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 0, 0);</string>
-                   </property>
-                   <property name="text">
-                    <string>TEMPERATURA</string>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="label_39">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>190</y>
-                     <width>91</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">font: 8pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 0, 0);</string>
-                   </property>
-                   <property name="text">
-                    <string>FLUJO DE H2</string>
-                   </property>
-                  </widget>
                   <widget class="QLineEdit" name="lineEdit_15">
                    <property name="geometry">
                     <rect>
-                     <x>120</x>
-                     <y>40</y>
+                     <x>130</x>
+                     <y>0</y>
                      <width>71</width>
                      <height>22</height>
                     </rect>
@@ -1461,28 +1594,11 @@ background-color: rgb(0, 0, 0);</string>
                     <string notr="true">background-color: rgb(255, 255, 255);</string>
                    </property>
                   </widget>
-                  <widget class="QLabel" name="label_40">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>10</y>
-                     <width>91</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 0, 0);</string>
-                   </property>
-                   <property name="text">
-                    <string>HIDRÓGENO</string>
-                   </property>
-                  </widget>
                   <widget class="QLineEdit" name="lineEdit_16">
                    <property name="geometry">
                     <rect>
-                     <x>120</x>
-                     <y>70</y>
+                     <x>130</x>
+                     <y>30</y>
                      <width>71</width>
                      <height>22</height>
                     </rect>
@@ -1494,8 +1610,8 @@ background-color: rgb(0, 0, 0);</string>
                   <widget class="QLineEdit" name="lineEdit_17">
                    <property name="geometry">
                     <rect>
-                     <x>120</x>
-                     <y>100</y>
+                     <x>130</x>
+                     <y>60</y>
                      <width>71</width>
                      <height>22</height>
                     </rect>
@@ -1504,50 +1620,11 @@ background-color: rgb(0, 0, 0);</string>
                     <string notr="true">background-color: rgb(255, 255, 255);</string>
                    </property>
                   </widget>
-                  <widget class="QLineEdit" name="lineEdit_18">
+                  <widget class="QLabel" name="label_38">
                    <property name="geometry">
                     <rect>
-                     <x>120</x>
-                     <y>130</y>
-                     <width>71</width>
-                     <height>22</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(255, 255, 255);</string>
-                   </property>
-                  </widget>
-                  <widget class="QLineEdit" name="lineEdit_19">
-                   <property name="geometry">
-                    <rect>
-                     <x>120</x>
-                     <y>160</y>
-                     <width>71</width>
-                     <height>22</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(255, 255, 255);</string>
-                   </property>
-                  </widget>
-                  <widget class="QLineEdit" name="lineEdit_20">
-                   <property name="geometry">
-                    <rect>
-                     <x>120</x>
-                     <y>190</y>
-                     <width>71</width>
-                     <height>22</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(255, 255, 255);</string>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="label_41">
-                   <property name="geometry">
-                    <rect>
-                     <x>200</x>
-                     <y>40</y>
+                     <x>210</x>
+                     <y>0</y>
                      <width>31</width>
                      <height>21</height>
                     </rect>
@@ -1564,11 +1641,11 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                     <set>Qt::AlignCenter</set>
                    </property>
                   </widget>
-                  <widget class="QLabel" name="label_42">
+                  <widget class="QLabel" name="label_39">
                    <property name="geometry">
                     <rect>
-                     <x>200</x>
-                     <y>70</y>
+                     <x>210</x>
+                     <y>30</y>
                      <width>31</width>
                      <height>21</height>
                     </rect>
@@ -1585,11 +1662,11 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                     <set>Qt::AlignCenter</set>
                    </property>
                   </widget>
-                  <widget class="QLabel" name="label_43">
+                  <widget class="QLabel" name="label_40">
                    <property name="geometry">
                     <rect>
-                     <x>200</x>
-                     <y>100</y>
+                     <x>210</x>
+                     <y>60</y>
                      <width>31</width>
                      <height>21</height>
                     </rect>
@@ -1600,67 +1677,7 @@ color: rgb(255, 255, 255);
 font: 700 14pt &quot;Segoe UI&quot;;</string>
                    </property>
                    <property name="text">
-                    <string>kW</string>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="label_44">
-                   <property name="geometry">
-                    <rect>
-                     <x>200</x>
-                     <y>130</y>
-                     <width>31</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 0, 0);
-color: rgb(255, 255, 255);
-font: 700 10pt &quot;Segoe UI&quot;;</string>
-                   </property>
-                   <property name="text">
-                    <string>%</string>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="label_45">
-                   <property name="geometry">
-                    <rect>
-                     <x>200</x>
-                     <y>160</y>
-                     <width>31</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 0, 0);
-color: rgb(255, 255, 255);
-font: 700 14pt &quot;Segoe UI&quot;;</string>
-                   </property>
-                   <property name="text">
-                    <string>°C</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="label_46">
-                   <property name="geometry">
-                    <rect>
-                     <x>200</x>
-                     <y>190</y>
-                     <width>31</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 0, 0);
-color: rgb(255, 255, 255);
-font: 700 14pt &quot;Segoe UI&quot;;</string>
-                   </property>
-                   <property name="text">
-                    <string>kW</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
+                    <string>KW</string>
                    </property>
                   </widget>
                  </widget>
@@ -1840,7 +1857,7 @@ color: rgb(255,255,255);
                <widget class="QWidget" name="page_1">
                 <layout class="QHBoxLayout" name="horizontalLayout_3">
                  <item>
-                  <widget class="QWidget" name="widget_1" native="true">
+                  <widget class="QWidget" name="widget" native="true">
                    <widget class="QLabel" name="varn1_2">
                     <property name="geometry">
                      <rect>
@@ -1893,6 +1910,8 @@ background-color: rgb(255, 255, 255);</string>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Scadajorge.qrc"/>
+ </resources>
  <connections/>
 </ui>

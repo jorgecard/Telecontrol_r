@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'SCADA.ui'
+## Form generated from reading UI file 'SCADA2.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.6.3
 ##
@@ -20,6 +20,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
     QPushButton, QRadioButton, QSizePolicy, QSpacerItem,
     QStackedWidget, QTableWidget, QTableWidgetItem, QVBoxLayout,
     QWidget)
+import Scada_rc
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -335,7 +336,8 @@ class Ui_MainWindow(object):
         self.label_2 = QLabel(self.frame_10)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(30, 10, 1091, 361))
-        self.label_2.setStyleSheet(u"")
+        self.label_2.setStyleSheet(u"background-image: url(:/prefijoNuevo/esquema4.png);\n"
+"background-image: url(:/prefijoNuevo/esquema3.png);")
         self.frame_2 = QFrame(self.frame_10)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setGeometry(QRect(900, 200, 271, 161))
@@ -788,7 +790,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(6)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -831,7 +833,6 @@ class Ui_MainWindow(object):
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"ENERG\u00cdA", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"EFICIENCIA", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"TEMPERATURA", None))
-        self.lineEdit_3.setText("")
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"GENERADOR", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"V", None))
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"A", None))
