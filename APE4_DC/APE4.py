@@ -25,26 +25,30 @@ from pass1 import *
 
 # Variables
 dic_equipment = {
-    'Fuente programable': {'Name': 'Chroma_SOURCE', 'write_termination' : '\n', 'read_termination' : '\n',
+    'Fuente programable': {'Name': 'Chroma_SOURCE', 'Type': 'TCP/IP', 'write_termination' : '\n', 'read_termination' : '\n',
                 'open_resource': 'TCPIP0::192.168.222.58::2101::SOCKET', 'timeout':100,
                 'widget': 'widget_1', 'data_dict': 'data_dict_1',},
-    'Carga programable': {'Name': 'Chroma_LOAD', 'write_termination' : '\n', 'read_termination' : '\n',
+    'Carga programable': {'Name': 'Chroma_LOAD', 'Type': 'TCP/IP', 'write_termination' : '\n', 'read_termination' : '\n',
                 'open_resource': 'TCPIP0::192.168.222.59::2101::SOCKET', 'timeout':100,
                 'widget': 'widget_2', 'data_dict': 'data_dict_2',},
+    # 'Pila de Hidrógeno': {'Name': 'Pila de Hidrógeno', 'Type': 'SERIAL', 'write_termination' : '\n', 'read_termination' : '\n',
+    #             'open_resource': 'TCPIP0::192.168.222.59::2101::SOCKET', 'timeout':100,
+    #             'widget': 'widget_2', 'data_dict': 'data_dict_2',},
 }
 
-# Diccionario para las variables del equipo 1:
+# Diccionario para las variables del equipo 1: 'Fuente programable'
 data_dict_1 = {
   'Voltaje':  {'command': 'MEAS:VOLT?', 'color': '#9103A6', 'label': 'V', 'unit': ' [V]', 'graphic':0, 'factor':1,},
   'Corriente':{'command': 'MEAS:CURR?', 'color': '#DF8905', 'label': 'I', 'unit': ' [A]', 'graphic':1, 'factor':1},
   'Potencia': {'command': 'MEAS:POW?',  'color': '#54548D', 'label': 'P', 'unit': ' [W]', 'graphic':2, 'factor':1},
   'THD-V1':   {'command': 'MEAS:VOLT?', 'color': '#ADD8E6', 'label': 'THD-V1', 'unit': ' [%]','graphic':3,'factor':1},
   'Voltaje1': {'command': 'MEAS:VOLT?', 'label': 'Voltaje1', 'unit': ' [kVAh]','factor':1, 'QLabel': 'lineEdit_3'},
-  'Corriente1': {'command': 'MEAS:CURR?', 'label': 'Corriente1', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_4'},
+  'Corriente1': {'command': 'FETC:CURR?', 'label': 'Corriente1', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_4'},
   'Potencia1': {'command': 'MEAS:POW?', 'label': 'Potencia1', 'unit': ' [w]','factor':1, 'QLabel': 'lineEdit_5'},
+#   'Set_Corriente': {'command': 'SOUR:CURR', 'label': 'Set_Corriente', 'unit': ' [A]','factor':1, 'WLabel': 'lineEdit_9'},
 }
 
-# Diccionario para las variables del equipo 2:
+# Diccionario para las variables del equipo 2:'Carga programable'
 data_dict_2 = {
   'Voltaje':  {'command': 'MEAS:VOLT?', 'color': '#9103A6', 'label': 'V', 'unit': ' [V]', 'graphic':0, 'factor':1,},
   'Corriente':{'command': 'MEAS:CURR?', 'color': '#DF8905', 'label': 'I', 'unit': ' [A]', 'graphic':1, 'factor':1},
@@ -104,6 +108,8 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.ui.pushButton_alarms.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_alarms))
         self.ui.pushButton_log_ins.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_log_ins))
         self.pushButton_log_ins.clicked.connect(self.activate_sheet_log_ins)
+        self.pushButton_set_current.clicked.connect(self.set_current_source)
+        self.set_current_source()
 
         # menu lateral
         self.ui.bt_menu.clicked.connect(self.mover_menu)
@@ -250,7 +256,45 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             self.pushButton_1.setEnabled(True)
             self.pushButton_2.setEnabled(False)
             self.pushButton_log_ins.setEnabled(False)
+    
+    def set_current_source(self):
+        try:
+            current_value = float(self.ui.lineEdit_set_current.text())
+            print(current_value)
+            rm = pyvisa.ResourceManager()
             
+            resources = rm.list_resources()
+            print(f"Available resources: {resources}")
+            
+            instrument = rm.open_resource('TCPIP0::192.168.222.58::2101::SOCKET')
+            instrument.timeout = 100
+            instrument.write_termination = '\n'
+            instrument.read_termination = '\n'
+            instrument.write('SOUR:CURR 7.000')
+            instrument.close()
+            # resources = rm.list_resources()
+            # resource = dic_equipment['Fuente programable']['open_resource']
+            # print(resource)
+
+            # if resource in resources:
+            #     instrument = rm.open_resource(resource)
+            #     instrument.write_termination = dic_equipment['Fuente programable']['write_termination']
+            #     instrument.read_termination = dic_equipment['Fuente programable']['read_termination']
+            #     instrument.timeout = dic_equipment['Fuente programable']['timeout']
+            #     instrument.write(f"SOUR:CURR {current_value}")
+            #     instrument.close()
+            #     print(f"Current set to {current_value} A")
+            # else:
+            #     print(f"Resource {resource} not found. Available resources: {resources}")
+        except Exception as e:
+            print(f"Error setting current: {e}")
+    
+    # def list_resources(self):
+    #     rm = pyvisa.ResourceManager()
+    #     resources = rm.list_resources()
+    #     print("Available resources:", resources)
+    #     return resources
+               
     def activate_sheet_log_ins(self):     
         df = pd.read_csv('registros.csv')
         df = df.drop(df.columns[0], axis=1)
