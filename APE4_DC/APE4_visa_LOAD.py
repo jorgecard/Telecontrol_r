@@ -4,7 +4,7 @@ import pyvisa
 rm = pyvisa.ResourceManager()
 
 # Conectar al instrumento usando la dirección IP y puerto (59 Carga programable)
-instrument = rm.open_resource('TCPIP0::192.168.222.58::2101::SOCKET')
+instrument = rm.open_resource('TCPIP0::192.168.222.59::2101::SOCKET')
 
 # Configurar el tiempo de espera a 5000 ms (5 segundos)
 instrument.timeout = 100
@@ -30,8 +30,31 @@ instrument.read_termination = '\n'
 # instrument.write('MEAS:VOLT?')
 # instrument.write('CURR:STAT:L1')
 # instrument.write('LOAD:ID?') # (ID de la carga)
-instrument.write('MEAS:CURR?')
+# instrument.write('LOAD?') # (ID de la carga)
+# instrument.write('LOAD ON')
+# instrument.write('MEAS:CURR?')
 # instrument.write('MEAS:POW?')
+
+# instrument.write('LOAD 0')
+# instrument.write('LOAD ON')
+# instrument.write('LOAD?') # DEVUELVE ESTADO
+
+# setea CV
+# instrument.write(f"EXT:WAV:CV:IRNG?") # devuelve modo
+
+# potencia_deseada = 5  # Valor de potencia deseada (500 W)
+# instrument.write(f'SOUR:POW {potencia_deseada}') # no devuelve nadad
+
+# instrument.write(f'SOUR:VOLT {20}') # no devuelve nadad
+
+# instrument.write(f'CVCC:VSET 8')
+# instrument.write(f'CVCC:VSET?')
+# instrument.write(f'MODE CV')
+# instrument.write(f'MODE?')
+
+instrument.write(f'VOLT:STAT:L1 12')
+instrument.write(f'VOLT:STAT:L2 12')
+instrument.write(f'VOLT:STAT:ILIM 7')
 
 # Leer la respuesta del instrumento
 try:

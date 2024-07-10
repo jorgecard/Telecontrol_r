@@ -1,6 +1,6 @@
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
 
-client = ModbusClient(method='rtu',port="COM3",stopbits=1,bytesize=8,parity='N',baudrate=9600, timeout=3, strict=False)
+client = ModbusClient(method='rtu',port="COM4",stopbits=1,bytesize=8,parity='N',baudrate=9600, timeout=3, strict=False)
 import time
 
 connection = client.connect()

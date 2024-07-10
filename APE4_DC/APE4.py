@@ -108,8 +108,8 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.ui.pushButton_alarms.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_alarms))
         self.ui.pushButton_log_ins.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_log_ins))
         self.pushButton_log_ins.clicked.connect(self.activate_sheet_log_ins)
-        self.pushButton_set_current.clicked.connect(self.set_current_source)
-        self.set_current_source()
+        self.set_source()
+        self.set_load()
 
         # menu lateral
         self.ui.bt_menu.clicked.connect(self.mover_menu)
@@ -140,6 +140,10 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.timer = QTimer()
         self.timer.timeout.connect(self.update_all_plots)
         self.timer.start(self.interval)
+        
+        # Conectar el evento de cierre de la ventana
+        self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
+        self.closeEvent = self.close_instruments
     
     def init_graphics(self):
         self.graphs = {}
@@ -257,43 +261,54 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             self.pushButton_2.setEnabled(False)
             self.pushButton_log_ins.setEnabled(False)
     
-    def set_current_source(self):
+    def set_source(self):
         try:
-            current_value = float(self.ui.lineEdit_set_current.text())
-            print(current_value)
             rm = pyvisa.ResourceManager()
-            
-            resources = rm.list_resources()
-            print(f"Available resources: {resources}")
-            
-            instrument = rm.open_resource('TCPIP0::192.168.222.58::2101::SOCKET')
-            instrument.timeout = 100
-            instrument.write_termination = '\n'
-            instrument.read_termination = '\n'
-            instrument.write('SOUR:CURR 7.000')
+            resource = dic_equipment['Fuente programable']['open_resource']
+            instrument = rm.open_resource(resource)
+            instrument.write_termination = dic_equipment['Fuente programable']['write_termination']
+            instrument.read_termination = dic_equipment['Fuente programable']['read_termination']
+            instrument.timeout = dic_equipment['Fuente programable']['timeout']
+            instrument.write(f"SOUR:CURR {8.0}")
+            instrument.write(f'SOUR:VOLT {49.0}')
             instrument.close()
-            # resources = rm.list_resources()
-            # resource = dic_equipment['Fuente programable']['open_resource']
-            # print(resource)
-
-            # if resource in resources:
-            #     instrument = rm.open_resource(resource)
-            #     instrument.write_termination = dic_equipment['Fuente programable']['write_termination']
-            #     instrument.read_termination = dic_equipment['Fuente programable']['read_termination']
-            #     instrument.timeout = dic_equipment['Fuente programable']['timeout']
-            #     instrument.write(f"SOUR:CURR {current_value}")
-            #     instrument.close()
-            #     print(f"Current set to {current_value} A")
-            # else:
-            #     print(f"Resource {resource} not found. Available resources: {resources}")
         except Exception as e:
             print(f"Error setting current: {e}")
-    
-    # def list_resources(self):
-    #     rm = pyvisa.ResourceManager()
-    #     resources = rm.list_resources()
-    #     print("Available resources:", resources)
-    #     return resources
+            
+    def set_load(self):
+        try:
+            rm = pyvisa.ResourceManager()
+            resource = dic_equipment['Carga programable']['open_resource']
+            instrument = rm.open_resource(resource)
+            instrument.write_termination = dic_equipment['Carga programable']['write_termination']
+            instrument.read_termination = dic_equipment['Carga programable']['read_termination']
+            instrument.timeout = dic_equipment['Carga programable']['timeout']
+            
+            instrument.write('LOAD ON')
+            try:
+                response = instrument.read()
+                print(f": {response}")
+            except pyvisa.errors.VisaIOError as e:
+                print(f"Error de lectura: {e}")
+                
+            instrument.write(f"EXT:WAV:CV:IRNG?")
+            try:
+                response = instrument.read()
+                print(f": {response}")
+            except pyvisa.errors.VisaIOError as e:
+                print(f"Error de lectura: {e}")
+                
+            instrument.close()
+        except Exception as e:
+            print(f"Error setting current: {e}")
+            
+    def close_instruments(self, event):
+        for thread in self.threads:
+            if isinstance(thread, VisaPlot):
+                thread.instrument.close()
+            elif isinstance(thread, SerialPlot):
+                thread.ser.close()
+        event.accept()
                
     def activate_sheet_log_ins(self):     
         df = pd.read_csv('registros.csv')
