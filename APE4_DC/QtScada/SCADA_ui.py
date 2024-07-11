@@ -113,7 +113,7 @@ class Ui_MainWindow(object):
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setMinimumSize(QSize(0, 40))
         icon1 = QIcon()
-        icon1.addFile(u"registrar.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/registrar.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton.setIcon(icon1)
         self.pushButton.setIconSize(QSize(35, 35))
 
@@ -443,41 +443,11 @@ class Ui_MainWindow(object):
         self.label_10.setGeometry(QRect(0, 190, 81, 21))
         self.label_10.setStyleSheet(u"font: 8pt \"Segoe UI\";\n"
 "background-color: rgb(0, 0, 0);")
-        self.lineEdit_3 = QLineEdit(self.frame_3)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
-        self.lineEdit_3.setGeometry(QRect(90, 40, 71, 22))
-        self.lineEdit_3.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
         self.label_11 = QLabel(self.frame_3)
         self.label_11.setObjectName(u"label_11")
         self.label_11.setGeometry(QRect(10, 10, 91, 21))
         self.label_11.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "background-color: rgb(0, 0, 0);")
-        self.lineEdit_4 = QLineEdit(self.frame_3)
-        self.lineEdit_4.setObjectName(u"lineEdit_4")
-        self.lineEdit_4.setGeometry(QRect(90, 70, 71, 22))
-        self.lineEdit_4.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
-        self.lineEdit_5 = QLineEdit(self.frame_3)
-        self.lineEdit_5.setObjectName(u"lineEdit_5")
-        self.lineEdit_5.setGeometry(QRect(90, 100, 71, 22))
-        self.lineEdit_5.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
-        self.lineEdit_6 = QLineEdit(self.frame_3)
-        self.lineEdit_6.setObjectName(u"lineEdit_6")
-        self.lineEdit_6.setGeometry(QRect(90, 130, 71, 22))
-        self.lineEdit_6.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
-        self.lineEdit_7 = QLineEdit(self.frame_3)
-        self.lineEdit_7.setObjectName(u"lineEdit_7")
-        self.lineEdit_7.setGeometry(QRect(90, 160, 71, 22))
-        self.lineEdit_7.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
-        self.lineEdit_8 = QLineEdit(self.frame_3)
-        self.lineEdit_8.setObjectName(u"lineEdit_8")
-        self.lineEdit_8.setGeometry(QRect(90, 190, 71, 22))
-        self.lineEdit_8.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
         self.label_16 = QLabel(self.frame_3)
         self.label_16.setObjectName(u"label_16")
         self.label_16.setGeometry(QRect(170, 40, 31, 21))
@@ -518,6 +488,42 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);\n"
 "font: 700 14pt \"Segoe UI\";")
         self.label_21.setAlignment(Qt.AlignCenter)
+        self.lineEdit_3 = QLabel(self.frame_3)
+        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.lineEdit_3.setGeometry(QRect(90, 40, 71, 21))
+        self.lineEdit_3.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_4 = QLabel(self.frame_3)
+        self.lineEdit_4.setObjectName(u"lineEdit_4")
+        self.lineEdit_4.setGeometry(QRect(90, 70, 71, 21))
+        self.lineEdit_4.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_5 = QLabel(self.frame_3)
+        self.lineEdit_5.setObjectName(u"lineEdit_5")
+        self.lineEdit_5.setGeometry(QRect(90, 100, 71, 21))
+        self.lineEdit_5.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_6 = QLabel(self.frame_3)
+        self.lineEdit_6.setObjectName(u"lineEdit_6")
+        self.lineEdit_6.setGeometry(QRect(90, 130, 71, 21))
+        self.lineEdit_6.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_7 = QLabel(self.frame_3)
+        self.lineEdit_7.setObjectName(u"lineEdit_7")
+        self.lineEdit_7.setGeometry(QRect(90, 160, 71, 21))
+        self.lineEdit_7.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_8 = QLabel(self.frame_3)
+        self.lineEdit_8.setObjectName(u"lineEdit_8")
+        self.lineEdit_8.setGeometry(QRect(90, 190, 71, 21))
+        self.lineEdit_8.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
         self.frame_12 = QFrame(self.frame_10)
         self.frame_12.setObjectName(u"frame_12")
         self.frame_12.setGeometry(QRect(900, 360, 271, 101))
@@ -539,21 +545,6 @@ class Ui_MainWindow(object):
         self.label_24.setGeometry(QRect(10, 70, 71, 21))
         self.label_24.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "background-color: rgb(0, 0, 0);")
-        self.lineEdit_12 = QLineEdit(self.frame_12)
-        self.lineEdit_12.setObjectName(u"lineEdit_12")
-        self.lineEdit_12.setGeometry(QRect(90, 10, 71, 22))
-        self.lineEdit_12.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
-        self.lineEdit_13 = QLineEdit(self.frame_12)
-        self.lineEdit_13.setObjectName(u"lineEdit_13")
-        self.lineEdit_13.setGeometry(QRect(90, 40, 71, 22))
-        self.lineEdit_13.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
-        self.lineEdit_14 = QLineEdit(self.frame_12)
-        self.lineEdit_14.setObjectName(u"lineEdit_14")
-        self.lineEdit_14.setGeometry(QRect(90, 70, 71, 22))
-        self.lineEdit_14.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
         self.label_35 = QLabel(self.frame_12)
         self.label_35.setObjectName(u"label_35")
         self.label_35.setGeometry(QRect(170, 10, 31, 21))
@@ -574,6 +565,24 @@ class Ui_MainWindow(object):
         self.label_37.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
 "color: rgb(255, 255, 255);\n"
 "font: 700 14pt \"Segoe UI\";")
+        self.lineEdit_12 = QLabel(self.frame_12)
+        self.lineEdit_12.setObjectName(u"lineEdit_12")
+        self.lineEdit_12.setGeometry(QRect(90, 10, 71, 21))
+        self.lineEdit_12.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_13 = QLabel(self.frame_12)
+        self.lineEdit_13.setObjectName(u"lineEdit_13")
+        self.lineEdit_13.setGeometry(QRect(90, 40, 71, 21))
+        self.lineEdit_13.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_14 = QLabel(self.frame_12)
+        self.lineEdit_14.setObjectName(u"lineEdit_14")
+        self.lineEdit_14.setGeometry(QRect(90, 70, 71, 21))
+        self.lineEdit_14.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
         self.frame_13 = QFrame(self.frame_10)
         self.frame_13.setObjectName(u"frame_13")
         self.frame_13.setGeometry(QRect(630, 290, 231, 221))
@@ -610,41 +619,11 @@ class Ui_MainWindow(object):
         self.label_39.setGeometry(QRect(10, 190, 91, 21))
         self.label_39.setStyleSheet(u"font: 8pt \"Segoe UI\";\n"
 "background-color: rgb(0, 0, 0);")
-        self.lineEdit_15 = QLineEdit(self.frame_13)
-        self.lineEdit_15.setObjectName(u"lineEdit_15")
-        self.lineEdit_15.setGeometry(QRect(120, 40, 71, 22))
-        self.lineEdit_15.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
         self.label_40 = QLabel(self.frame_13)
         self.label_40.setObjectName(u"label_40")
         self.label_40.setGeometry(QRect(10, 10, 91, 21))
         self.label_40.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "background-color: rgb(0, 0, 0);")
-        self.lineEdit_16 = QLineEdit(self.frame_13)
-        self.lineEdit_16.setObjectName(u"lineEdit_16")
-        self.lineEdit_16.setGeometry(QRect(120, 70, 71, 22))
-        self.lineEdit_16.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
-        self.lineEdit_17 = QLineEdit(self.frame_13)
-        self.lineEdit_17.setObjectName(u"lineEdit_17")
-        self.lineEdit_17.setGeometry(QRect(120, 100, 71, 22))
-        self.lineEdit_17.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
-        self.lineEdit_18 = QLineEdit(self.frame_13)
-        self.lineEdit_18.setObjectName(u"lineEdit_18")
-        self.lineEdit_18.setGeometry(QRect(120, 130, 71, 22))
-        self.lineEdit_18.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
-        self.lineEdit_19 = QLineEdit(self.frame_13)
-        self.lineEdit_19.setObjectName(u"lineEdit_19")
-        self.lineEdit_19.setGeometry(QRect(120, 160, 71, 22))
-        self.lineEdit_19.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
-        self.lineEdit_20 = QLineEdit(self.frame_13)
-        self.lineEdit_20.setObjectName(u"lineEdit_20")
-        self.lineEdit_20.setGeometry(QRect(120, 190, 71, 22))
-        self.lineEdit_20.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);")
         self.label_41 = QLabel(self.frame_13)
         self.label_41.setObjectName(u"label_41")
         self.label_41.setGeometry(QRect(200, 40, 31, 21))
@@ -685,6 +664,118 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);\n"
 "font: 700 14pt \"Segoe UI\";")
         self.label_46.setAlignment(Qt.AlignCenter)
+        self.lineEdit_15 = QLabel(self.frame_13)
+        self.lineEdit_15.setObjectName(u"lineEdit_15")
+        self.lineEdit_15.setGeometry(QRect(110, 40, 81, 21))
+        self.lineEdit_15.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_16 = QLabel(self.frame_13)
+        self.lineEdit_16.setObjectName(u"lineEdit_16")
+        self.lineEdit_16.setGeometry(QRect(110, 70, 81, 21))
+        self.lineEdit_16.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_17 = QLabel(self.frame_13)
+        self.lineEdit_17.setObjectName(u"lineEdit_17")
+        self.lineEdit_17.setGeometry(QRect(110, 100, 81, 21))
+        self.lineEdit_17.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_18 = QLabel(self.frame_13)
+        self.lineEdit_18.setObjectName(u"lineEdit_18")
+        self.lineEdit_18.setGeometry(QRect(110, 130, 81, 21))
+        self.lineEdit_18.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_19 = QLabel(self.frame_13)
+        self.lineEdit_19.setObjectName(u"lineEdit_19")
+        self.lineEdit_19.setGeometry(QRect(110, 160, 81, 21))
+        self.lineEdit_19.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_20 = QLabel(self.frame_13)
+        self.lineEdit_20.setObjectName(u"lineEdit_20")
+        self.lineEdit_20.setGeometry(QRect(110, 190, 81, 21))
+        self.lineEdit_20.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.frame_14 = QFrame(self.frame_10)
+        self.frame_14.setObjectName(u"frame_14")
+        self.frame_14.setGeometry(QRect(360, 380, 251, 131))
+        self.frame_14.setStyleSheet(u"background-color:rgb(84, 84, 84);")
+        self.frame_14.setFrameShape(QFrame.StyledPanel)
+        self.frame_14.setFrameShadow(QFrame.Raised)
+        self.label_49 = QLabel(self.frame_14)
+        self.label_49.setObjectName(u"label_49")
+        self.label_49.setGeometry(QRect(10, 10, 101, 21))
+        self.label_49.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+"background-color: rgb(0, 0, 0);")
+        self.label_50 = QLabel(self.frame_14)
+        self.label_50.setObjectName(u"label_50")
+        self.label_50.setGeometry(QRect(10, 40, 101, 21))
+        self.label_50.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+"background-color: rgb(0, 0, 0);")
+        self.label_51 = QLabel(self.frame_14)
+        self.label_51.setObjectName(u"label_51")
+        self.label_51.setGeometry(QRect(10, 70, 101, 21))
+        self.label_51.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+"background-color: rgb(0, 0, 0);")
+        self.label_52 = QLabel(self.frame_14)
+        self.label_52.setObjectName(u"label_52")
+        self.label_52.setGeometry(QRect(10, 100, 101, 21))
+        self.label_52.setStyleSheet(u"font: 8pt \"Segoe UI\";\n"
+"background-color: rgb(0, 0, 0);")
+        self.label_56 = QLabel(self.frame_14)
+        self.label_56.setObjectName(u"label_56")
+        self.label_56.setGeometry(QRect(210, 10, 31, 21))
+        self.label_56.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"font: 700 14pt \"Segoe UI\";")
+        self.label_57 = QLabel(self.frame_14)
+        self.label_57.setObjectName(u"label_57")
+        self.label_57.setGeometry(QRect(210, 40, 31, 21))
+        self.label_57.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"font: 700 10pt \"Segoe UI\";")
+        self.label_58 = QLabel(self.frame_14)
+        self.label_58.setObjectName(u"label_58")
+        self.label_58.setGeometry(QRect(210, 70, 31, 21))
+        self.label_58.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"font: 700 14pt \"Segoe UI\";")
+        self.label_58.setAlignment(Qt.AlignCenter)
+        self.label_59 = QLabel(self.frame_14)
+        self.label_59.setObjectName(u"label_59")
+        self.label_59.setGeometry(QRect(210, 100, 31, 21))
+        self.label_59.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"font: 700 14pt \"Segoe UI\";")
+        self.label_59.setAlignment(Qt.AlignCenter)
+        self.lineEdit_23 = QLabel(self.frame_14)
+        self.lineEdit_23.setObjectName(u"lineEdit_23")
+        self.lineEdit_23.setGeometry(QRect(120, 10, 81, 21))
+        self.lineEdit_23.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_24 = QLabel(self.frame_14)
+        self.lineEdit_24.setObjectName(u"lineEdit_24")
+        self.lineEdit_24.setGeometry(QRect(120, 40, 81, 21))
+        self.lineEdit_24.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_25 = QLabel(self.frame_14)
+        self.lineEdit_25.setObjectName(u"lineEdit_25")
+        self.lineEdit_25.setGeometry(QRect(120, 70, 81, 21))
+        self.lineEdit_25.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.lineEdit_26 = QLabel(self.frame_14)
+        self.lineEdit_26.setObjectName(u"lineEdit_26")
+        self.lineEdit_26.setGeometry(QRect(120, 100, 81, 21))
+        self.lineEdit_26.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
         self.stackedWidget.addWidget(self.page)
         self.frame_10.raise_()
         self.frame_6.raise_()
@@ -795,7 +886,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -839,7 +930,6 @@ class Ui_MainWindow(object):
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"ENERG\u00cdA", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"EFICIENCIA", None))
         self.label_10.setText(QCoreApplication.translate("MainWindow", u"TEMPERATURA", None))
-        self.lineEdit_3.setText("")
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"GENERADOR", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"V", None))
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"A", None))
@@ -847,12 +937,21 @@ class Ui_MainWindow(object):
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"Kwh", None))
         self.label_20.setText(QCoreApplication.translate("MainWindow", u"%", None))
         self.label_21.setText(QCoreApplication.translate("MainWindow", u"\u00b0C", None))
+        self.lineEdit_3.setText("")
+        self.lineEdit_4.setText("")
+        self.lineEdit_5.setText("")
+        self.lineEdit_6.setText("")
+        self.lineEdit_7.setText("")
+        self.lineEdit_8.setText("")
         self.label_22.setText(QCoreApplication.translate("MainWindow", u"VOLTAJE", None))
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"CORRIENTE", None))
         self.label_24.setText(QCoreApplication.translate("MainWindow", u"POTENCIA", None))
         self.label_35.setText(QCoreApplication.translate("MainWindow", u"V", None))
         self.label_36.setText(QCoreApplication.translate("MainWindow", u"A", None))
         self.label_37.setText(QCoreApplication.translate("MainWindow", u"kW", None))
+        self.lineEdit_12.setText("")
+        self.lineEdit_13.setText("")
+        self.lineEdit_14.setText("")
         self.label_31.setText(QCoreApplication.translate("MainWindow", u"VOLTAJE", None))
         self.label_32.setText(QCoreApplication.translate("MainWindow", u"CORRIENTE", None))
         self.label_33.setText(QCoreApplication.translate("MainWindow", u"POTENCIA", None))
@@ -865,7 +964,25 @@ class Ui_MainWindow(object):
         self.label_43.setText(QCoreApplication.translate("MainWindow", u"kW", None))
         self.label_44.setText(QCoreApplication.translate("MainWindow", u"%", None))
         self.label_45.setText(QCoreApplication.translate("MainWindow", u"\u00b0C", None))
-        self.label_46.setText(QCoreApplication.translate("MainWindow", u"kW", None))
+        self.label_46.setText(QCoreApplication.translate("MainWindow", u"%", None))
+        self.lineEdit_15.setText("")
+        self.lineEdit_16.setText("")
+        self.lineEdit_17.setText("")
+        self.lineEdit_18.setText("")
+        self.lineEdit_19.setText("")
+        self.lineEdit_20.setText("")
+        self.label_49.setText(QCoreApplication.translate("MainWindow", u"voltaje salida", None))
+        self.label_50.setText(QCoreApplication.translate("MainWindow", u"corriente salida", None))
+        self.label_51.setText(QCoreApplication.translate("MainWindow", u"Temp amb", None))
+        self.label_52.setText(QCoreApplication.translate("MainWindow", u"Temp tarjeta", None))
+        self.label_56.setText(QCoreApplication.translate("MainWindow", u"V", None))
+        self.label_57.setText(QCoreApplication.translate("MainWindow", u"A", None))
+        self.label_58.setText(QCoreApplication.translate("MainWindow", u"\u00b0C", None))
+        self.label_59.setText(QCoreApplication.translate("MainWindow", u"\u00b0C", None))
+        self.lineEdit_23.setText("")
+        self.lineEdit_24.setText("")
+        self.lineEdit_25.setText("")
+        self.lineEdit_26.setText("")
         ___qtablewidgetitem4 = self.tableWidget_2.horizontalHeaderItem(0)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Mascara de tiempo", None));
         ___qtablewidgetitem5 = self.tableWidget_2.horizontalHeaderItem(1)
