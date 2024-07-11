@@ -35,7 +35,6 @@ instrument.read_termination = '\n'
 # instrument.write('MEAS:CURR?')
 # instrument.write('MEAS:POW?')
 
-# instrument.write('LOAD 0')
 # instrument.write('CONF:OUTPut?') # devuelve estado
 # instrument.write('CONF:OUTPut ON') # NO devuelve NADA
 # instrument.write('CONF:OUTPut OFF') # NO devuelve NADA

@@ -31,9 +31,9 @@ dic_equipment = {
     'Carga programable': {'Name': 'Chroma_LOAD', 'Type': 'TCP/IP', 'write_termination' : '\n', 'read_termination' : '\n',
                 'open_resource': 'TCPIP0::192.168.222.59::2101::SOCKET', 'timeout':100,
                 'widget': 'widget_2', 'data_dict': 'data_dict_2',},
-    # 'Pila de Hidrógeno': {'Name': 'Pila de Hidrógeno', 'Type': 'SERIAL', 'write_termination' : '\n', 'read_termination' : '\n',
-    #             'open_resource': 'TCPIP0::192.168.222.59::2101::SOCKET', 'timeout':100,
-    #             'widget': 'widget_2', 'data_dict': 'data_dict_2',},
+    'Pila de Hidrógeno': {'Name': 'Pila de Hidrógeno', 'port': 'COM3', 'baudrate':9600,
+                'timeout':3,
+                'widget': 'widget_3', 'data_dict': 'data_dict_3',},
 }
 
 # Diccionario para las variables del equipo 1: 'Fuente programable'
@@ -44,7 +44,7 @@ data_dict_1 = {
   'THD-V1':   {'command': 'MEAS:VOLT?', 'color': '#ADD8E6', 'label': 'THD-V1', 'unit': ' [%]','graphic':3,'factor':1},
   'Voltaje1': {'command': 'MEAS:VOLT?', 'label': 'Voltaje1', 'unit': ' [kVAh]','factor':1, 'QLabel': 'lineEdit_3'},
   'Corriente1': {'command': 'FETC:CURR?', 'label': 'Corriente1', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_4'},
-  'Potencia1': {'command': 'MEAS:POW?', 'label': 'Potencia1', 'unit': ' [w]','factor':1, 'QLabel': 'lineEdit_5'},
+  'Potencia1': {'command': 'MEAS:POW?', 'label': 'Potencia1', 'unit': ' [w]','factor':1/1000, 'QLabel': 'lineEdit_5'},
 #   'Set_Corriente': {'command': 'SOUR:CURR', 'label': 'Set_Corriente', 'unit': ' [A]','factor':1, 'WLabel': 'lineEdit_9'},
 }
 
@@ -56,7 +56,25 @@ data_dict_2 = {
   'THD-V2':   {'command': 'MEAS:VOLT?', 'color': '#ADD8E6', 'label': 'THD-V1', 'unit': ' [%]','graphic':3,'factor':1},
   'Voltaje2': {'command': 'MEAS:VOLT?', 'label': 'Voltaje1', 'unit': ' [kVAh]','factor':1, 'QLabel': 'lineEdit_12'},
   'Corriente2': {'command': 'MEAS:CURR?', 'label': 'Corriente1', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_13'},
-  'Potencia2': {'command': 'MEAS:POW?', 'label': 'Potencia1', 'unit': ' [w]','factor':1, 'QLabel': 'lineEdit_14'},
+  'Potencia2': {'command': 'MEAS:POW?', 'label': 'Potencia1', 'unit': ' [w]','factor':1/1000, 'QLabel': 'lineEdit_14'},
+}
+
+# Diccionario para las variables del equipo 2:'Carga programable'
+data_dict_3 = {
+  'Voltaje_g':  {'char_i': 0, 'char_f': 3, 'color': '#9103A6', 'label': 'V', 'unit': ' [V]', 'graphic':0, 'factor':1,},
+  'Corriente_g':{'char_i': 6, 'char_f': 9, 'color': '#DF8905', 'label': 'I', 'unit': ' [A]', 'graphic':1, 'factor':1},
+  'Temperatura_g':{'char_i': 18, 'char_f': 21, 'color': '#DF8905', 'label': 'C', 'unit': ' [C]', 'graphic':2, 'factor':1},
+  'Hydrogen_g':{'char_i': 53, 'char_f': 55, 'color': '#DF8905', 'label': '%', 'unit': ' [%]', 'graphic':3, 'factor':1/10},
+  
+  'Voltaje':  {'char_i': 0, 'char_f': 3, 'label': 'Voltaje', 'unit': ' [V]', 'graphic':0, 'factor':1,},
+  'Corriente':{'char_i': 6, 'char_f': 9, 'label': 'Corriente', 'unit': ' [A]', 'graphic':1, 'factor':1},
+  'Temperatura': {'char_i': 12, 'char_f': 15, 'label': 'temperature', 'unit': ' [C]','factor':1, 'QLabel': 'lineEdit_13'},
+  'Temperatura A': {'char_i': 18, 'char_f': 21, 'label': 'a temperature', 'unit': ' [C]','factor':1, 'QLabel': 'lineEdit_13'},
+  'Temperatura T': {'char_i': 24, 'char_f': 27, 'label': 't temperature', 'unit': ' [C]','factor':1, 'QLabel': 'lineEdit_13'},
+  'Speed of fans': {'char_i': 30, 'char_f': 33, 'label': 'Speed of fans', 'unit': ' [%]','factor':1/10, 'QLabel': 'lineEdit_13'},
+  'o voltage': {'char_i': 37, 'char_f': 40, 'label': 'o voltage', 'unit': ' [V]','factor':1, 'QLabel': 'lineEdit_13'},
+  'o current': {'char_i': 44, 'char_f': 48, 'label': 'o current', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_13'},
+  'Hydrogen concentration': {'char_i': 53, 'char_f': 55, 'label': 'Hydrogen', 'unit': ' [%]','factor':1/10, 'QLabel': 'lineEdit_13'},
 }
 
 # Diccionario de labels del eje y para cada gráfico
@@ -108,6 +126,8 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.ui.pushButton_alarms.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_alarms))
         self.ui.pushButton_log_ins.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_log_ins))
         self.pushButton_log_ins.clicked.connect(self.activate_sheet_log_ins)
+        self.pushButton_set_pow.clicked.connect(self.set_pow)
+        
         self.set_source()
         self.set_load()
 
@@ -141,9 +161,9 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.timer.timeout.connect(self.update_all_plots)
         self.timer.start(self.interval)
         
-        # Conectar el evento de cierre de la ventana
-        self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
-        self.closeEvent = self.close_instruments
+        # # Conectar el evento de cierre de la ventana
+        # self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
+        # self.closeEvent = self.close_instruments
     
     def init_graphics(self):
         self.graphs = {}
@@ -261,19 +281,25 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             self.pushButton_2.setEnabled(False)
             self.pushButton_log_ins.setEnabled(False)
     
-    def set_source(self):
+    def set_pow(self):
         try:
             rm = pyvisa.ResourceManager()
-            resource = dic_equipment['Fuente programable']['open_resource']
+            resource = dic_equipment['Carga programable']['open_resource']
             instrument = rm.open_resource(resource)
-            instrument.write_termination = dic_equipment['Fuente programable']['write_termination']
-            instrument.read_termination = dic_equipment['Fuente programable']['read_termination']
-            instrument.timeout = dic_equipment['Fuente programable']['timeout']
-            instrument.write(f"SOUR:CURR {8.0}")
-            instrument.write(f'SOUR:VOLT {49.0}')
+            instrument.write_termination = dic_equipment['Carga programable']['write_termination']
+            instrument.read_termination = dic_equipment['Carga programable']['read_termination']
+            instrument.timeout = dic_equipment['Carga programable']['timeout']
+            
+            # ------------------------------------
+            kpow = float(self.ui.line_c_pow.text())
+            print(kpow)
+            if (kpow > 0) and (kpow < 2.8):
+                instrument.write(f'VOLT:STAT:ILIM {kpow*1000/49}')
+            else:
+                print('Carga fuera de rango')
             instrument.close()
         except Exception as e:
-            print(f"Error setting current: {e}")
+            print(f"Error setting pow: {e}")
             
     def set_load(self):
         try:
@@ -284,14 +310,18 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             instrument.read_termination = dic_equipment['Carga programable']['read_termination']
             instrument.timeout = dic_equipment['Carga programable']['timeout']
             
-            instrument.write('LOAD ON')
+            instrument.write(f'MODE CVL')
+            instrument.write(f'MODE?')
             try:
                 response = instrument.read()
                 print(f": {response}")
             except pyvisa.errors.VisaIOError as e:
                 print(f"Error de lectura: {e}")
-                
-            instrument.write(f"EXT:WAV:CV:IRNG?")
+            instrument.write(f'VOLT:STAT:L1 0')
+            instrument.write(f'VOLT:STAT:L2 0')
+            instrument.write(f'VOLT:STAT:ILIM 1.0')
+            instrument.write('LOAD ON')
+            instrument.write('LOAD?')
             try:
                 response = instrument.read()
                 print(f": {response}")
@@ -301,6 +331,27 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             instrument.close()
         except Exception as e:
             print(f"Error setting current: {e}")
+    
+    def set_source(self):
+        try:
+            rm = pyvisa.ResourceManager()
+            resource = dic_equipment['Fuente programable']['open_resource']
+            instrument = rm.open_resource(resource)
+            instrument.write_termination = dic_equipment['Fuente programable']['write_termination']
+            instrument.read_termination = dic_equipment['Fuente programable']['read_termination']
+            instrument.timeout = dic_equipment['Fuente programable']['timeout']
+            instrument.write(f"SOUR:CURR {8.0}")
+            instrument.write(f'SOUR:VOLT {49.0}')
+            instrument.write('CONF:OUTPut ON')
+            instrument.write('CONF:OUTPut?')
+            try:
+                response = instrument.read()
+                print(f": {response}")
+            except pyvisa.errors.VisaIOError as e:
+                print(f"Error de lectura: {e}")
+            instrument.close()
+        except Exception as e:
+            print(f"Error setting Source: {e}")
             
     def close_instruments(self, event):
         for thread in self.threads:
@@ -309,6 +360,47 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             elif isinstance(thread, SerialPlot):
                 thread.ser.close()
         event.accept()
+        # Off Source
+        try:
+            rm = pyvisa.ResourceManager()
+            resource = dic_equipment['Fuente programable']['open_resource']
+            instrument = rm.open_resource(resource)
+            instrument.write_termination = dic_equipment['Fuente programable']['write_termination']
+            instrument.read_termination = dic_equipment['Fuente programable']['read_termination']
+            instrument.timeout = dic_equipment['Fuente programable']['timeout']
+            instrument.write('CONF:OUTPut OFF')
+            instrument.write('CONF:OUTPut?')
+            try:
+                response = instrument.read()
+                print(f": {response}")
+            except pyvisa.errors.VisaIOError as e:
+                print(f"Error de lectura: {e}")
+            instrument.close()
+        except Exception as e:
+            print(f"Error setting Source: {e}")
+        # Off load
+        try:
+            rm = pyvisa.ResourceManager()
+            resource = dic_equipment['Carga programable']['open_resource']
+            instrument = rm.open_resource(resource)
+            instrument.write_termination = dic_equipment['Carga programable']['write_termination']
+            instrument.read_termination = dic_equipment['Carga programable']['read_termination']
+            instrument.timeout = dic_equipment['Carga programable']['timeout']
+            
+            instrument.write(f'VOLT:STAT:L1 0')
+            instrument.write(f'VOLT:STAT:L2 0')
+            instrument.write(f'VOLT:STAT:ILIM 1.0')
+            instrument.write('LOAD 0')
+            instrument.write('LOAD?')
+            try:
+                response = instrument.read()
+                print(f": {response}")
+            except pyvisa.errors.VisaIOError as e:
+                print(f"Error de lectura: {e}")
+                
+            instrument.close()
+        except Exception as e:
+            print(f"Error setting current: {e}")
                
     def activate_sheet_log_ins(self):     
         df = pd.read_csv('registros.csv')

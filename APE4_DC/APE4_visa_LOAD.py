@@ -52,10 +52,15 @@ instrument.read_termination = '\n'
 # instrument.write(f'MODE CV')
 # instrument.write(f'MODE?')
 
-instrument.write(f'VOLT:STAT:L1 12')
-instrument.write(f'VOLT:STAT:L2 12')
-instrument.write(f'VOLT:STAT:ILIM 7')
+# instrument.write(f'VOLT:STAT:L1 12')
+# instrument.write(f'VOLT:STAT:L2 12')
+# instrument.write(f'VOLT:STAT:ILIM 7')
 
+# instrument.write(f'MODE CVL')
+# instrument.write(f'MODE?')
+# instrument.write(f'VOLT:STAT:L1 0')
+# instrument.write(f'VOLT:STAT:ILIM 3.0')
+instrument.write('LOAD ON')
 # Leer la respuesta del instrumento
 try:
     response = instrument.read()
