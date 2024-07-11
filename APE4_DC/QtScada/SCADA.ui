@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1460</width>
+    <width>1459</width>
     <height>893</height>
    </rect>
   </property>
@@ -82,7 +82,7 @@ QPushButton:hover {
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>comprobacion-de-lista.svg</normaloff>comprobacion-de-lista.svg</iconset>
+              <normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/comprobacion-de-lista.svg</normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/comprobacion-de-lista.svg</iconset>
             </property>
             <property name="iconSize">
              <size>
@@ -195,7 +195,7 @@ font: 77 10pt &quot;Arial Black&quot;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>computer-monitor-svgrepo-com.svg</normaloff>computer-monitor-svgrepo-com.svg</iconset>
+                 <normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/computer-monitor-svgrepo-com.svg</normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/computer-monitor-svgrepo-com.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -214,11 +214,11 @@ font: 77 10pt &quot;Arial Black&quot;
                 </size>
                </property>
                <property name="text">
-                <string>Ampere</string>
+                <string>Generador</string>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>estacion-de-carga.svg</normaloff>estacion-de-carga.svg</iconset>
+                 <normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/estacion-de-carga.svg</normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/estacion-de-carga.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -237,16 +237,39 @@ font: 77 10pt &quot;Arial Black&quot;
                 </size>
                </property>
                <property name="text">
-                <string>Sentron</string>
+                <string>Carga</string>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>sentron.svg</normaloff>sentron.svg</iconset>
+                 <normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/sentron.svg</normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/sentron.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
                  <width>35</width>
                  <height>35</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_3">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Celda de Hidrógeno</string>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>hydrogen.svg</normaloff>hydrogen.svg</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>40</height>
                 </size>
                </property>
               </widget>
@@ -264,7 +287,7 @@ font: 77 10pt &quot;Arial Black&quot;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>alarm-svgrepo-com.svg</normaloff>alarm-svgrepo-com.svg</iconset>
+                 <normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/alarm-svgrepo-com.svg</normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/alarm-svgrepo-com.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -287,7 +310,7 @@ font: 77 10pt &quot;Arial Black&quot;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>hoja.svg</normaloff>hoja.svg</iconset>
+                 <normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/hoja.svg</normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/hoja.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -385,6 +408,12 @@ font-size: 12;
              </property>
              <item>
               <widget class="QStackedWidget" name="stackedWidget">
+               <property name="minimumSize">
+                <size>
+                 <width>1200</width>
+                 <height>600</height>
+                </size>
+               </property>
                <property name="styleSheet">
                 <string notr="true">border-color: rgb(0, 0, 0);</string>
                </property>
@@ -392,7 +421,7 @@ font-size: 12;
                 <number>1</number>
                </property>
                <property name="currentIndex">
-                <number>1</number>
+                <number>3</number>
                </property>
                <widget class="QWidget" name="page_login">
                 <widget class="QFrame" name="frame_11">
@@ -519,7 +548,7 @@ background-color: rgb(245, 245, 245);</string>
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>OJO.svg</normaloff>OJO.svg</iconset>
+                    <normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/OJO.svg</normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/OJO.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -1683,7 +1712,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                 <zorder>frame_10</zorder>
                 <zorder>frame_6</zorder>
                </widget>
-               <widget class="QWidget" name="page_3">
+               <widget class="QWidget" name="page_alarms">
                 <widget class="QFrame" name="frame_7">
                  <property name="geometry">
                   <rect>
@@ -1771,34 +1800,19 @@ color: rgb(255,255,255);
                  </widget>
                 </widget>
                </widget>
-               <widget class="QWidget" name="page_registros">
+               <widget class="QWidget" name="page_3">
                 <layout class="QHBoxLayout" name="horizontalLayout_5">
                  <item>
-                  <widget class="QFrame" name="frame_4">
+                  <widget class="QFrame" name="widget_3">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(115, 115, 115);</string>
+                   </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
                    <property name="frameShadow">
                     <enum>QFrame::Raised</enum>
                    </property>
-                   <layout class="QHBoxLayout" name="horizontalLayout_6">
-                    <item>
-                     <widget class="QLineEdit" name="lineEdit">
-                      <property name="minimumSize">
-                       <size>
-                        <width>50</width>
-                        <height>390</height>
-                       </size>
-                      </property>
-                      <property name="cursor">
-                       <cursorShape>CrossCursor</cursorShape>
-                      </property>
-                      <property name="alignment">
-                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
                   </widget>
                  </item>
                 </layout>
@@ -1855,42 +1869,7 @@ color: rgb(255,255,255);
                <widget class="QWidget" name="page_1">
                 <layout class="QHBoxLayout" name="horizontalLayout_3">
                  <item>
-                  <widget class="QWidget" name="widget_1" native="true">
-                   <widget class="QLabel" name="varn1_2">
-                    <property name="geometry">
-                     <rect>
-                      <x>220</x>
-                      <y>380</y>
-                      <width>91</width>
-                      <height>31</height>
-                     </rect>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
-                    </property>
-                    <property name="text">
-                     <string>0</string>
-                    </property>
-                   </widget>
-                   <widget class="QLabel" name="varn1">
-                    <property name="geometry">
-                     <rect>
-                      <x>50</x>
-                      <y>380</y>
-                      <width>141</width>
-                      <height>31</height>
-                     </rect>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: rgb(0, 0, 0);
-background-color: rgb(255, 255, 255);</string>
-                    </property>
-                    <property name="text">
-                     <string>Energía</string>
-                    </property>
-                   </widget>
-                  </widget>
+                  <widget class="QWidget" name="widget_1" native="true"/>
                  </item>
                 </layout>
                </widget>

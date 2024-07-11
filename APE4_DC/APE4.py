@@ -31,9 +31,8 @@ dic_equipment = {
     'Carga programable': {'Name': 'Chroma_LOAD', 'Type': 'TCP/IP', 'write_termination' : '\n', 'read_termination' : '\n',
                 'open_resource': 'TCPIP0::192.168.222.59::2101::SOCKET', 'timeout':100,
                 'widget': 'widget_2', 'data_dict': 'data_dict_2',},
-    'Pila de Hidrógeno': {'Name': 'Pila de Hidrógeno', 'port': 'COM3', 'baudrate':9600,
-                'timeout':3,
-                'widget': 'widget_3', 'data_dict': 'data_dict_3',},
+    # 'Pila de Hidrógeno': {'Name': 'Pila de Hidrógeno', 'Type': 'SERIAL', 'port': 'COM3', 'baudrate':9600, 'timeout':3,
+    #             'widget': 'widget_3', 'data_dict': 'data_dict_3',},
 }
 
 # Diccionario para las variables del equipo 1: 'Fuente programable'
@@ -45,10 +44,9 @@ data_dict_1 = {
   'Voltaje1': {'command': 'MEAS:VOLT?', 'label': 'Voltaje1', 'unit': ' [kVAh]','factor':1, 'QLabel': 'lineEdit_3'},
   'Corriente1': {'command': 'FETC:CURR?', 'label': 'Corriente1', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_4'},
   'Potencia1': {'command': 'MEAS:POW?', 'label': 'Potencia1', 'unit': ' [w]','factor':1/1000, 'QLabel': 'lineEdit_5'},
-#   'Set_Corriente': {'command': 'SOUR:CURR', 'label': 'Set_Corriente', 'unit': ' [A]','factor':1, 'WLabel': 'lineEdit_9'},
 }
 
-# Diccionario para las variables del equipo 2:'Carga programable'
+# Diccionario para las variables del equipo 2: 'Carga programable'
 data_dict_2 = {
   'Voltaje':  {'command': 'MEAS:VOLT?', 'color': '#9103A6', 'label': 'V', 'unit': ' [V]', 'graphic':0, 'factor':1,},
   'Corriente':{'command': 'MEAS:CURR?', 'color': '#DF8905', 'label': 'I', 'unit': ' [A]', 'graphic':1, 'factor':1},
@@ -59,22 +57,22 @@ data_dict_2 = {
   'Potencia2': {'command': 'MEAS:POW?', 'label': 'Potencia1', 'unit': ' [w]','factor':1/1000, 'QLabel': 'lineEdit_14'},
 }
 
-# Diccionario para las variables del equipo 2:'Carga programable'
+# Diccionario para las variables del equipo 3: 'Pila de Hidrógeno'
 data_dict_3 = {
-  'Voltaje_g':  {'char_i': 0, 'char_f': 3, 'color': '#9103A6', 'label': 'V', 'unit': ' [V]', 'graphic':0, 'factor':1,},
-  'Corriente_g':{'char_i': 6, 'char_f': 9, 'color': '#DF8905', 'label': 'I', 'unit': ' [A]', 'graphic':1, 'factor':1},
-  'Temperatura_g':{'char_i': 18, 'char_f': 21, 'color': '#DF8905', 'label': 'C', 'unit': ' [C]', 'graphic':2, 'factor':1},
-  'Hydrogen_g':{'char_i': 53, 'char_f': 55, 'color': '#DF8905', 'label': '%', 'unit': ' [%]', 'graphic':3, 'factor':1/10},
+#   'Voltaje_g':  {'char_i': 0, 'char_f': 3, 'color': '#9103A6', 'label': 'V', 'unit': ' [V]', 'graphic':0, 'factor':1,},
+#   'Corriente_g':{'char_i': 6, 'char_f': 9, 'color': '#DF8905', 'label': 'I', 'unit': ' [A]', 'graphic':1, 'factor':1},
+#   'Temperatura_g':{'char_i': 18, 'char_f': 21, 'color': '#DF8905', 'label': 'C', 'unit': ' [C]', 'graphic':2, 'factor':1},
+#   'Hydrogen_g':{'char_i': 53, 'char_f': 55, 'color': '#DF8905', 'label': '%', 'unit': ' [%]', 'graphic':3, 'factor':1/10},
   
-  'Voltaje':  {'char_i': 0, 'char_f': 3, 'label': 'Voltaje', 'unit': ' [V]', 'graphic':0, 'factor':1,},
-  'Corriente':{'char_i': 6, 'char_f': 9, 'label': 'Corriente', 'unit': ' [A]', 'graphic':1, 'factor':1},
-  'Temperatura': {'char_i': 12, 'char_f': 15, 'label': 'temperature', 'unit': ' [C]','factor':1, 'QLabel': 'lineEdit_13'},
-  'Temperatura A': {'char_i': 18, 'char_f': 21, 'label': 'a temperature', 'unit': ' [C]','factor':1, 'QLabel': 'lineEdit_13'},
-  'Temperatura T': {'char_i': 24, 'char_f': 27, 'label': 't temperature', 'unit': ' [C]','factor':1, 'QLabel': 'lineEdit_13'},
-  'Speed of fans': {'char_i': 30, 'char_f': 33, 'label': 'Speed of fans', 'unit': ' [%]','factor':1/10, 'QLabel': 'lineEdit_13'},
-  'o voltage': {'char_i': 37, 'char_f': 40, 'label': 'o voltage', 'unit': ' [V]','factor':1, 'QLabel': 'lineEdit_13'},
-  'o current': {'char_i': 44, 'char_f': 48, 'label': 'o current', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_13'},
-  'Hydrogen concentration': {'char_i': 53, 'char_f': 55, 'label': 'Hydrogen', 'unit': ' [%]','factor':1/10, 'QLabel': 'lineEdit_13'},
+  'Voltaje':  {'char_i': 0, 'char_f': 3, 'label': 'Voltaje', 'unit': ' [V]',   'factor':1, 'QLabel': 'lineEdit_15'},
+  'Corriente':{'char_i': 6, 'char_f': 9, 'label': 'Corriente', 'unit': ' [A]', 'factor':1, 'QLabel': 'lineEdit_16'},
+  'Temperatura': {'char_i': 12, 'char_f': 15, 'label': 'temperature', 'unit': ' [C]','factor':1, 'QLabel': 'lineEdit_17'},
+#   'Temperatura A': {'char_i': 18, 'char_f': 21, 'label': 'a temperature', 'unit': ' [C]','factor':1, 'QLabel': 'lineEdit_18'},
+  'Temperatura T': {'char_i': 24, 'char_f': 27, 'label': 't temperature', 'unit': ' [C]','factor':1, 'QLabel': 'lineEdit_19'},
+  'Speed of fans': {'char_i': 30, 'char_f': 33, 'label': 'Speed of fans', 'unit': ' [%]','factor':1/10, 'QLabel': 'lineEdit_18'},
+#   'o voltage': {'char_i': 37, 'char_f': 40, 'label': 'o voltage', 'unit': ' [V]','factor':1, 'QLabel': 'lineEdit_15'},
+#   'o current': {'char_i': 44, 'char_f': 48, 'label': 'o current', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_16'},
+  'Hydrogen concentration': {'char_i': 53, 'char_f': 55, 'label': 'Hydrogen', 'unit': ' [%]','factor':1/10, 'QLabel': 'lineEdit_20'},
 }
 
 # Diccionario de labels del eje y para cada gráfico
@@ -87,7 +85,6 @@ y_labels = {
 
 dir_actual = os.path.dirname(os.path.abspath(__file__))
 dir_interfaz = os.path.join(dir_actual, "QtScada")
-# nombre_interfaz = "SCADA.ui"
 nombre_interfaz = "SCADA.ui"
 ruta_interfaz = os.path.join(dir_interfaz, nombre_interfaz)
 nombre_logo = "nano.png"

@@ -25,7 +25,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1460, 893)
+        MainWindow.resize(1459, 893)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -63,7 +63,7 @@ class Ui_MainWindow(object):
         self.bt_menu.setObjectName(u"bt_menu")
         self.bt_menu.setMinimumSize(QSize(200, 0))
         icon = QIcon()
-        icon.addFile(u"comprobacion-de-lista.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/comprobacion-de-lista.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.bt_menu.setIcon(icon)
         self.bt_menu.setIconSize(QSize(35, 35))
 
@@ -123,7 +123,7 @@ class Ui_MainWindow(object):
         self.pushButton_gen.setObjectName(u"pushButton_gen")
         self.pushButton_gen.setMinimumSize(QSize(0, 40))
         icon2 = QIcon()
-        icon2.addFile(u"computer-monitor-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/computer-monitor-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_gen.setIcon(icon2)
         self.pushButton_gen.setIconSize(QSize(40, 40))
 
@@ -133,7 +133,7 @@ class Ui_MainWindow(object):
         self.pushButton_1.setObjectName(u"pushButton_1")
         self.pushButton_1.setMinimumSize(QSize(0, 40))
         icon3 = QIcon()
-        icon3.addFile(u"estacion-de-carga.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/estacion-de-carga.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_1.setIcon(icon3)
         self.pushButton_1.setIconSize(QSize(35, 35))
 
@@ -143,18 +143,28 @@ class Ui_MainWindow(object):
         self.pushButton_2.setObjectName(u"pushButton_2")
         self.pushButton_2.setMinimumSize(QSize(0, 40))
         icon4 = QIcon()
-        icon4.addFile(u"sentron.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/sentron.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_2.setIcon(icon4)
         self.pushButton_2.setIconSize(QSize(35, 35))
 
         self.verticalLayout_3.addWidget(self.pushButton_2)
 
+        self.pushButton_3 = QPushButton(self.frame_control)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setMinimumSize(QSize(0, 40))
+        icon5 = QIcon()
+        icon5.addFile(u"hydrogen.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_3.setIcon(icon5)
+        self.pushButton_3.setIconSize(QSize(40, 40))
+
+        self.verticalLayout_3.addWidget(self.pushButton_3)
+
         self.pushButton_alarms = QPushButton(self.frame_control)
         self.pushButton_alarms.setObjectName(u"pushButton_alarms")
         self.pushButton_alarms.setMinimumSize(QSize(0, 40))
-        icon5 = QIcon()
-        icon5.addFile(u"alarm-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_alarms.setIcon(icon5)
+        icon6 = QIcon()
+        icon6.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/alarm-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_alarms.setIcon(icon6)
         self.pushButton_alarms.setIconSize(QSize(40, 40))
 
         self.verticalLayout_3.addWidget(self.pushButton_alarms)
@@ -162,9 +172,9 @@ class Ui_MainWindow(object):
         self.pushButton_log_ins = QPushButton(self.frame_control)
         self.pushButton_log_ins.setObjectName(u"pushButton_log_ins")
         self.pushButton_log_ins.setMinimumSize(QSize(0, 40))
-        icon6 = QIcon()
-        icon6.addFile(u"hoja.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_log_ins.setIcon(icon6)
+        icon7 = QIcon()
+        icon7.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/hoja.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_log_ins.setIcon(icon7)
         self.pushButton_log_ins.setIconSize(QSize(40, 40))
 
         self.verticalLayout_3.addWidget(self.pushButton_log_ins)
@@ -240,6 +250,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setContentsMargins(1, 1, 1, 1)
         self.stackedWidget = QStackedWidget(self.frame_paginas)
         self.stackedWidget.setObjectName(u"stackedWidget")
+        self.stackedWidget.setMinimumSize(QSize(1200, 600))
         self.stackedWidget.setStyleSheet(u"border-color: rgb(0, 0, 0);")
         self.stackedWidget.setLineWidth(1)
         self.page_login = QWidget()
@@ -278,9 +289,9 @@ class Ui_MainWindow(object):
         self.pushButton_eye.setMaximumSize(QSize(32, 32))
         self.pushButton_eye.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "background-color: rgb(245, 245, 245);")
-        icon7 = QIcon()
-        icon7.addFile(u"OJO.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_eye.setIcon(icon7)
+        icon8 = QIcon()
+        icon8.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/OJO.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_eye.setIcon(icon8)
         self.pushButton_eye.setIconSize(QSize(30, 30))
         self.message_lg = QLabel(self.frame_11)
         self.message_lg.setObjectName(u"message_lg")
@@ -677,9 +688,9 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page)
         self.frame_10.raise_()
         self.frame_6.raise_()
-        self.page_3 = QWidget()
-        self.page_3.setObjectName(u"page_3")
-        self.frame_7 = QFrame(self.page_3)
+        self.page_alarms = QWidget()
+        self.page_alarms.setObjectName(u"page_alarms")
+        self.frame_7 = QFrame(self.page_alarms)
         self.frame_7.setObjectName(u"frame_7")
         self.frame_7.setGeometry(QRect(30, 120, 811, 421))
         self.frame_7.setFrameShape(QFrame.StyledPanel)
@@ -699,7 +710,7 @@ class Ui_MainWindow(object):
         self.tableWidget_2.setVerticalHeaderItem(0, __qtablewidgetitem7)
         self.tableWidget_2.setObjectName(u"tableWidget_2")
         self.tableWidget_2.setGeometry(QRect(20, 20, 781, 192))
-        self.frame_8 = QFrame(self.page_3)
+        self.frame_8 = QFrame(self.page_alarms)
         self.frame_8.setObjectName(u"frame_8")
         self.frame_8.setGeometry(QRect(30, 30, 801, 80))
         self.frame_8.setFrameShape(QFrame.StyledPanel)
@@ -714,29 +725,20 @@ class Ui_MainWindow(object):
 "color: rgb(255,255,255);\n"
 "")
         self.label_26.setAlignment(Qt.AlignCenter)
-        self.stackedWidget.addWidget(self.page_3)
-        self.page_registros = QWidget()
-        self.page_registros.setObjectName(u"page_registros")
-        self.horizontalLayout_5 = QHBoxLayout(self.page_registros)
+        self.stackedWidget.addWidget(self.page_alarms)
+        self.page_3 = QWidget()
+        self.page_3.setObjectName(u"page_3")
+        self.horizontalLayout_5 = QHBoxLayout(self.page_3)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.frame_4 = QFrame(self.page_registros)
-        self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setFrameShape(QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_6 = QHBoxLayout(self.frame_4)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
-        self.lineEdit = QLineEdit(self.frame_4)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setMinimumSize(QSize(50, 390))
-        self.lineEdit.setCursor(QCursor(Qt.CrossCursor))
-        self.lineEdit.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.widget_3 = QFrame(self.page_3)
+        self.widget_3.setObjectName(u"widget_3")
+        self.widget_3.setStyleSheet(u"background-color: rgb(115, 115, 115);")
+        self.widget_3.setFrameShape(QFrame.StyledPanel)
+        self.widget_3.setFrameShadow(QFrame.Raised)
 
-        self.horizontalLayout_6.addWidget(self.lineEdit)
+        self.horizontalLayout_5.addWidget(self.widget_3)
 
-
-        self.horizontalLayout_5.addWidget(self.frame_4)
-
-        self.stackedWidget.addWidget(self.page_registros)
+        self.stackedWidget.addWidget(self.page_3)
         self.page_log_ins = QWidget()
         self.page_log_ins.setObjectName(u"page_log_ins")
         self.frame_5 = QFrame(self.page_log_ins)
@@ -772,16 +774,6 @@ class Ui_MainWindow(object):
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.widget_1 = QWidget(self.page_1)
         self.widget_1.setObjectName(u"widget_1")
-        self.varn1_2 = QLabel(self.widget_1)
-        self.varn1_2.setObjectName(u"varn1_2")
-        self.varn1_2.setGeometry(QRect(220, 380, 91, 31))
-        self.varn1_2.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);")
-        self.varn1 = QLabel(self.widget_1)
-        self.varn1.setObjectName(u"varn1")
-        self.varn1.setGeometry(QRect(50, 380, 141, 31))
-        self.varn1.setStyleSheet(u"color: rgb(0, 0, 0);\n"
-"background-color: rgb(255, 255, 255);")
 
         self.horizontalLayout_3.addWidget(self.widget_1)
 
@@ -803,7 +795,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -814,8 +806,9 @@ class Ui_MainWindow(object):
         self.bt_menu.setText("")
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Log in", None))
         self.pushButton_gen.setText(QCoreApplication.translate("MainWindow", u"General", None))
-        self.pushButton_1.setText(QCoreApplication.translate("MainWindow", u"Ampere", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Sentron", None))
+        self.pushButton_1.setText(QCoreApplication.translate("MainWindow", u"Generador", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Carga", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Celda de Hidr\u00f3geno", None))
         self.pushButton_alarms.setText(QCoreApplication.translate("MainWindow", u"Alarmas", None))
         self.pushButton_log_ins.setText(QCoreApplication.translate("MainWindow", u"Registros", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Inicio de Sesi\u00f3n", None))
@@ -883,7 +876,5 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Aqui los datos", None));
         self.label_26.setText(QCoreApplication.translate("MainWindow", u"Alarmas", None))
         self.bt_usernames.setText(QCoreApplication.translate("MainWindow", u"Usuarios", None))
-        self.varn1_2.setText(QCoreApplication.translate("MainWindow", u"0", None))
-        self.varn1.setText(QCoreApplication.translate("MainWindow", u"Energ\u00eda", None))
     # retranslateUi
 
