@@ -660,7 +660,26 @@ font: 10pt &quot;Segoe UI&quot;;</string>
                   </rect>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color: rgb(125,125,125);</string>
+                  <string notr="true">QFrame{
+background-color:rgb(84, 84, 84);
+}
+
+QPushButton{
+background-color: rgb(0, 206, 235);
+border-top-left-radius: 20px;
+border-bottom-left-radius:20px;
+border-color:rgb(0,0,0);
+color: rgb(255,255,255);
+font: 77 10pt &quot;Arial Black&quot;
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius: 20px;
+border-bottom-left-radius:20px;
+color: rgb(0,0,0);
+font: 77 10pt &quot;Arial Black&quot;
+}</string>
                  </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
@@ -2001,6 +2020,66 @@ font: 10pt &quot;Segoe UI&quot;;</string>
                     <string/>
                    </property>
                   </widget>
+                 </widget>
+                 <widget class="QPushButton" name="pushButton_5">
+                  <property name="geometry">
+                   <rect>
+                    <x>60</x>
+                    <y>430</y>
+                    <width>141</width>
+                    <height>51</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>Activar Fuente</string>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="pushButton_6">
+                  <property name="geometry">
+                   <rect>
+                    <x>960</x>
+                    <y>460</y>
+                    <width>151</width>
+                    <height>51</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">border-top-left-radius: 20px;
+border-bottom-left-radius:20px;</string>
+                  </property>
+                  <property name="text">
+                   <string>Activar Carga</string>
+                  </property>
+                 </widget>
+                 <widget class="QPushButton" name="pushButton_7">
+                  <property name="geometry">
+                   <rect>
+                    <x>780</x>
+                    <y>190</y>
+                    <width>111</width>
+                    <height>41</height>
+                   </rect>
+                  </property>
+                  <property name="text">
+                   <string>Explorar</string>
+                  </property>
+                 </widget>
+                 <widget class="QLabel" name="path_lb">
+                  <property name="geometry">
+                   <rect>
+                    <x>780</x>
+                    <y>150</y>
+                    <width>381</width>
+                    <height>20</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+border-color: rgb(0, 255, 255);</string>
+                  </property>
+                  <property name="text">
+                   <string>Path</string>
+                  </property>
                  </widget>
                 </widget>
                 <zorder>frame_10</zorder>

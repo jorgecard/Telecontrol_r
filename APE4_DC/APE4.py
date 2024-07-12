@@ -124,9 +124,11 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.ui.pushButton_alarms.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_alarms))
         self.ui.pushButton_log_ins.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_log_ins))
         self.pushButton_log_ins.clicked.connect(self.activate_sheet_log_ins)
-        self.pushButton_4.clicked.connect(self.open_dialog_box)
-        self.pushButton_set_pow.clicked.connect(self.set_pow)
-        
+        self.pushButton_7.clicked.connect(self.open_dialog_box)
+        self.pushButton_set_pow.clicked.connect(self.handle_set_pow_click)
+        # inicializar load and source
+        # self.pushButton_5.clicked.connect(self.set_source)
+        # self.pushButton_6.clicked.connect(self.set_load)
         self.set_source()
         self.set_load()
 
@@ -162,6 +164,11 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         
         self.setAttribute(QtCore.Qt.WA_DeleteOnClose)
         self.closeEvent = self.close_instruments
+
+        # Inicializar temporizador para setear potencia
+        self.pow_index = 0
+        self.pow_timer = QTimer()
+        self.pow_timer.timeout.connect(self.set_next_pow)
     
     def init_graphics(self):
         self.graphs = {}
@@ -285,8 +292,23 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.filename, _ = QFileDialog.getOpenFileName(self, 'Open File', dir_actual, 'All Files (*)')
         self.path_lb.setText(self.filename)
         self.load_data()
+        
+    def load_data(self):
+        df = pd.read_excel(self.filename)
+        # self.values_list = df.iloc[0, 3:8].tolist()
+        self.values_list = df.iloc[11, 108:].tolist()
+        self.values_list = [val * 1 for val in self.values_list]
+        self.pow_index = 0
+        self.pow_timer.start(5000)  # Iniciar el temporizador para setear potencia cada 5 segundos
+
+    def handle_set_pow_click(self):
+        try:
+            kpow = float(self.ui.line_c_pow.text())
+            self.set_pow(kpow)
+        except ValueError:
+            print("Error: Please enter a valid number in the line_c_pow field.")
     
-    def set_pow(self):
+    def set_pow(self, kpow):
         try:
             rm = pyvisa.ResourceManager()
             resource = dic_equipment['Carga programable']['open_resource']
@@ -295,16 +317,23 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             instrument.read_termination = dic_equipment['Carga programable']['read_termination']
             instrument.timeout = dic_equipment['Carga programable']['timeout']
             
-            # ------------------------------------
-            kpow = float(self.ui.line_c_pow.text())
-            print(kpow)
             if 0 < kpow < 2.8:
                 instrument.write(f'VOLT:STAT:ILIM {kpow * 1000 / 49}')
+                print(f'kpow seteada: {kpow}')
             else:
-                print('Carga fuera de rango')
+                print(f'Carga fuera de rango: {kpow}')
             instrument.close()
         except Exception as e:
             print(f"Error setting pow: {e}")
+
+    def set_next_pow(self):
+        if self.pow_index < len(self.values_list):
+            self.set_pow(self.values_list[self.pow_index])
+            print(f'setting pow [{self.pow_index}]: {self.values_list[self.pow_index]}')
+            self.pow_index += 1
+        else:
+            self.pow_timer.stop()
+            print('Fin lista')
             
     def set_load(self):
         try:

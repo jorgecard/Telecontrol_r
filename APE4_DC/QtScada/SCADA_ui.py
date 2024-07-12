@@ -340,7 +340,26 @@ class Ui_MainWindow(object):
         self.frame_10 = QFrame(self.page)
         self.frame_10.setObjectName(u"frame_10")
         self.frame_10.setGeometry(QRect(10, 10, 1171, 551))
-        self.frame_10.setStyleSheet(u"background-color: rgb(125,125,125);")
+        self.frame_10.setStyleSheet(u"QFrame{\n"
+"background-color:rgb(84, 84, 84);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"background-color: rgb(0, 206, 235);\n"
+"border-top-left-radius: 20px;\n"
+"border-bottom-left-radius:20px;\n"
+"border-color:rgb(0,0,0);\n"
+"color: rgb(255,255,255);\n"
+"font: 77 10pt \"Arial Black\"\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: white;\n"
+"border-top-left-radius: 20px;\n"
+"border-bottom-left-radius:20px;\n"
+"color: rgb(0,0,0);\n"
+"font: 77 10pt \"Arial Black\"\n"
+"}")
         self.frame_10.setFrameShape(QFrame.StyledPanel)
         self.frame_10.setFrameShadow(QFrame.Raised)
         self.label_2 = QLabel(self.frame_10)
@@ -776,6 +795,22 @@ class Ui_MainWindow(object):
         self.lineEdit_26.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);\n"
 "font: 10pt \"Segoe UI\";")
+        self.pushButton_5 = QPushButton(self.frame_10)
+        self.pushButton_5.setObjectName(u"pushButton_5")
+        self.pushButton_5.setGeometry(QRect(60, 430, 141, 51))
+        self.pushButton_6 = QPushButton(self.frame_10)
+        self.pushButton_6.setObjectName(u"pushButton_6")
+        self.pushButton_6.setGeometry(QRect(960, 460, 151, 51))
+        self.pushButton_6.setStyleSheet(u"border-top-left-radius: 20px;\n"
+"border-bottom-left-radius:20px;")
+        self.pushButton_7 = QPushButton(self.frame_10)
+        self.pushButton_7.setObjectName(u"pushButton_7")
+        self.pushButton_7.setGeometry(QRect(780, 190, 111, 41))
+        self.path_lb = QLabel(self.frame_10)
+        self.path_lb.setObjectName(u"path_lb")
+        self.path_lb.setGeometry(QRect(780, 150, 381, 20))
+        self.path_lb.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+"border-color: rgb(0, 255, 255);")
         self.stackedWidget.addWidget(self.page)
         self.frame_10.raise_()
         self.frame_6.raise_()
@@ -983,6 +1018,10 @@ class Ui_MainWindow(object):
         self.lineEdit_24.setText("")
         self.lineEdit_25.setText("")
         self.lineEdit_26.setText("")
+        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"Activar Fuente", None))
+        self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"Activar Carga", None))
+        self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"Explorar", None))
+        self.path_lb.setText(QCoreApplication.translate("MainWindow", u"Path", None))
         ___qtablewidgetitem4 = self.tableWidget_2.horizontalHeaderItem(0)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Mascara de tiempo", None));
         ___qtablewidgetitem5 = self.tableWidget_2.horizontalHeaderItem(1)
