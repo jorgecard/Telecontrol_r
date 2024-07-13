@@ -32,7 +32,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,8">
+      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,8">
        <item>
         <widget class="QFrame" name="frame_superior">
          <property name="minimumSize">
@@ -109,6 +109,21 @@ QPushButton:hover {
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="lineEdit_6">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(128, 128, 128);
+font: 700 9pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QFrame" name="frame_contenido">
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -172,7 +187,7 @@ font: 77 10pt &quot;Arial Black&quot;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/registrar.svg</normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/registrar.svg</iconset>
+                 <normaloff>registrar.svg</normaloff>registrar.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -195,7 +210,7 @@ font: 77 10pt &quot;Arial Black&quot;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/computer-monitor-svgrepo-com.svg</normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/computer-monitor-svgrepo-com.svg</iconset>
+                 <normaloff>computer-monitor-svgrepo-com.svg</normaloff>computer-monitor-svgrepo-com.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -218,7 +233,7 @@ font: 77 10pt &quot;Arial Black&quot;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/estacion-de-carga.svg</normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/estacion-de-carga.svg</iconset>
+                 <normaloff>estacion-de-carga.svg</normaloff>estacion-de-carga.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -241,7 +256,7 @@ font: 77 10pt &quot;Arial Black&quot;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/sentron.svg</normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/sentron.svg</iconset>
+                 <normaloff>sentron.svg</normaloff>sentron.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -287,7 +302,7 @@ font: 77 10pt &quot;Arial Black&quot;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/alarm-svgrepo-com.svg</normaloff>../../../GitHub/Telecontrol_r/APE4_DC/QtScada/alarm-svgrepo-com.svg</iconset>
+                 <normaloff>alarm-svgrepo-com.svg</normaloff>alarm-svgrepo-com.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -785,42 +800,6 @@ border-bottom-color: rgb(0, 0, 0);</string>
                     <string>Parar</string>
                    </property>
                   </widget>
-                  <widget class="QRadioButton" name="radioButton">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>40</y>
-                     <width>89</width>
-                     <height>20</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>Constante</string>
-                   </property>
-                  </widget>
-                  <widget class="QRadioButton" name="radioButton_2">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>70</y>
-                     <width>89</width>
-                     <height>20</height>
-                    </rect>
-                   </property>
-                   <property name="text">
-                    <string>txt</string>
-                   </property>
-                  </widget>
-                  <widget class="QComboBox" name="comboBox">
-                   <property name="geometry">
-                    <rect>
-                     <x>110</x>
-                     <y>70</y>
-                     <width>131</width>
-                     <height>22</height>
-                    </rect>
-                   </property>
-                  </widget>
                   <widget class="QLineEdit" name="line_c_pow">
                    <property name="geometry">
                     <rect>
@@ -865,6 +844,61 @@ background-color: rgb(0, 0, 0);</string>
                    </property>
                    <property name="text">
                     <string>Carga</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="path_lb">
+                   <property name="geometry">
+                    <rect>
+                     <x>20</x>
+                     <y>70</y>
+                     <width>191</width>
+                     <height>20</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+border-color: rgb(0, 255, 255);</string>
+                   </property>
+                   <property name="text">
+                    <string>Path</string>
+                   </property>
+                  </widget>
+                  <widget class="QPushButton" name="pushButton_7">
+                   <property name="geometry">
+                    <rect>
+                     <x>230</x>
+                     <y>70</y>
+                     <width>31</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 206, 235);
+border-top-left-radius: 3px;
+border-bottom-left-radius:3px;
+border-color:rgb(0,0,0);
+color: rgb(255,255,255);
+font: 77 7pt &quot;Arial Black&quot;</string>
+                   </property>
+                   <property name="text">
+                    <string>...</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_13">
+                   <property name="geometry">
+                    <rect>
+                     <x>30</x>
+                     <y>40</y>
+                     <width>71</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string>Constante</string>
                    </property>
                   </widget>
                  </widget>
@@ -935,57 +969,6 @@ background-color: rgb(0, 0, 0);</string>
                    </property>
                    <property name="text">
                     <string>POTENCIA</string>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="label_8">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>130</y>
-                     <width>71</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 0, 0);</string>
-                   </property>
-                   <property name="text">
-                    <string>ENERGÍA</string>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="label_9">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>160</y>
-                     <width>71</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 0, 0);</string>
-                   </property>
-                   <property name="text">
-                    <string>EFICIENCIA</string>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="label_10">
-                   <property name="geometry">
-                    <rect>
-                     <x>0</x>
-                     <y>190</y>
-                     <width>81</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">font: 8pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 0, 0);</string>
-                   </property>
-                   <property name="text">
-                    <string>TEMPERATURA</string>
                    </property>
                   </widget>
                   <widget class="QLabel" name="label_11">
@@ -1065,66 +1048,6 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                     <string>kW</string>
                    </property>
                   </widget>
-                  <widget class="QLabel" name="label_19">
-                   <property name="geometry">
-                    <rect>
-                     <x>170</x>
-                     <y>130</y>
-                     <width>31</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 0, 0);
-color: rgb(255, 255, 255);
-font: 700 10pt &quot;Segoe UI&quot;;</string>
-                   </property>
-                   <property name="text">
-                    <string>Kwh</string>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="label_20">
-                   <property name="geometry">
-                    <rect>
-                     <x>170</x>
-                     <y>160</y>
-                     <width>31</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 0, 0);
-color: rgb(255, 255, 255);
-font: 700 14pt &quot;Segoe UI&quot;;</string>
-                   </property>
-                   <property name="text">
-                    <string>%</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="label_21">
-                   <property name="geometry">
-                    <rect>
-                     <x>170</x>
-                     <y>190</y>
-                     <width>31</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 0, 0);
-color: rgb(255, 255, 255);
-font: 700 14pt &quot;Segoe UI&quot;;</string>
-                   </property>
-                   <property name="text">
-                    <string>°C</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                  </widget>
                   <widget class="QLabel" name="lineEdit_3">
                    <property name="geometry">
                     <rect>
@@ -1166,60 +1089,6 @@ font: 10pt &quot;Segoe UI&quot;;</string>
                     <rect>
                      <x>90</x>
                      <y>100</y>
-                     <width>71</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);
-font: 10pt &quot;Segoe UI&quot;;</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="lineEdit_6">
-                   <property name="geometry">
-                    <rect>
-                     <x>90</x>
-                     <y>130</y>
-                     <width>71</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);
-font: 10pt &quot;Segoe UI&quot;;</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="lineEdit_7">
-                   <property name="geometry">
-                    <rect>
-                     <x>90</x>
-                     <y>160</y>
-                     <width>71</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);
-font: 10pt &quot;Segoe UI&quot;;</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
-                  <widget class="QLabel" name="lineEdit_8">
-                   <property name="geometry">
-                    <rect>
-                     <x>90</x>
-                     <y>190</y>
                      <width>71</width>
                      <height>21</height>
                     </rect>
@@ -1470,23 +1339,6 @@ background-color: rgb(0, 0, 0);</string>
                     <string>CORRIENTE</string>
                    </property>
                   </widget>
-                  <widget class="QLabel" name="label_33">
-                   <property name="geometry">
-                    <rect>
-                     <x>10</x>
-                     <y>100</y>
-                     <width>91</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
-background-color: rgb(0, 0, 0);</string>
-                   </property>
-                   <property name="text">
-                    <string>POTENCIA</string>
-                   </property>
-                  </widget>
                   <widget class="QLabel" name="label_34">
                    <property name="geometry">
                     <rect>
@@ -1597,24 +1449,6 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                     <set>Qt::AlignCenter</set>
                    </property>
                   </widget>
-                  <widget class="QLabel" name="label_43">
-                   <property name="geometry">
-                    <rect>
-                     <x>200</x>
-                     <y>100</y>
-                     <width>31</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(0, 0, 0);
-color: rgb(255, 255, 255);
-font: 700 14pt &quot;Segoe UI&quot;;</string>
-                   </property>
-                   <property name="text">
-                    <string>kW</string>
-                   </property>
-                  </widget>
                   <widget class="QLabel" name="label_44">
                    <property name="geometry">
                     <rect>
@@ -1711,24 +1545,6 @@ font: 10pt &quot;Segoe UI&quot;;</string>
                     <string/>
                    </property>
                   </widget>
-                  <widget class="QLabel" name="lineEdit_17">
-                   <property name="geometry">
-                    <rect>
-                     <x>110</x>
-                     <y>100</y>
-                     <width>81</width>
-                     <height>21</height>
-                    </rect>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);
-font: 10pt &quot;Segoe UI&quot;;</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
                   <widget class="QLabel" name="lineEdit_18">
                    <property name="geometry">
                     <rect>
@@ -1781,6 +1597,62 @@ font: 10pt &quot;Segoe UI&quot;;</string>
                    </property>
                    <property name="text">
                     <string/>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="lineEdit_17">
+                   <property name="geometry">
+                    <rect>
+                     <x>110</x>
+                     <y>100</y>
+                     <width>81</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);
+font: 10pt &quot;Segoe UI&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_33">
+                   <property name="geometry">
+                    <rect>
+                     <x>10</x>
+                     <y>100</y>
+                     <width>91</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">font: 10pt &quot;Segoe UI&quot;;
+background-color: rgb(0, 0, 0);</string>
+                   </property>
+                   <property name="text">
+                    <string>POTENCIA</string>
+                   </property>
+                  </widget>
+                  <widget class="QLabel" name="label_43">
+                   <property name="geometry">
+                    <rect>
+                     <x>200</x>
+                     <y>100</y>
+                     <width>31</width>
+                     <height>21</height>
+                    </rect>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+                   </property>
+                   <property name="text">
+                    <string>W</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
                    </property>
                   </widget>
                  </widget>
@@ -2020,66 +1892,6 @@ font: 10pt &quot;Segoe UI&quot;;</string>
                     <string/>
                    </property>
                   </widget>
-                 </widget>
-                 <widget class="QPushButton" name="pushButton_5">
-                  <property name="geometry">
-                   <rect>
-                    <x>60</x>
-                    <y>430</y>
-                    <width>141</width>
-                    <height>51</height>
-                   </rect>
-                  </property>
-                  <property name="text">
-                   <string>Activar Fuente</string>
-                  </property>
-                 </widget>
-                 <widget class="QPushButton" name="pushButton_6">
-                  <property name="geometry">
-                   <rect>
-                    <x>960</x>
-                    <y>460</y>
-                    <width>151</width>
-                    <height>51</height>
-                   </rect>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">border-top-left-radius: 20px;
-border-bottom-left-radius:20px;</string>
-                  </property>
-                  <property name="text">
-                   <string>Activar Carga</string>
-                  </property>
-                 </widget>
-                 <widget class="QPushButton" name="pushButton_7">
-                  <property name="geometry">
-                   <rect>
-                    <x>780</x>
-                    <y>190</y>
-                    <width>111</width>
-                    <height>41</height>
-                   </rect>
-                  </property>
-                  <property name="text">
-                   <string>Explorar</string>
-                  </property>
-                 </widget>
-                 <widget class="QLabel" name="path_lb">
-                  <property name="geometry">
-                   <rect>
-                    <x>780</x>
-                    <y>150</y>
-                    <width>381</width>
-                    <height>20</height>
-                   </rect>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">font: 10pt &quot;Segoe UI&quot;;
-border-color: rgb(0, 255, 255);</string>
-                  </property>
-                  <property name="text">
-                   <string>Path</string>
-                  </property>
                  </widget>
                 </widget>
                 <zorder>frame_10</zorder>

@@ -37,38 +37,39 @@ dic_equipment = {
 
 # Diccionario para las variables del equipo 1: 'Fuente programable'
 data_dict_1 = {
-  'Voltaje':  {'command': 'MEAS:VOLT?', 'color': '#9103A6', 'label': 'V', 'unit': ' [V]', 'graphic':0, 'factor':1,},
-  'Corriente':{'command': 'MEAS:CURR?', 'color': '#DF8905', 'label': 'I', 'unit': ' [A]', 'graphic':1, 'factor':1},
-  'Potencia': {'command': 'MEAS:POW?',  'color': '#54548D', 'label': 'P', 'unit': ' [W]', 'graphic':2, 'factor':1},
-  'THD-V1':   {'command': 'MEAS:VOLT?', 'color': '#ADD8E6', 'label': 'THD-V1', 'unit': ' [%]','graphic':3,'factor':1},
-  'Voltaje1': {'command': 'MEAS:VOLT?', 'label': 'Voltaje1', 'unit': ' [kVAh]','factor':1, 'QLabel': 'lineEdit_3'},
-  'Corriente1': {'command': 'FETC:CURR?', 'label': 'Corriente1', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_4'},
-  'Potencia1': {'command': 'MEAS:POW?', 'label': 'Potencia1', 'unit': ' [w]','factor':1/1000, 'QLabel': 'lineEdit_5'},
+  'Voltaje':  {'command': 'MEAS:VOLT?', 'color': '#9103A6', 'label': 'Voltaje', 'unit': ' [V]', 'graphic':0, 'factor':1,},
+  'Corriente':{'command': 'MEAS:CURR?', 'color': '#DF8905', 'label': 'Corriente', 'unit': ' [A]', 'graphic':1, 'factor':1},
+  'Potencia': {'command': 'MEAS:POW?',  'color': '#54548D', 'label': 'Potencia', 'unit': ' [W]', 'graphic':2, 'factor':1},
+  'Voltaje2':   {'command': 'MEAS:VOLT?', 'color': '#ADD8E6', 'label': 'Voltaje2', 'unit': ' [V]','graphic':3,'factor':1},
+  'Voltaje_label': {'command': 'MEAS:VOLT?', 'label': 'Voltaje', 'unit': ' [V]','factor':1, 'QLabel': 'lineEdit_3'},
+  'Corriente_label': {'command': 'FETC:CURR?', 'label': 'Corriente', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_4'},
+  'Potencia_label': {'command': 'MEAS:POW?', 'label': 'Potencia', 'unit': ' [w]','factor':1/1000, 'QLabel': 'lineEdit_5'},
 }
 
 # Diccionario para las variables del equipo 2: 'Carga programable'
 data_dict_2 = {
-  'Voltaje':  {'command': 'MEAS:VOLT?', 'color': '#9103A6', 'label': 'V', 'unit': ' [V]', 'graphic':0, 'factor':1,},
-  'Corriente':{'command': 'MEAS:CURR?', 'color': '#DF8905', 'label': 'I', 'unit': ' [A]', 'graphic':1, 'factor':1},
-  'Potencia': {'command': 'MEAS:POW?',  'color': '#54548D', 'label': 'P', 'unit': ' [W]', 'graphic':2, 'factor':1},
-  'THD-V2':   {'command': 'MEAS:VOLT?', 'color': '#ADD8E6', 'label': 'THD-V1', 'unit': ' [%]','graphic':3,'factor':1},
-  'Voltaje2': {'command': 'MEAS:VOLT?', 'label': 'Voltaje1', 'unit': ' [kVAh]','factor':1, 'QLabel': 'lineEdit_12'},
-  'Corriente2': {'command': 'MEAS:CURR?', 'label': 'Corriente1', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_13'},
-  'Potencia2': {'command': 'MEAS:POW?', 'label': 'Potencia1', 'unit': ' [w]','factor':1/1000, 'QLabel': 'lineEdit_14'},
+  'Voltaje':  {'command': 'MEAS:VOLT?', 'color': '#9103A6', 'label': 'Voltaje', 'unit': ' [V]', 'graphic':0, 'factor':1,},
+  'Corriente':{'command': 'MEAS:CURR?', 'color': '#DF8905', 'label': 'Corriente', 'unit': ' [A]', 'graphic':1, 'factor':1},
+  'Potencia': {'command': 'MEAS:POW?',  'color': '#54548D', 'label': 'Potencia', 'unit': ' [W]', 'graphic':2, 'factor':1},
+  'Voltaje2':   {'command': 'MEAS:VOLT?', 'color': '#ADD8E6', 'label': 'Voltaje2', 'unit': ' [V]','graphic':3,'factor':1},
+  'Voltaje_label': {'command': 'MEAS:VOLT?', 'label': 'Voltaje', 'unit': ' [V]','factor':1, 'QLabel': 'lineEdit_12'},
+  'Corriente_label': {'command': 'MEAS:CURR?', 'label': 'Corriente', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_13'},
+  'Potencia_label': {'command': 'MEAS:POW?', 'label': 'Potencia', 'unit': ' [w]','factor':1/1000, 'QLabel': 'lineEdit_14'},
 }
 
 # Diccionario para las variables del equipo 3: 'Pila de Hidrógeno'
 data_dict_3 = {
-  'Voltaje_g':  {'char_i': 0, 'char_f': 3, 'color': '#9103A6', 'label': 'V', 'unit': ' [V]', 'graphic':0, 'factor':1,},
-  'Corriente_g':{'char_i': 6, 'char_f': 9, 'color': '#DF8905', 'label': 'I', 'unit': ' [A]', 'graphic':1, 'factor':1},
-  'Temperatura_g':{'char_i': 18, 'char_f': 21, 'color': '#DF8905', 'label': 'C', 'unit': ' [C]', 'graphic':2, 'factor':1},
-  'Hydrogen_g':{'char_i': 53, 'char_f': 55, 'color': '#DF8905', 'label': '%', 'unit': ' [%]', 'graphic':3, 'factor':1/10},
+  'Voltaje_g':  {'char_i': 0, 'char_f': 3, 'color': '#9103A6', 'label': 'Voltaje', 'unit': ' [V]', 'graphic':0, 'factor':1,},
+  'Corriente_g':{'char_i': 6, 'char_f': 9, 'color': '#DF8905', 'label': 'Corriente', 'unit': ' [A]', 'graphic':1, 'factor':1},
+  'Temperatura_g':{'char_i': 18, 'char_f': 21, 'color': '#54548D', 'label': 'Temp', 'unit': ' [°C]', 'graphic':2, 'factor':1},
+  'Potencia_g':{'char_i': 6, 'char_f': 9, 'color': '#ADD8E6', 'label': 'Potencia', 'unit': ' [W]', 'graphic':3, 'factor':50},
   
   'Voltaje':  {'char_i': 0, 'char_f': 3, 'label': 'Voltaje', 'unit': ' [V]',   'factor':1, 'QLabel': 'lineEdit_15'},
   'Corriente':{'char_i': 6, 'char_f': 9, 'label': 'Corriente', 'unit': ' [A]', 'factor':1, 'QLabel': 'lineEdit_16'},
-  'Temperatura': {'char_i': 12, 'char_f': 15, 'label': 'temperature', 'unit': ' [C]','factor':1, 'QLabel': 'lineEdit_19'},
-  'Temperatura A': {'char_i': 18, 'char_f': 21, 'label': 'a temperature', 'unit': ' [C]','factor':1, 'QLabel': 'lineEdit_25'},
-  'Temperatura T': {'char_i': 24, 'char_f': 27, 'label': 't temperature', 'unit': ' [C]','factor':1, 'QLabel': 'lineEdit_26'},
+  'Potencia':  {'char_i': 6, 'char_f': 9, 'label': 'Voltaje', 'unit': ' [V]',   'factor':50, 'QLabel': 'lineEdit_17'},
+  'Temperatura': {'char_i': 12, 'char_f': 15, 'label': 'temperature', 'unit': ' [°C]','factor':1, 'QLabel': 'lineEdit_19'},
+  'Temperatura A': {'char_i': 18, 'char_f': 21, 'label': 'a temperature', 'unit': ' [°C]','factor':1, 'QLabel': 'lineEdit_25'},
+  'Temperatura T': {'char_i': 24, 'char_f': 27, 'label': 't temperature', 'unit': ' [°C]','factor':1, 'QLabel': 'lineEdit_26'},
   'Speed of fans': {'char_i': 30, 'char_f': 33, 'label': 'Speed of fans', 'unit': ' [%]','factor':1/10, 'QLabel': 'lineEdit_18'},
   'o voltage': {'char_i': 37, 'char_f': 40, 'label': 'o voltage', 'unit': ' [V]','factor':1, 'QLabel': 'lineEdit_23'},
   'o current': {'char_i': 44, 'char_f': 48, 'label': 'o current', 'unit': ' [A]','factor':1, 'QLabel': 'lineEdit_24'},
@@ -77,10 +78,10 @@ data_dict_3 = {
 
 # Diccionario de labels del eje y para cada gráfico
 y_labels = {
-    0: '[V]',
-    1: '[A]',
-    2: '[]',
-    3: '[%]'
+    0: ' ',
+    1: ' ',
+    2: ' ',
+    3: ' '
 }
 
 dir_actual = os.path.dirname(os.path.abspath(__file__))
@@ -116,16 +117,17 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_login)
         self.bt_log_in.clicked.connect(self.log_in)
         # acceder a las paginas
-        self.ui.pushButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_login))
-        self.ui.pushButton_gen.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page))
-        self.ui.pushButton_1.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_1))
-        self.ui.pushButton_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_2))
-        self.ui.pushButton_3.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_3))
-        self.ui.pushButton_alarms.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_alarms))
-        self.ui.pushButton_log_ins.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_log_ins))
+        self.ui.pushButton.clicked.connect(lambda: self.change_page(self.ui.page_login, "Página de inicio de sesión"))
+        self.ui.pushButton_gen.clicked.connect(lambda: self.change_page(self.ui.page, "Página general"))
+        self.ui.pushButton_1.clicked.connect(lambda: self.change_page(self.ui.page_1, "Fuente Programable"))
+        self.ui.pushButton_2.clicked.connect(lambda: self.change_page(self.ui.page_2, "Carga Programable"))
+        self.ui.pushButton_3.clicked.connect(lambda: self.change_page(self.ui.page_3, "Pila H2"))
+        self.ui.pushButton_alarms.clicked.connect(lambda: self.change_page(self.ui.page_alarms, "Página de alarmas"))
+        self.ui.pushButton_log_ins.clicked.connect(lambda: self.change_page(self.ui.page_log_ins, "Página de registros"))
         self.pushButton_log_ins.clicked.connect(self.activate_sheet_log_ins)
         self.pushButton_7.clicked.connect(self.open_dialog_box)
         self.pushButton_set_pow.clicked.connect(self.handle_set_pow_click)
+        self.pushButton_4.clicked.connect(self.set_end_pow)
         # inicializar load and source
         # self.pushButton_5.clicked.connect(self.set_source)
         # self.pushButton_6.clicked.connect(self.set_load)
@@ -230,7 +232,8 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
                     value_to_plot = value[-self.window_length:]
                 else:
                     value_to_plot = value
-                axes_list[graphic_id].plot(value_to_plot, label=key, color=color)
+                label = f"{globals()[data_dict_name][key]['label']} {globals()[data_dict_name][key]['unit']}"
+                axes_list[graphic_id].plot(value_to_plot, label=label, color=color)
                 axes_list[graphic_id].set_ylabel(y_labels[graphic_id])  # Establecer el label del eje y
             if 'QLabel' in globals()[data_dict_name][key]:
                 qlabel_name = globals()[data_dict_name][key]['QLabel']
@@ -296,10 +299,11 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     def load_data(self):
         df = pd.read_excel(self.filename)
         # self.values_list = df.iloc[0, 3:8].tolist()
-        self.values_list = df.iloc[11, 108:].tolist()
-        self.values_list = [val * 1 for val in self.values_list]
+        # self.values_list = df.iloc[11, 117:].tolist()
+        self.values_list = df.iloc[12, 135:].tolist()
+        self.values_list = [val * 2 for val in self.values_list]
         self.pow_index = 0
-        self.pow_timer.start(5000)  # Iniciar el temporizador para setear potencia cada 5 segundos
+        self.pow_timer.start(10000)  # Iniciar el temporizador para setear potencia cada 5 segundos
 
     def handle_set_pow_click(self):
         try:
@@ -334,6 +338,10 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         else:
             self.pow_timer.stop()
             print('Fin lista')
+            
+    def set_end_pow(self):
+        self.pow_index = 1000
+        print('End')
             
     def set_load(self):
         try:
@@ -449,6 +457,10 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             self.password.setEchoMode(QtWidgets.QLineEdit.Normal)
         else:
             self.password.setEchoMode(QtWidgets.QLineEdit.Password)
+
+    def change_page(self, page, page_name):
+        self.ui.stackedWidget.setCurrentWidget(page)
+        self.ui.lineEdit_6.setText(page_name)
 
 class SerialPlot(QtCore.QThread):
     new_data = QtCore.pyqtSignal(dict, str)

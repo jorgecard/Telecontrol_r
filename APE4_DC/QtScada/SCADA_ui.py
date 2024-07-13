@@ -15,11 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
-    QHeaderView, QLabel, QLineEdit, QMainWindow,
-    QPushButton, QRadioButton, QSizePolicy, QSpacerItem,
-    QStackedWidget, QTableWidget, QTableWidgetItem, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QHeaderView,
+    QLabel, QLineEdit, QMainWindow, QPushButton,
+    QSizePolicy, QSpacerItem, QStackedWidget, QTableWidget,
+    QTableWidgetItem, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -76,6 +75,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.frame_superior)
 
+        self.lineEdit_6 = QLabel(self.frame)
+        self.lineEdit_6.setObjectName(u"lineEdit_6")
+        self.lineEdit_6.setStyleSheet(u"background-color: rgb(128, 128, 128);\n"
+"font: 700 9pt \"Segoe UI\";\n"
+"color: rgb(0, 0, 0);")
+        self.lineEdit_6.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_2.addWidget(self.lineEdit_6)
+
         self.frame_contenido = QFrame(self.frame)
         self.frame_contenido.setObjectName(u"frame_contenido")
         self.frame_contenido.setFrameShape(QFrame.StyledPanel)
@@ -113,7 +121,7 @@ class Ui_MainWindow(object):
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setMinimumSize(QSize(0, 40))
         icon1 = QIcon()
-        icon1.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/registrar.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"registrar.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton.setIcon(icon1)
         self.pushButton.setIconSize(QSize(35, 35))
 
@@ -123,7 +131,7 @@ class Ui_MainWindow(object):
         self.pushButton_gen.setObjectName(u"pushButton_gen")
         self.pushButton_gen.setMinimumSize(QSize(0, 40))
         icon2 = QIcon()
-        icon2.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/computer-monitor-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon2.addFile(u"computer-monitor-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_gen.setIcon(icon2)
         self.pushButton_gen.setIconSize(QSize(40, 40))
 
@@ -133,7 +141,7 @@ class Ui_MainWindow(object):
         self.pushButton_1.setObjectName(u"pushButton_1")
         self.pushButton_1.setMinimumSize(QSize(0, 40))
         icon3 = QIcon()
-        icon3.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/estacion-de-carga.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u"estacion-de-carga.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_1.setIcon(icon3)
         self.pushButton_1.setIconSize(QSize(35, 35))
 
@@ -143,7 +151,7 @@ class Ui_MainWindow(object):
         self.pushButton_2.setObjectName(u"pushButton_2")
         self.pushButton_2.setMinimumSize(QSize(0, 40))
         icon4 = QIcon()
-        icon4.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/sentron.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile(u"sentron.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_2.setIcon(icon4)
         self.pushButton_2.setIconSize(QSize(35, 35))
 
@@ -163,7 +171,7 @@ class Ui_MainWindow(object):
         self.pushButton_alarms.setObjectName(u"pushButton_alarms")
         self.pushButton_alarms.setMinimumSize(QSize(0, 40))
         icon6 = QIcon()
-        icon6.addFile(u"../../../GitHub/Telecontrol_r/APE4_DC/QtScada/alarm-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon6.addFile(u"alarm-svgrepo-com.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_alarms.setIcon(icon6)
         self.pushButton_alarms.setIconSize(QSize(40, 40))
 
@@ -402,15 +410,6 @@ class Ui_MainWindow(object):
         self.pushButton_4.setGeometry(QRect(150, 110, 101, 40))
         self.pushButton_4.setMinimumSize(QSize(0, 40))
         self.pushButton_4.setStyleSheet(u"font: 10pt \"Segoe UI\";")
-        self.radioButton = QRadioButton(self.frame_2)
-        self.radioButton.setObjectName(u"radioButton")
-        self.radioButton.setGeometry(QRect(10, 40, 89, 20))
-        self.radioButton_2 = QRadioButton(self.frame_2)
-        self.radioButton_2.setObjectName(u"radioButton_2")
-        self.radioButton_2.setGeometry(QRect(10, 70, 89, 20))
-        self.comboBox = QComboBox(self.frame_2)
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setGeometry(QRect(110, 70, 131, 22))
         self.line_c_pow = QLineEdit(self.frame_2)
         self.line_c_pow.setObjectName(u"line_c_pow")
         self.line_c_pow.setGeometry(QRect(110, 40, 131, 22))
@@ -425,6 +424,25 @@ class Ui_MainWindow(object):
         self.label_12.setObjectName(u"label_12")
         self.label_12.setGeometry(QRect(10, 10, 91, 21))
         self.label_12.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+"background-color: rgb(0, 0, 0);")
+        self.path_lb = QLabel(self.frame_2)
+        self.path_lb.setObjectName(u"path_lb")
+        self.path_lb.setGeometry(QRect(20, 70, 191, 20))
+        self.path_lb.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+"border-color: rgb(0, 255, 255);")
+        self.pushButton_7 = QPushButton(self.frame_2)
+        self.pushButton_7.setObjectName(u"pushButton_7")
+        self.pushButton_7.setGeometry(QRect(230, 70, 31, 21))
+        self.pushButton_7.setStyleSheet(u"background-color: rgb(0, 206, 235);\n"
+"border-top-left-radius: 3px;\n"
+"border-bottom-left-radius:3px;\n"
+"border-color:rgb(0,0,0);\n"
+"color: rgb(255,255,255);\n"
+"font: 77 7pt \"Arial Black\"")
+        self.label_13 = QLabel(self.frame_2)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setGeometry(QRect(30, 40, 71, 21))
+        self.label_13.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "background-color: rgb(0, 0, 0);")
         self.frame_3 = QFrame(self.frame_10)
         self.frame_3.setObjectName(u"frame_3")
@@ -446,21 +464,6 @@ class Ui_MainWindow(object):
         self.label_5.setObjectName(u"label_5")
         self.label_5.setGeometry(QRect(10, 100, 71, 21))
         self.label_5.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
-"background-color: rgb(0, 0, 0);")
-        self.label_8 = QLabel(self.frame_3)
-        self.label_8.setObjectName(u"label_8")
-        self.label_8.setGeometry(QRect(10, 130, 71, 21))
-        self.label_8.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
-"background-color: rgb(0, 0, 0);")
-        self.label_9 = QLabel(self.frame_3)
-        self.label_9.setObjectName(u"label_9")
-        self.label_9.setGeometry(QRect(10, 160, 71, 21))
-        self.label_9.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
-"background-color: rgb(0, 0, 0);")
-        self.label_10 = QLabel(self.frame_3)
-        self.label_10.setObjectName(u"label_10")
-        self.label_10.setGeometry(QRect(0, 190, 81, 21))
-        self.label_10.setStyleSheet(u"font: 8pt \"Segoe UI\";\n"
 "background-color: rgb(0, 0, 0);")
         self.label_11 = QLabel(self.frame_3)
         self.label_11.setObjectName(u"label_11")
@@ -487,26 +490,6 @@ class Ui_MainWindow(object):
         self.label_18.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
 "color: rgb(255, 255, 255);\n"
 "font: 700 14pt \"Segoe UI\";")
-        self.label_19 = QLabel(self.frame_3)
-        self.label_19.setObjectName(u"label_19")
-        self.label_19.setGeometry(QRect(170, 130, 31, 21))
-        self.label_19.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 700 10pt \"Segoe UI\";")
-        self.label_20 = QLabel(self.frame_3)
-        self.label_20.setObjectName(u"label_20")
-        self.label_20.setGeometry(QRect(170, 160, 31, 21))
-        self.label_20.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 700 14pt \"Segoe UI\";")
-        self.label_20.setAlignment(Qt.AlignCenter)
-        self.label_21 = QLabel(self.frame_3)
-        self.label_21.setObjectName(u"label_21")
-        self.label_21.setGeometry(QRect(170, 190, 31, 21))
-        self.label_21.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 700 14pt \"Segoe UI\";")
-        self.label_21.setAlignment(Qt.AlignCenter)
         self.lineEdit_3 = QLabel(self.frame_3)
         self.lineEdit_3.setObjectName(u"lineEdit_3")
         self.lineEdit_3.setGeometry(QRect(90, 40, 71, 21))
@@ -523,24 +506,6 @@ class Ui_MainWindow(object):
         self.lineEdit_5.setObjectName(u"lineEdit_5")
         self.lineEdit_5.setGeometry(QRect(90, 100, 71, 21))
         self.lineEdit_5.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"font: 10pt \"Segoe UI\";")
-        self.lineEdit_6 = QLabel(self.frame_3)
-        self.lineEdit_6.setObjectName(u"lineEdit_6")
-        self.lineEdit_6.setGeometry(QRect(90, 130, 71, 21))
-        self.lineEdit_6.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"font: 10pt \"Segoe UI\";")
-        self.lineEdit_7 = QLabel(self.frame_3)
-        self.lineEdit_7.setObjectName(u"lineEdit_7")
-        self.lineEdit_7.setGeometry(QRect(90, 160, 71, 21))
-        self.lineEdit_7.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"font: 10pt \"Segoe UI\";")
-        self.lineEdit_8 = QLabel(self.frame_3)
-        self.lineEdit_8.setObjectName(u"lineEdit_8")
-        self.lineEdit_8.setGeometry(QRect(90, 190, 71, 21))
-        self.lineEdit_8.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);\n"
 "font: 10pt \"Segoe UI\";")
         self.frame_12 = QFrame(self.frame_10)
@@ -618,11 +583,6 @@ class Ui_MainWindow(object):
         self.label_32.setGeometry(QRect(10, 70, 91, 21))
         self.label_32.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "background-color: rgb(0, 0, 0);")
-        self.label_33 = QLabel(self.frame_13)
-        self.label_33.setObjectName(u"label_33")
-        self.label_33.setGeometry(QRect(10, 100, 91, 21))
-        self.label_33.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
-"background-color: rgb(0, 0, 0);")
         self.label_34 = QLabel(self.frame_13)
         self.label_34.setObjectName(u"label_34")
         self.label_34.setGeometry(QRect(10, 130, 91, 21))
@@ -657,12 +617,6 @@ class Ui_MainWindow(object):
 "color: rgb(255, 255, 255);\n"
 "font: 700 14pt \"Segoe UI\";")
         self.label_42.setAlignment(Qt.AlignCenter)
-        self.label_43 = QLabel(self.frame_13)
-        self.label_43.setObjectName(u"label_43")
-        self.label_43.setGeometry(QRect(200, 100, 31, 21))
-        self.label_43.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
-"color: rgb(255, 255, 255);\n"
-"font: 700 14pt \"Segoe UI\";")
         self.label_44 = QLabel(self.frame_13)
         self.label_44.setObjectName(u"label_44")
         self.label_44.setGeometry(QRect(200, 130, 31, 21))
@@ -695,12 +649,6 @@ class Ui_MainWindow(object):
         self.lineEdit_16.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);\n"
 "font: 10pt \"Segoe UI\";")
-        self.lineEdit_17 = QLabel(self.frame_13)
-        self.lineEdit_17.setObjectName(u"lineEdit_17")
-        self.lineEdit_17.setGeometry(QRect(110, 100, 81, 21))
-        self.lineEdit_17.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"color: rgb(0, 0, 0);\n"
-"font: 10pt \"Segoe UI\";")
         self.lineEdit_18 = QLabel(self.frame_13)
         self.lineEdit_18.setObjectName(u"lineEdit_18")
         self.lineEdit_18.setGeometry(QRect(110, 130, 81, 21))
@@ -719,6 +667,24 @@ class Ui_MainWindow(object):
         self.lineEdit_20.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);\n"
 "font: 10pt \"Segoe UI\";")
+        self.lineEdit_17 = QLabel(self.frame_13)
+        self.lineEdit_17.setObjectName(u"lineEdit_17")
+        self.lineEdit_17.setGeometry(QRect(110, 100, 81, 21))
+        self.lineEdit_17.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.label_33 = QLabel(self.frame_13)
+        self.label_33.setObjectName(u"label_33")
+        self.label_33.setGeometry(QRect(10, 100, 91, 21))
+        self.label_33.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+"background-color: rgb(0, 0, 0);")
+        self.label_43 = QLabel(self.frame_13)
+        self.label_43.setObjectName(u"label_43")
+        self.label_43.setGeometry(QRect(200, 100, 31, 21))
+        self.label_43.setStyleSheet(u"background-color: rgb(0, 0, 0);\n"
+"color: rgb(255, 255, 255);\n"
+"font: 700 14pt \"Segoe UI\";")
+        self.label_43.setAlignment(Qt.AlignCenter)
         self.frame_14 = QFrame(self.frame_10)
         self.frame_14.setObjectName(u"frame_14")
         self.frame_14.setGeometry(QRect(360, 380, 251, 131))
@@ -795,22 +761,6 @@ class Ui_MainWindow(object):
         self.lineEdit_26.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);\n"
 "font: 10pt \"Segoe UI\";")
-        self.pushButton_5 = QPushButton(self.frame_10)
-        self.pushButton_5.setObjectName(u"pushButton_5")
-        self.pushButton_5.setGeometry(QRect(60, 430, 141, 51))
-        self.pushButton_6 = QPushButton(self.frame_10)
-        self.pushButton_6.setObjectName(u"pushButton_6")
-        self.pushButton_6.setGeometry(QRect(960, 460, 151, 51))
-        self.pushButton_6.setStyleSheet(u"border-top-left-radius: 20px;\n"
-"border-bottom-left-radius:20px;")
-        self.pushButton_7 = QPushButton(self.frame_10)
-        self.pushButton_7.setObjectName(u"pushButton_7")
-        self.pushButton_7.setGeometry(QRect(780, 190, 111, 41))
-        self.path_lb = QLabel(self.frame_10)
-        self.path_lb.setObjectName(u"path_lb")
-        self.path_lb.setGeometry(QRect(780, 150, 381, 20))
-        self.path_lb.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
-"border-color: rgb(0, 255, 255);")
         self.stackedWidget.addWidget(self.page)
         self.frame_10.raise_()
         self.frame_6.raise_()
@@ -913,7 +863,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.frame_contenido)
 
-        self.verticalLayout_2.setStretch(1, 8)
+        self.verticalLayout_2.setStretch(2, 8)
 
         self.verticalLayout.addWidget(self.frame)
 
@@ -930,6 +880,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.bt_menu.setText("")
+        self.lineEdit_6.setText("")
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Log in", None))
         self.pushButton_gen.setText(QCoreApplication.translate("MainWindow", u"General", None))
         self.pushButton_1.setText(QCoreApplication.translate("MainWindow", u"Generador", None))
@@ -955,29 +906,21 @@ class Ui_MainWindow(object):
         self.label_2.setText("")
         self.pushButton_set_pow.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
         self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Parar", None))
-        self.radioButton.setText(QCoreApplication.translate("MainWindow", u"Constante", None))
-        self.radioButton_2.setText(QCoreApplication.translate("MainWindow", u"txt", None))
         self.label_25.setText(QCoreApplication.translate("MainWindow", u"KW", None))
         self.label_12.setText(QCoreApplication.translate("MainWindow", u"Carga", None))
+        self.path_lb.setText(QCoreApplication.translate("MainWindow", u"Path", None))
+        self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"...", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Constante", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"VOLTAJE", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"CORRIENTE", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"POTENCIA", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"ENERG\u00cdA", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"EFICIENCIA", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"TEMPERATURA", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"GENERADOR", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"V", None))
         self.label_17.setText(QCoreApplication.translate("MainWindow", u"A", None))
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"kW", None))
-        self.label_19.setText(QCoreApplication.translate("MainWindow", u"Kwh", None))
-        self.label_20.setText(QCoreApplication.translate("MainWindow", u"%", None))
-        self.label_21.setText(QCoreApplication.translate("MainWindow", u"\u00b0C", None))
         self.lineEdit_3.setText("")
         self.lineEdit_4.setText("")
         self.lineEdit_5.setText("")
-        self.lineEdit_6.setText("")
-        self.lineEdit_7.setText("")
-        self.lineEdit_8.setText("")
         self.label_22.setText(QCoreApplication.translate("MainWindow", u"VOLTAJE", None))
         self.label_23.setText(QCoreApplication.translate("MainWindow", u"CORRIENTE", None))
         self.label_24.setText(QCoreApplication.translate("MainWindow", u"POTENCIA", None))
@@ -989,23 +932,23 @@ class Ui_MainWindow(object):
         self.lineEdit_14.setText("")
         self.label_31.setText(QCoreApplication.translate("MainWindow", u"VOLTAJE", None))
         self.label_32.setText(QCoreApplication.translate("MainWindow", u"CORRIENTE", None))
-        self.label_33.setText(QCoreApplication.translate("MainWindow", u"POTENCIA", None))
         self.label_34.setText(QCoreApplication.translate("MainWindow", u"VENTILADORES", None))
         self.label_38.setText(QCoreApplication.translate("MainWindow", u"TEMPERATURA", None))
         self.label_39.setText(QCoreApplication.translate("MainWindow", u"FLUJO DE H2", None))
         self.label_40.setText(QCoreApplication.translate("MainWindow", u"HIDR\u00d3GENO", None))
         self.label_41.setText(QCoreApplication.translate("MainWindow", u"V", None))
         self.label_42.setText(QCoreApplication.translate("MainWindow", u"A", None))
-        self.label_43.setText(QCoreApplication.translate("MainWindow", u"kW", None))
         self.label_44.setText(QCoreApplication.translate("MainWindow", u"%", None))
         self.label_45.setText(QCoreApplication.translate("MainWindow", u"\u00b0C", None))
         self.label_46.setText(QCoreApplication.translate("MainWindow", u"%", None))
         self.lineEdit_15.setText("")
         self.lineEdit_16.setText("")
-        self.lineEdit_17.setText("")
         self.lineEdit_18.setText("")
         self.lineEdit_19.setText("")
         self.lineEdit_20.setText("")
+        self.lineEdit_17.setText("")
+        self.label_33.setText(QCoreApplication.translate("MainWindow", u"POTENCIA", None))
+        self.label_43.setText(QCoreApplication.translate("MainWindow", u"W", None))
         self.label_49.setText(QCoreApplication.translate("MainWindow", u"voltaje salida", None))
         self.label_50.setText(QCoreApplication.translate("MainWindow", u"corriente salida", None))
         self.label_51.setText(QCoreApplication.translate("MainWindow", u"Temp amb", None))
@@ -1018,10 +961,6 @@ class Ui_MainWindow(object):
         self.lineEdit_24.setText("")
         self.lineEdit_25.setText("")
         self.lineEdit_26.setText("")
-        self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"Activar Fuente", None))
-        self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"Activar Carga", None))
-        self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"Explorar", None))
-        self.path_lb.setText(QCoreApplication.translate("MainWindow", u"Path", None))
         ___qtablewidgetitem4 = self.tableWidget_2.horizontalHeaderItem(0)
         ___qtablewidgetitem4.setText(QCoreApplication.translate("MainWindow", u"Mascara de tiempo", None));
         ___qtablewidgetitem5 = self.tableWidget_2.horizontalHeaderItem(1)

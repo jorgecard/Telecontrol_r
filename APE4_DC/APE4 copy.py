@@ -119,9 +119,9 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # acceder a las paginas
         self.ui.pushButton.clicked.connect(lambda: self.change_page(self.ui.page_login, "Página de inicio de sesión"))
         self.ui.pushButton_gen.clicked.connect(lambda: self.change_page(self.ui.page, "Página general"))
-        self.ui.pushButton_1.clicked.connect(lambda: self.change_page(self.ui.page_1, "Página 1"))
-        self.ui.pushButton_2.clicked.connect(lambda: self.change_page(self.ui.page_2, "Página 2"))
-        self.ui.pushButton_3.clicked.connect(lambda: self.change_page(self.ui.page_3, "Página 3"))
+        self.ui.pushButton_1.clicked.connect(lambda: self.change_page(self.ui.page_1, "Fuente Programable"))
+        self.ui.pushButton_2.clicked.connect(lambda: self.change_page(self.ui.page_2, "Carga Programable"))
+        self.ui.pushButton_3.clicked.connect(lambda: self.change_page(self.ui.page_3, "Pila H2"))
         self.ui.pushButton_alarms.clicked.connect(lambda: self.change_page(self.ui.page_alarms, "Página de alarmas"))
         self.ui.pushButton_log_ins.clicked.connect(lambda: self.change_page(self.ui.page_log_ins, "Página de registros"))
         self.pushButton_log_ins.clicked.connect(self.activate_sheet_log_ins)
