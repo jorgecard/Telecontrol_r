@@ -35,12 +35,11 @@ dic_equipment = {
                'widget': 'widget_3', 'data_dict': 'data_dict_3',},
 }
 
-# Diccionario 1 Fotovoltaico
+# Diccionario 1
 data_dict_1 = {
-    'Potencia':  {'label': 'P 1', 'unit': ' [kW]', 'address': 20, 'count': 1, 'color': '#9103A6','QLabel': 'lineEdit_15', 'graphic':0, 'factor':1/10,},
-    'Voltaje':  {'label': 'V 1', 'unit': ' [V]', 'address': 5, 'count': 1, 'color': '#9103A6','QLabel': 'lineEdit_13','graphic':1, 'factor':1/10,},
-    'Corriente':  {'label': 'I 1', 'unit': ' [A]', 'address': 11, 'count': 1, 'color': '#9103A6','QLabel': 'lineEdit_14', 'graphic':2, 'factor':1/10,},
-    
+    'Potencia': {'label': 'P 1', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_15', 'graphic':3},
+    'Voltaje':  {'label': 'V 1', 'unit': ' [V]',  'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_13'},
+    'Corriente':{'label': 'I 1', 'unit': ' [A]',  'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_14'},
     
     'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_18', 'graphic':0},
     'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_19', 'graphic':0},
@@ -56,16 +55,20 @@ data_dict_1 = {
 }
 
 # Diccionario 2 Batería  litio
-data_dict_1 = {
-    'SOC':  {'label': 'SOC ', 'unit': ' [%]', 'address': 5, 'count': 1, 'color': '#9103A6','QLabel': 'lineEdit_16', 'graphic':3, 'factor':1/10,},
-    'SOH':  {'label': 'SOH', 'unit': ' [%]', 'address': 6, 'count': 1, 'color': '#9103A6','QLabel': 'lineEdit_48' , 'graphic':3, 'factor':1/10,},
-    'Voltaje batería':  {'label': 'Vbat', 'unit': ' [V]', 'address': 7, 'count': 1, 'color': '#9103A6','QLabel': 'lineEdit_3', 'graphic':0, 'factor':1/10,},
-    'Corriente':  {'label': 'I', 'unit': ' [A]', 'address': 7, 'count': 1, 'color': '#9103A6','QLabel': 'lineEdit_4', 'graphic':0, 'factor':1/10,},
-    'Potencia':  {'label': 'P', 'unit': ' [kW]', 'address': 7, 'count': 1, 'color': '#9103A6','QLabel': 'lineEdit_5', 'graphic':0, 'factor':1/10,},
+data_dict_2 = {   
+    'Voltaje':  {'label': 'V',   'unit': ' [V]', 'address': 25, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_3'},
+    'Corriente':{'label': 'I',   'unit': ' [A]', 'address': 26, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_4'},
+    'Potencia': {'label': 'P',   'unit': ' [kW]','address': 27, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_5'},
+    'SOC':      {'label': 'SOC', 'unit': ' [%]', 'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_16',},
+    'SOH':      {'label': 'SOH', 'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_48',},
+    
+    'SOC':      {'label': 'SOC ', 'unit': ' [%]', 'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_52', 'graphic':3, 'color': '#9103A6',},
+    'SOH':      {'label': 'SOH',  'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_53', 'graphic':3, 'color': '#9103A6',},
+    'Vol bat':  {'label': 'Vbat', 'unit': ' [V]', 'address': 7,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_3',  'graphic':0, 'color': '#9103A6',},
     
     #Conexión DC
-    'V':  {'label': 'V', 'unit': ' [V]', 'address': 25, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_49','graphic':0},
-    'I':  {'label': 'I', 'unit': ' [A]', 'address': 26, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_50','graphic':1},
+    'V':  {'label': 'V', 'unit': ' [V]',  'address': 25, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_49','graphic':0},
+    'I':  {'label': 'I', 'unit': ' [A]',  'address': 26, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_50','graphic':1},
     'P':  {'label': 'P', 'unit': ' [kW]', 'address': 27, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_51','graphic':2},
     
     #Conexión AC
@@ -77,17 +80,21 @@ data_dict_1 = {
     'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 35, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_31','graphic':1},
     'I t':  {'label': 'It', 'unit': ' [A]', 'address': 36, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_32','graphic':1},
     
-    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 43, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_33','graphic':2},
-    'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 44, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_34','graphic':2},
-    'S':  {'label': 'S', 'unit': ' [kVA]', 'address': 45, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_35','graphic':2},
+    'P_tot':  {'label': 'P', 'unit': ' [kW]',  'address': 43, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_33','graphic':2},
+    'Q_tot':  {'label': 'Q', 'unit': ' [kVAr]','address': 44, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_34','graphic':2},
+    'S_tot':  {'label': 'S', 'unit': ' [kVA]', 'address': 45, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_35','graphic':2},
+    
 }
 
 # Diccionario 3 Supercondensador
-data_dict_1 = {
-    'SOC':  {'label': 'SOC ', 'unit': ' [%]', 'address': 31, 'count': 1, 'color': '#9103A6', 'graphic':3, 'factor':1/10,},
-    
+data_dict_3 = {
+    'Voltaje':  {'label': 'V',   'unit': ' [V]', 'address': 2, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_10'},
+    'Corriente':{'label': 'I',   'unit': ' [A]', 'address': 3, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_11'},
+    'Potencia': {'label': 'P',   'unit': ' [kW]','address': 4, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_12'},
+    'SOC':      {'label': 'SOC', 'unit': ' [%]', 'address': 31,'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_17',},
     
     #Conexión DC
+    'SOC':{'label': 'SOC', 'unit': ' [%]', 'address': 31,'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_61', 'graphic':3},
     'V':  {'label': 'V', 'unit': ' [V]', 'address': 2, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_58','graphic':0},
     'I':  {'label': 'I', 'unit': ' [A]', 'address': 3, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_59','graphic':1},
     'P':  {'label': 'P', 'unit': ' [kW]', 'address': 4, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_60','graphic':2},
@@ -105,7 +112,6 @@ data_dict_1 = {
     'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_46','graphic':2},
     'S':  {'label': 'S', 'unit': ' [kVA]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_47','graphic':2},
 }
-
 
 # Diccionario de labels del eje y para cada gráfico
 y_labels = {
@@ -133,46 +139,43 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
         self.ui = uic.loadUi(ruta_interfaz, self)
-        self.resize(888, 600)
+        self.resize(1000, 600)
         
-        self.ui.label_2.setPixmap(QtGui.QPixmap(os.path.join(dir_interfaz, "esquema3.png")))
+        self.ui.label_2.setPixmap(QtGui.QPixmap(os.path.join(dir_interfaz, "esquema.png")))
         
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(ruta_logo), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.setWindowIcon(icon)
         self.setWindowTitle('Telecontrol y Telemando')
         
-        self.devices_list = [val['open_resource'] if 'open_resource' in val else val['port'] for val in dic_equipment.values()]
+        self.devices_list = [val['ip'] if 'ip' in val else val['port'] for val in dic_equipment.values()]
         
         # Establecer la página predeterminada al arrancar
-        self.ui.stackedWidget.setCurrentWidget(self.ui.page_login)
+        self.ui.stackedWidget.setCurrentWidget(self.ui.page_general)
         
         # acceder a las paginas
-        self.ui.pushButton.clicked.connect(lambda: self.change_page(self.ui.page_login, "Página de inicio de sesión"))
-        self.ui.pushButton_gen.clicked.connect(lambda: self.change_page(self.ui.page, "Página general"))
-        self.ui.pushButton_1.clicked.connect(lambda: self.change_page(self.ui.page_1, "Fuente Programable"))
-        self.ui.pushButton_2.clicked.connect(lambda: self.change_page(self.ui.page_2, "Carga Programable"))
-        self.ui.pushButton_3.clicked.connect(lambda: self.change_page(self.ui.page_3, "Pila H2"))
-        self.ui.pushButton_alarms.clicked.connect(lambda: self.change_page(self.ui.page_alarms, "Página de alarmas"))
-        self.ui.pushButton_log_ins.clicked.connect(lambda: self.change_page(self.ui.page_log_ins, "Página de registros"))
-        self.pushButton_7.clicked.connect(self.open_dialog_box)
-        self.pushButton_set_pow.clicked.connect(self.handle_set_pow_click)
-        self.pushButton_4.clicked.connect(self.set_end_pow)
-        # inicializar load and source
-        # self.pushButton_5.clicked.connect(self.set_source)
-        # self.pushButton_6.clicked.connect(self.set_load)
-        self.set_source()
-        self.set_load()
+        self.ui.pushButton_gen.clicked.connect(lambda: self.change_page(self.ui.page_general, "Página general"))
+        self.ui.pushButton_0.clicked.connect(lambda: self.change_page(self.ui.page_metodo_control, "Power Smoothing"))
+        self.ui.pushButton_1.clicked.connect(lambda: self.change_page(self.ui.page_gr_fv, "Generación Fotovoltaica"))
+        self.ui.pushButton_2.clicked.connect(lambda: self.change_page(self.ui.page_gr_bat, "Batería de Litio"))
+        self.ui.pushButton_3.clicked.connect(lambda: self.change_page(self.ui.page_gr_sc, "Super Capacitores"))
+        self.pushButton_14.clicked.connect(self.open_dialog_box)
+        self.pushButton_set_pow.clicked.connect(self.start_loaded_data)
+        self.pushButton_13.clicked.connect(self.set_end_pow)
 
         # menu lateral
         self.ui.bt_menu.clicked.connect(self.mover_menu)
         # estado inicial botones
         self.pushButton_1.setEnabled(True)
         self.pushButton_2.setEnabled(True)
-        self.pushButton_log_ins.setEnabled(True)
-        self.password.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.pushButton_eye.clicked.connect(self.toggle_password_visibility)
-               
+        
+        # Inicializar el comboBox con los métodos de optimización
+        self.ui.comboBox.addItems(['-----', 'Control 1', 'Control 2'])
+        self.ui.comboBox.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
+
+        # Conectar la señal de cambio de selección del comboBox a la función control
+        self.ui.comboBox.currentIndexChanged.connect(self.control)
+        
         # Configuraciones de visualización
         self.window_length = 50  # Establece la longitud de la ventana de visualización en milisegundos
         self.interval = 100  # Establece el intervalo de actualización del gráfico en milisegundos.
@@ -186,7 +189,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
 
         # Iniciar los hilos de lectura de los dispositivos
         self.threads = []
-        self.init_visa_threads()
+        self.init_modbus_threads()
         self.init_serial_threads()
                 
         # Inicializar el temporizador para actualizar los gráficos
@@ -201,7 +204,17 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pow_index = 0
         self.pow_timer = QTimer()
         self.pow_timer.timeout.connect(self.set_next_pow)
-    
+
+    def control(self):
+        selected_control = self.ui.comboBox.currentText()
+        self.path_lb_7.setText(selected_control)
+        if selected_control == 'Control 1':
+            print("Se ha seleccionado Control 1")
+        elif selected_control == 'Control 2':
+            print("Se ha seleccionado Control 2")
+        else:
+            print("Seleccion no válida")
+
     def init_graphics(self):
         self.graphs = {}
         for key, val in dic_equipment.items():
@@ -227,13 +240,12 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
                 thread.new_data.connect(self.store_data)
                 thread.start()
     
-    def init_visa_threads(self):
+    def init_modbus_threads(self):
         for equipment in dic_equipment.values():
             if equipment['Type'] == 'TCP/IP':
-                thread = VisaPlot(
-                    equipment['open_resource'],
-                    equipment['write_termination'],
-                    equipment['read_termination'],
+                thread = ModbusPlot(
+                    equipment['ip'],
+                    equipment['port'],
                     equipment['timeout'],
                     data_dict=globals()[equipment['data_dict']],
                     widget_id=equipment['widget']
@@ -302,40 +314,26 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     
     def open_dialog_box(self):
         self.filename, _ = QFileDialog.getOpenFileName(self, 'Open File', dir_actual, 'All Files (*)')
-        self.path_lb.setText(self.filename)
+        self.path_lb_6.setText(self.filename)
         self.load_data()
         
     def load_data(self):
-        df = pd.read_excel(self.filename)
-        # self.values_list = df.iloc[0, 3:8].tolist()
-        # self.values_list = df.iloc[11, 117:].tolist()
-        self.values_list = df.iloc[12, 135:].tolist()
-        self.values_list = [val * 2 for val in self.values_list]
+        with open(self.filename, 'r') as file:
+            # Lee todas las líneas y las almacena en una lista
+            lines = file.readlines()
+        
+        # Convierte las líneas en valores flotantes y almacénalos en una lista
+        values = [float(line.strip()) for line in lines]
+        self.values_list = values
+        print(self.values_list)
+        
+    def start_loaded_data(self):
         self.pow_index = 0
-        self.pow_timer.start(10000)  # Iniciar el temporizador para setear potencia cada 5 segundos
-
-    def handle_set_pow_click(self):
-        try:
-            kpow = float(self.ui.line_c_pow.text())
-            self.set_pow(kpow)
-        except ValueError:
-            print("Error: Please enter a valid number in the line_c_pow field.")
+        self.pow_timer.start(10000)  # Iniciar el temporizador para setear potencia cada 10 segundos
     
     def set_pow(self, kpow):
         try:
-            rm = pyvisa.ResourceManager()
-            resource = dic_equipment['Carga programable']['open_resource']
-            instrument = rm.open_resource(resource)
-            instrument.write_termination = dic_equipment['Carga programable']['write_termination']
-            instrument.read_termination = dic_equipment['Carga programable']['read_termination']
-            instrument.timeout = dic_equipment['Carga programable']['timeout']
-            
-            if 0 < kpow < 2.8:
-                instrument.write(f'VOLT:STAT:ILIM {kpow * 1000 / 49}')
-                print(f'kpow seteada: {kpow}')
-            else:
-                print(f'Carga fuera de rango: {kpow}')
-            instrument.close()
+            print(f'kpow: {kpow}')
         except Exception as e:
             print(f"Error setting pow: {e}")
 
@@ -349,73 +347,16 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             print('Fin lista')
             
     def set_end_pow(self):
-        self.pow_index = 1000
+        self.pow_timer.stop()
         print('End')
-            
-    def set_load(self):
-        try:
-            rm = pyvisa.ResourceManager()
-            resource = dic_equipment['Carga programable']['open_resource']
-            instrument = rm.open_resource(resource)
-            instrument.write_termination = dic_equipment['Carga programable']['write_termination']
-            instrument.read_termination = dic_equipment['Carga programable']['read_termination']
-            instrument.timeout = dic_equipment['Carga programable']['timeout']
-            
-            instrument.write('MODE CVL')
-            instrument.write('MODE?')
-            try:
-                response = instrument.read()
-                print(f": {response}")
-            except pyvisa.errors.VisaIOError as e:
-                print(f"Error de lectura: {e}")
-            instrument.write('VOLT:STAT:L1 0')
-            instrument.write('VOLT:STAT:L2 0')
-            instrument.write('VOLT:STAT:ILIM 1.0')
-            instrument.write('LOAD ON')
-            instrument.write('LOAD?')
-            try:
-                response = instrument.read()
-                print(f": {response}")
-            except pyvisa.errors.VisaIOError as e:
-                print(f"Error de lectura: {e}")
-            instrument.close()
-        except Exception as e:
-            print(f"Error setting load: {e}")
-    
-    def set_source(self):
-        try:
-            rm = pyvisa.ResourceManager()
-            resource = dic_equipment['Fuente programable']['open_resource']
-            instrument = rm.open_resource(resource)
-            instrument.write_termination = dic_equipment['Fuente programable']['write_termination']
-            instrument.read_termination = dic_equipment['Fuente programable']['read_termination']
-            instrument.timeout = dic_equipment['Fuente programable']['timeout']
-            instrument.write('SOUR:CURR 8.0')
-            instrument.write('SOUR:VOLT 49.0')
-            instrument.write('CONF:OUTPut ON')
-            instrument.write('CONF:OUTPut?')
-            try:
-                response = instrument.read()
-                print(f": {response}")
-            except pyvisa.errors.VisaIOError as e:
-                print(f"Error de lectura: {e}")
-            instrument.close()
-        except Exception as e:
-            print(f"Error setting Source: {e}")
             
     def close_instruments(self, event):
         for thread in self.threads:
-            if isinstance(thread, VisaPlot):
-                thread.instrument.close()
+            if isinstance(thread, ModbusPlot):
+                thread.client.close()
             elif isinstance(thread, SerialPlot):
                 thread.ser.close()
         event.accept()
-        
-    def toggle_password_visibility(self):
-        if self.password.echoMode() == QtWidgets.QLineEdit.Password:
-            self.password.setEchoMode(QtWidgets.QLineEdit.Normal)
-        else:
-            self.password.setEchoMode(QtWidgets.QLineEdit.Password)
 
     def change_page(self, page, page_name):
         self.ui.stackedWidget.setCurrentWidget(page)
@@ -452,36 +393,33 @@ class SerialPlot(QtCore.QThread):
             value = float(line[char_i:char_f]) * settings['factor']
             self.data_buffer[key].append(value)
 
-class VisaPlot(QtCore.QThread):
+class ModbusPlot(QtCore.QThread):
     new_data = QtCore.pyqtSignal(dict, str)
 
-    def __init__(self, resource, write_termination, read_termination, timeout, data_dict, widget_id):
+    def __init__(self, ip, port, timeout, data_dict, widget_id):
         super().__init__()
-        self.resource = resource
-        self.write_termination = write_termination
-        self.read_termination = read_termination
+        self.ip = ip
+        self.port = port
         self.timeout = timeout
         self.data_dict = data_dict
         self.widget_id = widget_id
-        self.rm = pyvisa.ResourceManager()
-        self.instrument = self.rm.open_resource(resource)
-        self.instrument.timeout = timeout
-        self.instrument.write_termination = write_termination
-        self.instrument.read_termination = read_termination
+        self.client = ModbusTcpClient(ip, port=port, timeout=timeout)
         self.data_buffer = {key: [] for key in data_dict.keys()}
 
     def run(self):
+        self.client.connect()
         while True:
             try:
                 for key, settings in self.data_dict.items():
-                    self.instrument.write(settings['command'])
-                    response = self.instrument.read()
-                    value = float(response) * settings['factor']
+                    response = self.client.read_holding_registers(settings['address'], settings['count'], unit=1)
+                    if response.isError():
+                        continue
+                    value = struct.unpack('<h', struct.pack('<H', response.registers[0]))[0] * settings['factor']
                     self.data_buffer[key].append(value)
                 self.new_data.emit(self.data_buffer, self.widget_id)
-                time.sleep(1)  # Ajustar el intervalo de muestreo según sea necesario
+                time.sleep(1)
             except Exception as e:
-                print(f"Error reading VISA data: {e}")
+                print(f"Error reading Modbus data: {e}")
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
