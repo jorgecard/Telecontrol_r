@@ -187,7 +187,7 @@ font: 77 10pt &quot;Arial Black&quot;
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../../../../APE4_DC/QtScada/computer-monitor-svgrepo-com.svg</normaloff>../../../../../../APE4_DC/QtScada/computer-monitor-svgrepo-com.svg</iconset>
+                 <normaloff>../../../../../../../APE4_DC/QtScada/computer-monitor-svgrepo-com.svg</normaloff>../../../../../../../APE4_DC/QtScada/computer-monitor-svgrepo-com.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -211,7 +211,7 @@ Smoothing</string>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../../../../APE4_DC/QtScada/estacion-de-carga.svg</normaloff>../../../../../../APE4_DC/QtScada/estacion-de-carga.svg</iconset>
+                 <normaloff>../../../../../../../APE4_DC/QtScada/estacion-de-carga.svg</normaloff>../../../../../../../APE4_DC/QtScada/estacion-de-carga.svg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -234,7 +234,7 @@ Smoothing</string>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../../../Downloads/ESQUEMA 1 INVERSOR-eeeModel.png</normaloff>../../../../../Downloads/ESQUEMA 1 INVERSOR-eeeModel.png</iconset>
+                 <normaloff>../../../../../../../Downloads/ESQUEMA 1 INVERSOR-eeeModel.png</normaloff>../../../../../../../Downloads/ESQUEMA 1 INVERSOR-eeeModel.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -253,11 +253,11 @@ Smoothing</string>
                 </size>
                </property>
                <property name="text">
-                <string>Supercondensador</string>
+                <string>Batería</string>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../../../Downloads/ESQUEMA 1 INVERSOR-Model.png</normaloff>../../../../../Downloads/ESQUEMA 1 INVERSOR-Model.png</iconset>
+                 <normaloff>../../../../../../../Downloads/ESQUEMA 1 INVERSOR-Model.png</normaloff>../../../../../../../Downloads/ESQUEMA 1 INVERSOR-Model.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -276,11 +276,11 @@ Smoothing</string>
                 </size>
                </property>
                <property name="text">
-                <string>Batería</string>
+                <string>Supercondensador</string>
                </property>
                <property name="icon">
                 <iconset>
-                 <normaloff>../../../../../Downloads/vecteezy_voltmeter-vector-icon_16223191.jpg</normaloff>../../../../../Downloads/vecteezy_voltmeter-vector-icon_16223191.jpg</iconset>
+                 <normaloff>../../../../../../../Downloads/vecteezy_voltmeter-vector-icon_16223191.jpg</normaloff>../../../../../../../Downloads/vecteezy_voltmeter-vector-icon_16223191.jpg</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -391,7 +391,7 @@ font-size: 12;
                 <number>1</number>
                </property>
                <property name="currentIndex">
-                <number>2</number>
+                <number>4</number>
                </property>
                <widget class="QWidget" name="page_general">
                 <widget class="QFrame" name="frame_10">
@@ -534,7 +534,7 @@ background-color: rgb(193, 193, 193);
 color: rgb(0, 0, 0);</string>
                    </property>
                    <property name="text">
-                    <string>Batería </string>
+                    <string>Batería de litio</string>
                    </property>
                   </widget>
                   <widget class="QLabel" name="label_16">
@@ -1233,8 +1233,14 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                    <x>0</x>
                    <y>0</y>
                    <width>881</width>
-                   <height>721</height>
+                   <height>500</height>
                   </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>500</height>
+                  </size>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">background-color: rgb(193, 193, 193);</string>
@@ -1863,8 +1869,14 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                    <x>0</x>
                    <y>0</y>
                    <width>881</width>
-                   <height>721</height>
+                   <height>500</height>
                   </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>500</height>
+                  </size>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">background-color: rgb(193, 193, 193);</string>
@@ -2854,8 +2866,14 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                    <x>0</x>
                    <y>0</y>
                    <width>881</width>
-                   <height>721</height>
+                   <height>500</height>
                   </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>500</height>
+                  </size>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">background-color: rgb(193, 193, 193);</string>
@@ -3787,7 +3805,7 @@ font: 77 10pt &quot;Arial Black&quot;
                     <property name="frameShadow">
                      <enum>QFrame::Raised</enum>
                     </property>
-                    <widget class="QPushButton" name="pushButton_set_pow_2">
+                    <widget class="QPushButton" name="pushButton_set_control">
                      <property name="geometry">
                       <rect>
                        <x>20</x>
@@ -3956,7 +3974,7 @@ font: 77 10pt &quot;Arial Black&quot;
                     <property name="frameShadow">
                      <enum>QFrame::Raised</enum>
                     </property>
-                    <widget class="QPushButton" name="pushButton_set_pow_6">
+                    <widget class="QPushButton" name="pushButton_set_pow">
                      <property name="geometry">
                       <rect>
                        <x>10</x>

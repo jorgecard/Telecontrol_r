@@ -52,7 +52,6 @@ data_dict_1 = {
     'P':  {'label': 'P', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_24','graphic':2},
     'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_25','graphic':2},
     'S':  {'label': 'S', 'unit': ' [kVA]', 'address': 22, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_26','graphic':2},
-
 }
 
 # Diccionario 2 Batería  litio
@@ -161,8 +160,8 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.ui.pushButton_2.clicked.connect(lambda: self.change_page(self.ui.page_gr_bat, "Batería de Litio"))
         self.ui.pushButton_3.clicked.connect(lambda: self.change_page(self.ui.page_gr_sc, "Super Capacitores"))
         self.pushButton_14.clicked.connect(self.open_dialog_box)
-        # self.pushButton_set_pow.clicked.connect(self.handle_set_pow_click)
-        # self.pushButton_4.clicked.connect(self.set_end_pow)
+        self.pushButton_set_pow.clicked.connect(self.start_loaded_data)
+        self.pushButton_13.clicked.connect(self.set_end_pow)
 
         # menu lateral
         self.ui.bt_menu.clicked.connect(self.mover_menu)
@@ -171,7 +170,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pushButton_2.setEnabled(True)
         
         # Inicializar el comboBox con los métodos de optimización
-        self.ui.comboBox.addItems(['Control 1', 'Control 2'])
+        self.ui.comboBox.addItems(['-----', 'Control 1', 'Control 2'])
         self.ui.comboBox.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
 
         # Conectar la señal de cambio de selección del comboBox a la función control
@@ -208,7 +207,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
 
     def control(self):
         selected_control = self.ui.comboBox.currentText()
-        self.control_selected.setText(selected_control)
+        self.path_lb_7.setText(selected_control)
         if selected_control == 'Control 1':
             print("Se ha seleccionado Control 1")
         elif selected_control == 'Control 2':
@@ -315,38 +314,26 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     
     def open_dialog_box(self):
         self.filename, _ = QFileDialog.getOpenFileName(self, 'Open File', dir_actual, 'All Files (*)')
-        self.path_lb.setText(self.filename)
+        self.path_lb_6.setText(self.filename)
         self.load_data()
         
     def load_data(self):
-        df = pd.read_excel(self.filename)
-        self.values_list = df.iloc[12, 135:].tolist()
-        self.values_list = [val * 2 for val in self.values_list]
+        with open(self.filename, 'r') as file:
+            # Lee todas las líneas y las almacena en una lista
+            lines = file.readlines()
+        
+        # Convierte las líneas en valores flotantes y almacénalos en una lista
+        values = [float(line.strip()) for line in lines]
+        # self.values_list = values
+        self.values_list = values[164078:280234]
+        
+    def start_loaded_data(self):
         self.pow_index = 0
-        self.pow_timer.start(10000)  # Iniciar el temporizador para setear potencia cada 10 segundos
-
-    def handle_set_pow_click(self):
-        try:
-            kpow = float(self.ui.line_c_pow.text())
-            self.set_pow(kpow)
-        except ValueError:
-            print("Error: Please enter a valid number in the line_c_pow field.")
+        self.pow_timer.start(1000)  # Iniciar el temporizador para setear potencia cada 1 segundos
     
     def set_pow(self, kpow):
         try:
-            rm = pyvisa.ResourceManager()
-            resource = dic_equipment['Carga programable']['open_resource']
-            instrument = rm.open_resource(resource)
-            instrument.write_termination = dic_equipment['Carga programable']['write_termination']
-            instrument.read_termination = dic_equipment['Carga programable']['read_termination']
-            instrument.timeout = dic_equipment['Carga programable']['timeout']
-            
-            if 0 < kpow < 2.8:
-                instrument.write(f'VOLT:STAT:ILIM {kpow * 1000 / 49}')
-                print(f'kpow seteada: {kpow}')
-            else:
-                print(f'Carga fuera de rango: {kpow}')
-            instrument.close()
+            print(f'kpow: {kpow}')
         except Exception as e:
             print(f"Error setting pow: {e}")
 
@@ -360,7 +347,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             print('Fin lista')
             
     def set_end_pow(self):
-        self.pow_index = 1000
+        self.pow_index = len(self.values_list) + 1
         print('End')
             
     def close_instruments(self, event):
