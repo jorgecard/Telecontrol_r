@@ -169,25 +169,26 @@ def control_Wiener(P_pv, P_pvc, SOC):
         print(f"Error en control1: {e}")
         return 0,0
     
-def control_SavitzkyGolay(P_pv, P_pvc, SOC, polynomial_order=11):
+def control_Gaussian(P_pv, P_pvc, SOC, sigma = 10):
     """
-    Savitzky-Golay filter.
+    Gaussian Filter.
     """
     try:
         t = len(P_pv) - 1
-
-        # Aplicar el filtro Savitzky-Golay a la ventana de tiempo
-        smoothed_window = signal.savgol_filter(P_pv, len(P_pv), polynomial_order)
-
+        
+        # Aplicar el filtro Gaussiano a la ventana de tiempo
+        smoothed_window = signal.gaussian(len(P_pv), std=sigma)
+        smoothed_window = signal.convolve(P_pv, smoothed_window/sum(smoothed_window), mode='same')
+        
         # Compensated Photovoltaic Solar Power
         P_pvc = smoothed_window[-1]
         P_aux = P_pvc - P_pv[t]
-
+        
         # SOC
         k = fac_SOC(SOC, P_aux)
         P_sc = P_aux * k
-
+        
         return P_sc, P_pvc
     except Exception as e:
-        print(f"Error en control_SavitzkyGolay: {e}")
+        print(f"Error en control_Gaussian: {e}")
         return 0, 0

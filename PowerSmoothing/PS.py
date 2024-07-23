@@ -116,10 +116,10 @@ data_dict_3 = {
 
 # Diccionario de labels del eje y para cada gráfico
 y_labels = {
-    0: ' ',
-    1: ' ',
-    2: ' ',
-    3: ' '
+    0: 'Voltaje',
+    1: 'Corriente',
+    2: 'Potencia',
+    3: '%'
 }
 
 dir_actual = os.path.dirname(os.path.abspath(__file__))
@@ -367,7 +367,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.path_lb_7.setText(selected_control)        
         
         if selected_control == 'RR Method':
-            self.P_sc = control_rr(self.data_array, self.P_pvc, self.SOC, self.rr)
+            self.P_sc, self.P_pvc = control_rr(self.data_array, self.P_pvc, self.SOC, self.rr)
             self.P_res = self.P_sc + self.P_pv
             print(f"RR Method, P_sc: {self.P_sc}")
         elif selected_control == 'Exponential Method':
