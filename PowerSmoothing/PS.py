@@ -180,6 +180,8 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # Inicializar el comboBox con los métodos de optimización
         self.ui.comboBox.addItems(['-----', 'RR Method', 'Exponential Method',])
         self.ui.comboBox.setCurrentIndex(2)  # Seleccionar 'Control 1' por defecto
+        self.ui.comboBox_2.addItems(['Bat_Li', 'super_C',])
+        self.ui.comboBox_2.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
 
         self.path_lb_6.setText('C:/Users/jorge/Documents/GitHub/Telecontrol_r/PowerSmoothing/ps_data/FV.txt')
         self.filename = 'C:/Users/jorge/Documents/GitHub/Telecontrol_r/PowerSmoothing/ps_data/FV.txt'
@@ -384,9 +386,13 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         values = [float(line.strip()) for line in lines]
         # self.values_list = values
         # self.values_list = values[164078:280234]
-        self.values_list = values[164078:167078]
+        self.values_list = values[164078:170078]
         
     def start_loaded_data(self):
+        try:
+            self.P_sc = self.P_pv
+        except Exception as e:
+            print(f"Error setting self.P_sc = self.P_pv")
         self.pow_index = 0
         # self.pow_timer.start(self.interval)  # Iniciar el temporizador Real Time
         self.pow_timer.start(1)  # Iniciar el temporizador para setear potencia cada 1 mili segundos

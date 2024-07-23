@@ -111,7 +111,7 @@ def control_staggered(P_pv, P_pvc, SOC, rampa_base, factor_dinamico):
 
 def control_Kalman(P_pv, P_pvc, SOC, P):
     """
-    Kalman filter.
+    Kalman Filter.
     """
     try:
         
@@ -148,7 +148,7 @@ def control_Kalman(P_pv, P_pvc, SOC, P):
     
 def control_Wiener(P_pv, P_pvc, SOC):
     """
-    Wiener.
+    Wiener Filter.
     """
     try:
         t = len(P_pv) - 1
@@ -169,7 +169,7 @@ def control_Wiener(P_pv, P_pvc, SOC):
         print(f"Error en control1: {e}")
         return 0,0
     
-def control_SavitzkyGolay(P_pv, P_pvc, SOC, polynomial_order):
+def control_SavitzkyGolay(P_pv, P_pvc, SOC, polynomial_order=11):
     """
     Savitzky-Golay filter.
     """
