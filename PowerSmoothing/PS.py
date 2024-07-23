@@ -178,7 +178,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pushButton_2.setEnabled(True)
         
         # Inicializar el comboBox con los métodos de optimización
-        self.ui.comboBox.addItems(['-----', 'RR Method', 'Exponential Method',])
+        self.ui.comboBox.addItems(['-----', 'RR Method', 'Exponential Method', 'Kalman Filter', 'Wiener Filter'])
         self.ui.comboBox.setCurrentIndex(2)  # Seleccionar 'Control 1' por defecto
         self.ui.comboBox_2.addItems(['Bat_Li', 'super_C',])
         self.ui.comboBox_2.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
@@ -195,17 +195,19 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.interval = 100  # Establece el intervalo de actualización del gráfico en milisegundos.
         
         # inicializar Variables
-        self.P_pv = 0
+        self.P_pv = 4.57
         self.P_sc = 0
         self.P_res = 0
         self.SOC = 50
-        # Variables control 1-----
+        # Variables control Staggered-----
         self.window_c1 = 3
         self.rampa_base = 0.001
         self.factor_dinamico = 0.05
-        # Variables control 2-----
+        # Variables control Exponential-----
         self.alpha = 0.01
         self.P_pvc = 4.57
+        # Variables control Exponential-----
+        self.P_Kalman = 1
         self.data_array = []  # Inicializar el array para almacenar P_pv
         
         self.plot_list = []
@@ -364,16 +366,29 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.path_lb_7.setText(selected_control)        
         
         if selected_control == 'RR Method':
-            self.P_sc = control_rr(self.data_array, self.SOC, self.rampa_base)
+            self.P_sc = control_rr(self.data_array, self.P_pvc, self.SOC, self.rampa_base)
             self.P_res = self.P_sc + self.P_pv
             print(f"RR Method, P_sc: {self.P_sc}")
         elif selected_control == 'Exponential Method':
-            self.P_sc, self.P_pvc = control_e(self.data_array, self.SOC, self.alpha, self.P_pvc)
+            self.P_sc, self.P_pvc = control_e(self.data_array, self.P_pvc, self.SOC, self.alpha)
             self.P_res = self.P_sc + self.P_pv
             print(f"Exponential Method, P_sc: {self.P_sc}")
-        elif selected_control == 'Control 2':
-            print("Se ha seleccionado Control 2")
-            self.P_sc = control1(self.data_array, self.SOC, self.window_c1, self.rampa_base, self.factor_dinamico)
+        elif selected_control == 'Staggered Method':
+            self.P_sc, self.P_pvc = control_staggered(self.data_array, self.P_pvc, self.SOC, self.rampa_base, self.factor_dinamico)
+            self.P_res = self.P_sc + self.P_pv
+            print(f"Staggered Method, P_sc: {self.P_sc}")
+        elif selected_control == 'Staggered Method':
+            self.P_sc, self.P_pvc = control_staggered(self.data_array, self.P_pvc, self.SOC, self.rampa_base, self.factor_dinamico)
+            self.P_res = self.P_sc + self.P_pv
+            print(f"Staggered Method, P_sc: {self.P_sc}")
+        elif selected_control == 'Kalman Filter':
+            self.P_sc, self.P_pvc, self.P_Kalman = control_staggered(self.data_array, self.P_pvc, self.SOC, self.P_Kalman)
+            self.P_res = self.P_sc + self.P_pv
+            print(f"Kalman Filter, P_sc: {self.P_sc}")    
+        elif selected_control == 'Wiener Filter':
+            self.P_sc, self.P_pvc = control_staggered(self.data_array, self.P_pvc, self.SOC)
+            self.P_res = self.P_sc + self.P_pv
+            print(f"Wiener Filter, P_sc: {self.P_sc}")    
         else:
             print("Seleccion no válida")
         
