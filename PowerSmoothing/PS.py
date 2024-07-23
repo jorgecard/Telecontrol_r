@@ -197,7 +197,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # inicializar Variables
         self.P_pv = 4.57
         self.P_sc = 0
-        self.P_res = 0
+        self.P_res = 4.57
         self.SOC = 50
         # Variables control Staggered-----
         self.window_c1 = 3
@@ -379,11 +379,11 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             self.P_res = self.P_sc + self.P_pv
             print(f"Staggered Method, P_sc: {self.P_sc}")
         elif selected_control == 'Kalman Filter':
-            self.P_sc, self.P_pvc, self.P_Kalman = control_staggered(self.data_array, self.P_pvc, self.SOC, self.P_Kalman)
+            self.P_sc, self.P_pvc, self.P_Kalman = control_Kalman(self.data_array, self.P_pvc, self.SOC, self.P_Kalman)
             self.P_res = self.P_sc + self.P_pv
             print(f"Kalman Filter, P_sc: {self.P_sc}")    
         elif selected_control == 'Wiener Filter':
-            self.P_sc, self.P_pvc = control_staggered(self.data_array, self.P_pvc, self.SOC)
+            self.P_sc, self.P_pvc = control_Wiener(self.data_array, self.P_pvc, self.SOC)
             self.P_res = self.P_sc + self.P_pv
             print(f"Wiener Filter, P_sc: {self.P_sc}")    
         else:
