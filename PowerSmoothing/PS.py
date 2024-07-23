@@ -178,8 +178,8 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pushButton_2.setEnabled(True)
         
         # Inicializar el comboBox con los métodos de optimización
-        self.ui.comboBox.addItems(['-----', 'RR Method', 'Exponential Method', 'Kalman Filter', 'Wiener Filter'])
-        self.ui.comboBox.setCurrentIndex(2)  # Seleccionar 'Control 1' por defecto
+        self.ui.comboBox.addItems(['RR Method', 'Exponential Method', 'Staggered Method', 'Kalman Filter', 'Wiener Filter'])
+        self.ui.comboBox.setCurrentIndex(1)  # Seleccionar 'Control 1' por defecto
         self.ui.comboBox_2.addItems(['Bat_Li', 'super_C',])
         self.ui.comboBox_2.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
 
@@ -201,8 +201,9 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.SOC = 50
         # Variables control Staggered-----
         self.window_c1 = 3
-        self.rampa_base = 0.001
-        self.factor_dinamico = 0.05
+        self.rampa_base = 0.04
+        self.factor_dinamico = 0.02
+        self.rr = 0.001
         # Variables control Exponential-----
         self.alpha = 0.01
         self.P_pvc = 4.57
@@ -366,17 +367,13 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.path_lb_7.setText(selected_control)        
         
         if selected_control == 'RR Method':
-            self.P_sc = control_rr(self.data_array, self.P_pvc, self.SOC, self.rampa_base)
+            self.P_sc = control_rr(self.data_array, self.P_pvc, self.SOC, self.rr)
             self.P_res = self.P_sc + self.P_pv
             print(f"RR Method, P_sc: {self.P_sc}")
         elif selected_control == 'Exponential Method':
             self.P_sc, self.P_pvc = control_e(self.data_array, self.P_pvc, self.SOC, self.alpha)
             self.P_res = self.P_sc + self.P_pv
             print(f"Exponential Method, P_sc: {self.P_sc}")
-        elif selected_control == 'Staggered Method':
-            self.P_sc, self.P_pvc = control_staggered(self.data_array, self.P_pvc, self.SOC, self.rampa_base, self.factor_dinamico)
-            self.P_res = self.P_sc + self.P_pv
-            print(f"Staggered Method, P_sc: {self.P_sc}")
         elif selected_control == 'Staggered Method':
             self.P_sc, self.P_pvc = control_staggered(self.data_array, self.P_pvc, self.SOC, self.rampa_base, self.factor_dinamico)
             self.P_res = self.P_sc + self.P_pv
