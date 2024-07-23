@@ -37,22 +37,21 @@ dic_equipment = {
 
 # Diccionario 1
 data_dict_1 = {
-    'Potencia': {'label': 'P 1', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_15'},
+    'Potencia': {'label': 'P 1', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_15', 'graphic':3},
     'Voltaje':  {'label': 'V 1', 'unit': ' [V]',  'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_13'},
     'Corriente':{'label': 'I 1', 'unit': ' [A]',  'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_14'},
     
-    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_18', 'graphic':0},
-    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_19', 'graphic':0},
-    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_20', 'graphic':0},
+    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_18', 'graphic':0,'color': '#ADD8E6'},
+    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_19', 'graphic':0,'color': '#4682B4'},
+    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_20', 'graphic':0,'color': '#00008B'},
     
-    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_21','graphic':1},
-    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_22','graphic':1},
-    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_23','graphic':1},
+    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_21','graphic':1,'color': '#800080'},
+    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_22','graphic':1,'color': '#9370DB'},
+    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_23','graphic':1,'color': '#4B0082'},
     
-    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_24','graphic':2},
-    'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_25','graphic':2},
-    'S':  {'label': 'S', 'unit': ' [kVA]', 'address': 22, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_26','graphic':2},
-
+    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_24','graphic':2,'color': '#FF6347'},
+    'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_25','graphic':2,'color': '#FF69B4'},
+    'S':  {'label': 'S', 'unit': ' [kVA]', 'address': 22, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_26','graphic':2,'color': '#8B0000'},
 }
 
 # Diccionario 2 Batería  litio
@@ -60,60 +59,58 @@ data_dict_2 = {
     'Voltaje':  {'label': 'V',   'unit': ' [V]', 'address': 25, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_3'},
     'Corriente':{'label': 'I',   'unit': ' [A]', 'address': 26, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_4'},
     'Potencia': {'label': 'P',   'unit': ' [kW]','address': 27, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_5'},
-    'SOC':      {'label': 'SOC', 'unit': ' [%]', 'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_16'},
-    'SOH':      {'label': 'SOH', 'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_48'},
+    'SOC_2':      {'label': 'SOC', 'unit': ' [%]', 'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_16'},
+    'SOH_2':      {'label': 'SOH', 'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_48',},
     
     'SOC':      {'label': 'SOC ', 'unit': ' [%]', 'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_52', 'graphic':3, 'color': '#9103A6',},
-    'SOH':      {'label': 'SOH',  'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_53', 'graphic':3, 'color': '#9103A6',},
-    'Vol bat':  {'label': 'Vbat', 'unit': ' [V]', 'address': 7,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_54',  'graphic':0, 'color': '#9103A6',},
+    'SOH':      {'label': 'SOH',  'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_53', 'graphic':3, 'color': '#ADD8E6',},
+    'Vol bat':  {'label': 'Vbat', 'unit': ' [V]', 'address': 7,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_54',  'graphic':0, 'color': '#00008B',},
     
     #Conexión DC
-    'V':  {'label': 'V', 'unit': ' [V]',  'address': 25, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_49','graphic':0},
-    'I':  {'label': 'I', 'unit': ' [A]',  'address': 26, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_50','graphic':1},
-    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 27, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_51','graphic':2},
+    'V':  {'label': 'V_DC', 'unit': ' [V]',  'address': 25, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_49','graphic':0,'color': '#FF0000'},
+    'I':  {'label': 'I_DC', 'unit': ' [A]',  'address': 26, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_50','graphic':1,'color': '#FF0000'},
+    'P':  {'label': 'P_DC', 'unit': ' [kW]', 'address': 27, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_51','graphic':2,'color': '#FF0000'},
     
     #Conexión AC
-    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 28, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_27','graphic':0},
-    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 29, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_28','graphic':0},
-    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 30, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_29','graphic':0},
+    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 28, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_27','graphic':0,'color': '#ADD8E6'},
+    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 29, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_28','graphic':0,'color': '#4682B4'},
+    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 30, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_29','graphic':0,'color': '#00008B'},
     
-    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 34, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_30','graphic':1},
-    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 35, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_31','graphic':1},
-    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 36, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_32','graphic':1},
+    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 34, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_30','graphic':1,'color': '#800080'},
+    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 35, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_31','graphic':1,'color': '#9370DB'},
+    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 36, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_32','graphic':1,'color': '#4B0082'},
     
-    'P_tot':  {'label': 'P', 'unit': ' [kW]', 'address': 43, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_33','graphic':2},
-    'Q_tot':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 44, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_34','graphic':2},
-    'S_tot':  {'label': 'S', 'unit': ' [kVA]', 'address': 45, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_35','graphic':2},
+    'P_tot':  {'label': 'P', 'unit': ' [kW]',  'address': 43, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_33','graphic':2,'color': '#FF6347'},
+    'Q_tot':  {'label': 'Q', 'unit': ' [kVAr]','address': 44, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_34','graphic':2,'color': '#FF69B4'},
+    'S_tot':  {'label': 'S', 'unit': ' [kVA]', 'address': 45, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_35','graphic':2,'color': '#8B0000'},
     
 }
 
 # Diccionario 3 Supercondensador
 data_dict_3 = {
     'Voltaje':  {'label': 'V',   'unit': ' [V]', 'address': 2, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_10'},
-    'Corriente':{'label': 'I',   'unit': ' [A]', 'address': 2, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_11'},
+    'Corriente':{'label': 'I',   'unit': ' [A]', 'address': 3, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_11'},
     'Potencia': {'label': 'P',   'unit': ' [kW]','address': 4, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_12'},
-    'SOC':      {'label': 'SOC', 'unit': ' [%]', 'address': 31,'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_17'},
+    'SOC_1':      {'label': 'SOC', 'unit': ' [%]', 'address': 31,'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_17'},
     
     #Conexión DC
-    'SOC':      {'label': 'SOC', 'unit': ' [%]', 'address': 31,'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_61'},
-    'V':  {'label': 'V', 'unit': ' [V]', 'address': 2, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_58','graphic':0},
-    'I':  {'label': 'I', 'unit': ' [A]', 'address': 3, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_59','graphic':1},
-    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 4, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_60','graphic':2},
+    'SOC':{'label': 'SOC', 'unit': ' [%]', 'address': 31,'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_61', 'graphic':3},
+    'V':  {'label': 'V_DC', 'unit': ' [V]', 'address': 2, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_58','graphic':0,'color': '#FF0000'},
+    'I':  {'label': 'I_DC', 'unit': ' [A]', 'address': 3, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_59','graphic':1,'color': '#FF0000'},
+    'P1': {'label': 'P_DC',   'unit': ' [kW]','address': 4, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_60','graphic':1,'color': '#FF0000'},
     
     #Conexión AC
-    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_39','graphic':0},
-    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_40','graphic':0},
-    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_41','graphic':0},
+    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_39','graphic':0,'color': '#ADD8E6'},
+    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_40','graphic':0,'color': '#4682B4'},
+    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_41','graphic':0,'color': '#00008B'},
     
-    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_42','graphic':1},
-    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_43','graphic':1},
-    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_44','graphic':1},
+    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_42','graphic':1,'color': '#800080'},
+    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_43','graphic':1,'color': '#9370DB'},
+    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_44','graphic':1,'color': '#4B0082'},
     
-    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_45','graphic':2},
-    'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_46','graphic':2},
-    'S':  {'label': 'S', 'unit': ' [kVA]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_47','graphic':2},
-    
-    
+    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_45','graphic':2,'color': '#FF6347'},
+    'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_46','graphic':2,'color': '#FF69B4'},
+    'S':  {'label': 'S', 'unit': ' [kVA]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_47','graphic':2,'color': '#8B0000'},
 }
 
 # Diccionario de labels del eje y para cada gráfico
@@ -163,8 +160,8 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.ui.pushButton_2.clicked.connect(lambda: self.change_page(self.ui.page_gr_bat, "Batería de Litio"))
         self.ui.pushButton_3.clicked.connect(lambda: self.change_page(self.ui.page_gr_sc, "Super Capacitores"))
         self.pushButton_14.clicked.connect(self.open_dialog_box)
-        # self.pushButton_set_pow.clicked.connect(self.handle_set_pow_click)
-        # self.pushButton_4.clicked.connect(self.set_end_pow)
+        self.pushButton_set_pow.clicked.connect(self.start_loaded_data)
+        self.pushButton_13.clicked.connect(self.set_end_pow)
 
         # menu lateral
         self.ui.bt_menu.clicked.connect(self.mover_menu)
@@ -173,7 +170,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pushButton_2.setEnabled(True)
         
         # Inicializar el comboBox con los métodos de optimización
-        self.ui.comboBox.addItems(['Control 1', 'Control 2'])
+        self.ui.comboBox.addItems(['-----', 'Control 1', 'Control 2'])
         self.ui.comboBox.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
 
         # Conectar la señal de cambio de selección del comboBox a la función control
@@ -210,7 +207,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
 
     def control(self):
         selected_control = self.ui.comboBox.currentText()
-        self.control_selected.setText(selected_control)
+        self.path_lb_7.setText(selected_control)
         if selected_control == 'Control 1':
             print("Se ha seleccionado Control 1")
         elif selected_control == 'Control 2':
@@ -317,38 +314,26 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     
     def open_dialog_box(self):
         self.filename, _ = QFileDialog.getOpenFileName(self, 'Open File', dir_actual, 'All Files (*)')
-        self.path_lb.setText(self.filename)
+        self.path_lb_6.setText(self.filename)
         self.load_data()
         
     def load_data(self):
-        df = pd.read_excel(self.filename)
-        self.values_list = df.iloc[12, 135:].tolist()
-        self.values_list = [val * 2 for val in self.values_list]
+        with open(self.filename, 'r') as file:
+            # Lee todas las líneas y las almacena en una lista
+            lines = file.readlines()
+        
+        # Convierte las líneas en valores flotantes y almacénalos en una lista
+        values = [float(line.strip()) for line in lines]
+        # self.values_list = values
+        self.values_list = values[164078:280234]
+        
+    def start_loaded_data(self):
         self.pow_index = 0
-        self.pow_timer.start(10000)  # Iniciar el temporizador para setear potencia cada 10 segundos
-
-    def handle_set_pow_click(self):
-        try:
-            kpow = float(self.ui.line_c_pow.text())
-            self.set_pow(kpow)
-        except ValueError:
-            print("Error: Please enter a valid number in the line_c_pow field.")
+        self.pow_timer.start(1000)  # Iniciar el temporizador para setear potencia cada 1 segundos
     
     def set_pow(self, kpow):
         try:
-            rm = pyvisa.ResourceManager()
-            resource = dic_equipment['Carga programable']['open_resource']
-            instrument = rm.open_resource(resource)
-            instrument.write_termination = dic_equipment['Carga programable']['write_termination']
-            instrument.read_termination = dic_equipment['Carga programable']['read_termination']
-            instrument.timeout = dic_equipment['Carga programable']['timeout']
-            
-            if 0 < kpow < 2.8:
-                instrument.write(f'VOLT:STAT:ILIM {kpow * 1000 / 49}')
-                print(f'kpow seteada: {kpow}')
-            else:
-                print(f'Carga fuera de rango: {kpow}')
-            instrument.close()
+            print(f'kpow: {kpow}')
         except Exception as e:
             print(f"Error setting pow: {e}")
 
@@ -362,7 +347,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             print('Fin lista')
             
     def set_end_pow(self):
-        self.pow_index = 1000
+        self.pow_index = len(self.values_list) + 1
         print('End')
             
     def close_instruments(self, event):

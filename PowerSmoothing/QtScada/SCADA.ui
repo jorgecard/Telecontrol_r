@@ -3763,7 +3763,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                <widget class="QWidget" name="page_metodo_control">
                 <layout class="QHBoxLayout" name="horizontalLayout_3">
                  <item>
-                  <widget class="QWidget" name="widget_0" native="true">
+                  <widget class="QWidget" name="widget_04" native="true">
                    <property name="styleSheet">
                     <string notr="true">background-color: rgb(193, 193, 193);</string>
                    </property>
@@ -3917,25 +3917,6 @@ border-color: rgb(0, 255, 255);</string>
                      </property>
                     </widget>
                    </widget>
-                   <widget class="QFrame" name="frame_2">
-                    <property name="geometry">
-                     <rect>
-                      <x>460</x>
-                      <y>20</y>
-                      <width>621</width>
-                      <height>491</height>
-                     </rect>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(0, 0, 0);</string>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                   </widget>
                    <widget class="QFrame" name="frame_5">
                     <property name="geometry">
                      <rect>
@@ -4086,6 +4067,25 @@ font: 77 10pt &quot;Arial Black&quot;
                       <string>...</string>
                      </property>
                     </widget>
+                   </widget>
+                   <widget class="QWidget" name="widget_0" native="true">
+                    <property name="geometry">
+                     <rect>
+                      <x>330</x>
+                      <y>20</y>
+                      <width>741</width>
+                      <height>500</height>
+                     </rect>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>500</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">background-color: rgb(193, 193, 193);</string>
+                    </property>
                    </widget>
                   </widget>
                  </item>

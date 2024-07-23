@@ -21,6 +21,7 @@ from PyQt5.QtCore import pyqtSlot, QTimer
 from PyQt5.QtWidgets import QVBoxLayout, QWidget, QInputDialog, QLineEdit, QFileDialog
 import os
 import pandas as pd
+from func1 import *
 
 # Variables
 dic_equipment = {
@@ -41,17 +42,17 @@ data_dict_1 = {
     'Voltaje':  {'label': 'V 1', 'unit': ' [V]',  'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_13'},
     'Corriente':{'label': 'I 1', 'unit': ' [A]',  'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_14'},
     
-    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_18', 'graphic':0},
-    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_19', 'graphic':0},
-    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_20', 'graphic':0},
+    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_18', 'graphic':0,'color': '#ADD8E6'},
+    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_19', 'graphic':0,'color': '#4682B4'},
+    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_20', 'graphic':0,'color': '#00008B'},
     
-    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_21','graphic':1},
-    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_22','graphic':1},
-    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_23','graphic':1},
+    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_21','graphic':1,'color': '#800080'},
+    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_22','graphic':1,'color': '#9370DB'},
+    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_23','graphic':1,'color': '#4B0082'},
     
-    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_24','graphic':2},
-    'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_25','graphic':2},
-    'S':  {'label': 'S', 'unit': ' [kVA]', 'address': 22, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_26','graphic':2},
+    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_24','graphic':2,'color': '#FF6347'},
+    'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_25','graphic':2,'color': '#FF69B4'},
+    'S':  {'label': 'S', 'unit': ' [kVA]', 'address': 22, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_26','graphic':2,'color': '#8B0000'},
 }
 
 # Diccionario 2 Batería  litio
@@ -59,30 +60,30 @@ data_dict_2 = {
     'Voltaje':  {'label': 'V',   'unit': ' [V]', 'address': 25, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_3'},
     'Corriente':{'label': 'I',   'unit': ' [A]', 'address': 26, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_4'},
     'Potencia': {'label': 'P',   'unit': ' [kW]','address': 27, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_5'},
-    'SOC':      {'label': 'SOC', 'unit': ' [%]', 'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_16',},
-    'SOH':      {'label': 'SOH', 'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_48',},
+    'SOC_2':      {'label': 'SOC', 'unit': ' [%]', 'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_16'},
+    'SOH_2':      {'label': 'SOH', 'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_48',},
     
     'SOC':      {'label': 'SOC ', 'unit': ' [%]', 'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_52', 'graphic':3, 'color': '#9103A6',},
-    'SOH':      {'label': 'SOH',  'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_53', 'graphic':3, 'color': '#9103A6',},
-    'Vol bat':  {'label': 'Vbat', 'unit': ' [V]', 'address': 7,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_3',  'graphic':0, 'color': '#9103A6',},
+    'SOH':      {'label': 'SOH',  'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_53', 'graphic':3, 'color': '#ADD8E6',},
+    'Vol bat':  {'label': 'Vbat', 'unit': ' [V]', 'address': 7,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_54',  'graphic':0, 'color': '#00008B',},
     
     #Conexión DC
-    'V':  {'label': 'V', 'unit': ' [V]',  'address': 25, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_49','graphic':0},
-    'I':  {'label': 'I', 'unit': ' [A]',  'address': 26, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_50','graphic':1},
-    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 27, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_51','graphic':2},
+    'V':  {'label': 'V_DC', 'unit': ' [V]',  'address': 25, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_49','graphic':0,'color': '#FF0000'},
+    'I':  {'label': 'I_DC', 'unit': ' [A]',  'address': 26, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_50','graphic':1,'color': '#FF0000'},
+    'P':  {'label': 'P_DC', 'unit': ' [kW]', 'address': 27, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_51','graphic':2,'color': '#FF0000'},
     
     #Conexión AC
-    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 28, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_27','graphic':0},
-    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 29, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_28','graphic':0},
-    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 30, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_29','graphic':0},
+    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 28, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_27','graphic':0,'color': '#ADD8E6'},
+    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 29, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_28','graphic':0,'color': '#4682B4'},
+    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 30, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_29','graphic':0,'color': '#00008B'},
     
-    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 34, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_30','graphic':1},
-    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 35, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_31','graphic':1},
-    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 36, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_32','graphic':1},
+    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 34, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_30','graphic':1,'color': '#800080'},
+    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 35, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_31','graphic':1,'color': '#9370DB'},
+    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 36, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_32','graphic':1,'color': '#4B0082'},
     
-    'P_tot':  {'label': 'P', 'unit': ' [kW]',  'address': 43, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_33','graphic':2},
-    'Q_tot':  {'label': 'Q', 'unit': ' [kVAr]','address': 44, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_34','graphic':2},
-    'S_tot':  {'label': 'S', 'unit': ' [kVA]', 'address': 45, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_35','graphic':2},
+    'P_tot':  {'label': 'P', 'unit': ' [kW]',  'address': 43, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_33','graphic':2,'color': '#FF6347'},
+    'Q_tot':  {'label': 'Q', 'unit': ' [kVAr]','address': 44, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_34','graphic':2,'color': '#FF69B4'},
+    'S_tot':  {'label': 'S', 'unit': ' [kVA]', 'address': 45, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_35','graphic':2,'color': '#8B0000'},
     
 }
 
@@ -91,26 +92,26 @@ data_dict_3 = {
     'Voltaje':  {'label': 'V',   'unit': ' [V]', 'address': 2, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_10'},
     'Corriente':{'label': 'I',   'unit': ' [A]', 'address': 3, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_11'},
     'Potencia': {'label': 'P',   'unit': ' [kW]','address': 4, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_12'},
-    'SOC':      {'label': 'SOC', 'unit': ' [%]', 'address': 31,'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_17',},
+    'SOC_1':      {'label': 'SOC', 'unit': ' [%]', 'address': 31,'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_17'},
     
     #Conexión DC
     'SOC':{'label': 'SOC', 'unit': ' [%]', 'address': 31,'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_61', 'graphic':3},
-    'V':  {'label': 'V', 'unit': ' [V]', 'address': 2, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_58','graphic':0},
-    'I':  {'label': 'I', 'unit': ' [A]', 'address': 3, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_59','graphic':1},
-    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 4, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_60','graphic':2},
+    'V':  {'label': 'V_DC', 'unit': ' [V]', 'address': 2, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_58','graphic':0,'color': '#FF0000'},
+    'I':  {'label': 'I_DC', 'unit': ' [A]', 'address': 3, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_59','graphic':1,'color': '#FF0000'},
+    'P1': {'label': 'P_DC',   'unit': ' [kW]','address': 4, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_60','graphic':1,'color': '#FF0000'},
     
     #Conexión AC
-    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_39','graphic':0},
-    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_40','graphic':0},
-    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_41','graphic':0},
+    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_39','graphic':0,'color': '#ADD8E6'},
+    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_40','graphic':0,'color': '#4682B4'},
+    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_41','graphic':0,'color': '#00008B'},
     
-    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_42','graphic':1},
-    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_43','graphic':1},
-    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_44','graphic':1},
+    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_42','graphic':1,'color': '#800080'},
+    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_43','graphic':1,'color': '#9370DB'},
+    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_44','graphic':1,'color': '#4B0082'},
     
-    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_45','graphic':2},
-    'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_46','graphic':2},
-    'S':  {'label': 'S', 'unit': ' [kVA]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_47','graphic':2},
+    'P':  {'label': 'P', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_45','graphic':2,'color': '#FF6347'},
+    'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_46','graphic':2,'color': '#FF69B4'},
+    'S':  {'label': 'S', 'unit': ' [kVA]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_47','graphic':2,'color': '#8B0000'},
 }
 
 # Diccionario de labels del eje y para cada gráfico
@@ -133,6 +134,13 @@ class MplCanvas(FigureCanvas):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = [fig.add_subplot(221), fig.add_subplot(222), fig.add_subplot(223), fig.add_subplot(224)]
         super(MplCanvas, self).__init__(fig)
+        fig.tight_layout()
+
+class MplSingleCanvas(FigureCanvas):
+    def __init__(self, parent=None, width=5, height=4, dpi=100):
+        fig = Figure(figsize=(width, height), dpi=dpi)
+        self.axes = fig.add_subplot(111)
+        super(MplSingleCanvas, self).__init__(fig)
         fig.tight_layout()
 
 class LIVE_PLOT_APP(QtWidgets.QMainWindow):
@@ -170,7 +178,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pushButton_2.setEnabled(True)
         
         # Inicializar el comboBox con los métodos de optimización
-        self.ui.comboBox.addItems(['-----', 'Control 1', 'Control 2'])
+        self.ui.comboBox.addItems(['-----', 'RR Method', 'LP' 'Control 2'])
         self.ui.comboBox.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
 
         # Conectar la señal de cambio de selección del comboBox a la función control
@@ -179,10 +187,22 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # Configuraciones de visualización
         self.window_length = 50  # Establece la longitud de la ventana de visualización en milisegundos
         self.interval = 100  # Establece el intervalo de actualización del gráfico en milisegundos.
-
+        
+        # inicializar Variables
+        self.P_pv = 0
+        self.P_aux = 0
+        self.P_res = 0
+        
+        # Variables control 1
+        self.window_c1 = 3
+        self.rampa_base = 0.001
+        self.factor_dinamico = 0.05
+        self.data_array = []  # Inicializar el array para almacenar P_pv
+        
         self.plot_list = []
         self.legends = []
         self.data_store = {}  # Inicializar el data_store
+        self.data_array_widget_0 = []  # Inicializar el array para almacenar P_pv para la gráfica widget_0
         
         # Inicializar gráficos
         self.init_graphics()
@@ -205,16 +225,6 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pow_timer = QTimer()
         self.pow_timer.timeout.connect(self.set_next_pow)
 
-    def control(self):
-        selected_control = self.ui.comboBox.currentText()
-        self.path_lb_7.setText(selected_control)
-        if selected_control == 'Control 1':
-            print("Se ha seleccionado Control 1")
-        elif selected_control == 'Control 2':
-            print("Se ha seleccionado Control 2")
-        else:
-            print("Seleccion no válida")
-
     def init_graphics(self):
         self.graphs = {}
         for key, val in dic_equipment.items():
@@ -225,6 +235,13 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             layout.addWidget(canvas)
             widget.setLayout(layout)
             self.graphs[widget_name] = canvas.axes
+        # Inicializar el gráfico de widget_0 como una sola gráfica
+        widget_0 = self.ui.widget_0
+        layout_0 = QVBoxLayout()
+        canvas_0 = MplSingleCanvas(self, width=5, height=4, dpi=100)
+        layout_0.addWidget(canvas_0)
+        widget_0.setLayout(layout_0)
+        self.graphs['widget_0'] = [canvas_0.axes]
  
     def init_serial_threads(self):
         for equipment in dic_equipment.values():
@@ -260,6 +277,9 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     def update_all_plots(self):
         for widget_id, data in self.data_store.items():
             self.update_plot(data, widget_id)
+        # Actualizar el gráfico de widget_0
+        if len(self.data_array_widget_0) > 0:
+            self.update_widget_0_plot()
 
     def update_plot(self, data, widget_id):
         axes_list = self.graphs[widget_id]
@@ -285,6 +305,19 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             ax.legend()
         # Utilizamos el canvas del gráfico para actualizar el widget
         canvas = axes_list[0].figure.canvas
+        canvas.draw()
+
+    def update_widget_0_plot(self):
+        axes = self.graphs['widget_0'][0]
+        axes.clear()
+        t = list(range(len(self.data_array_widget_0)))
+        axes.plot(t, [val[0] for val in self.data_array_widget_0], label='P_pv')
+        axes.plot(t, [val[1] for val in self.data_array_widget_0], label='P_aux')
+        axes.plot(t, [val[2] for val in self.data_array_widget_0], label='P_res')
+        axes.legend()
+        axes.set_ylabel('Potencia [kW]')
+        axes.set_xlabel('Muestras')
+        canvas = axes.figure.canvas
         canvas.draw()
 
     def find_data_dict_name(self, widget_id):
@@ -316,6 +349,21 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.filename, _ = QFileDialog.getOpenFileName(self, 'Open File', dir_actual, 'All Files (*)')
         self.path_lb_6.setText(self.filename)
         self.load_data()
+    
+    def control(self):
+        selected_control = self.ui.comboBox.currentText()
+        self.path_lb_7.setText(selected_control)        
+        
+        if selected_control == 'RR Method':
+            self.P_aux = control_rr(self.rampa_base, self.data_array)
+            self.P_res = self.P_aux + self.P_pv
+            print(f"Se ha seleccionado Control 1, P_aux: {self.P_aux}")
+            
+        elif selected_control == 'Control 2':
+            print("Se ha seleccionado Control 2")
+            self.P_aux = control1(self.window_c1, self.rampa_base, self.factor_dinamico, self.data_array)
+        else:
+            print("Seleccion no válida")
         
     def load_data(self):
         with open(self.filename, 'r') as file:
@@ -330,7 +378,17 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     def start_loaded_data(self):
         self.pow_index = 0
         self.pow_timer.start(1000)  # Iniciar el temporizador para setear potencia cada 1 segundos
-    
+        
+        resultados_path = os.path.join(dir_actual, 'ps_data')
+        self.resultados_filename = get_unique_filename(resultados_path, 'resultados', 'txt')        
+        print(f'archivo creado: {self.resultados_filename}')
+        self.resultados = open(self.resultados_filename, 'w')
+        self.resultados.write('{}\t{}\t{}\n'.format(
+            'P_pv',
+            'P_aux',
+            'P_resultante'
+        ))
+
     def set_pow(self, kpow):
         try:
             print(f'kpow: {kpow}')
@@ -339,16 +397,30 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
 
     def set_next_pow(self):
         if self.pow_index < len(self.values_list):
+            self.P_pv = self.values_list[self.pow_index]
+            self.data_array.append(self.P_pv)  # Agregar el valor a data_array
+            if len(self.data_array) > self.window_c1:  # Mantener el array con longitud igual a window_c1
+                self.data_array.pop(0)
+            self.control()
+            self.data_array_widget_0.append((self.P_pv, self.P_aux, self.P_res))  # Agregar valores a data_array_widget_0
+            if len(self.data_array_widget_0) > self.window_length:  # Mantener el array con longitud igual a window_length
+                self.data_array_widget_0.pop(0)    
+            self.resultados.write('{}\t{}\t{}\n'.format(
+                self.P_pv,
+                self.P_aux,
+                self.P_res
+            ))
             self.set_pow(self.values_list[self.pow_index])
             print(f'setting pow [{self.pow_index}]: {self.values_list[self.pow_index]}')
             self.pow_index += 1
         else:
             self.pow_timer.stop()
             print('Fin lista')
+            self.resultados.close()
             
     def set_end_pow(self):
         self.pow_index = len(self.values_list) + 1
-        print('End')
+        print('Stop')
             
     def close_instruments(self, event):
         for thread in self.threads:

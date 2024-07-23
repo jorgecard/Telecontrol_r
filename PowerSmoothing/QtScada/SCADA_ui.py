@@ -1378,10 +1378,10 @@ class Ui_MainWindow(object):
         self.page_metodo_control.setObjectName(u"page_metodo_control")
         self.horizontalLayout_3 = QHBoxLayout(self.page_metodo_control)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.widget_0 = QWidget(self.page_metodo_control)
-        self.widget_0.setObjectName(u"widget_0")
-        self.widget_0.setStyleSheet(u"background-color: rgb(193, 193, 193);")
-        self.control_selected = QFrame(self.widget_0)
+        self.widget_04 = QWidget(self.page_metodo_control)
+        self.widget_04.setObjectName(u"widget_04")
+        self.widget_04.setStyleSheet(u"background-color: rgb(193, 193, 193);")
+        self.control_selected = QFrame(self.widget_04)
         self.control_selected.setObjectName(u"control_selected")
         self.control_selected.setGeometry(QRect(10, 20, 281, 181))
         self.control_selected.setStyleSheet(u"QFrame{\n"
@@ -1437,13 +1437,7 @@ class Ui_MainWindow(object):
         self.path_lb_7.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "color: rgb(0, 0, 0);\n"
 "border-color: rgb(0, 255, 255);")
-        self.frame_2 = QFrame(self.widget_0)
-        self.frame_2.setObjectName(u"frame_2")
-        self.frame_2.setGeometry(QRect(460, 20, 621, 491))
-        self.frame_2.setStyleSheet(u"background-color: rgb(0, 0, 0);")
-        self.frame_2.setFrameShape(QFrame.StyledPanel)
-        self.frame_2.setFrameShadow(QFrame.Raised)
-        self.frame_5 = QFrame(self.widget_0)
+        self.frame_5 = QFrame(self.widget_04)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setGeometry(QRect(10, 230, 281, 121))
         self.frame_5.setStyleSheet(u"QFrame{\n"
@@ -1511,8 +1505,13 @@ class Ui_MainWindow(object):
 "color: rgb(0,0,0);\n"
 "font: 77 10pt \"Arial Black\"\n"
 "}")
+        self.widget_0 = QWidget(self.widget_04)
+        self.widget_0.setObjectName(u"widget_0")
+        self.widget_0.setGeometry(QRect(330, 20, 741, 500))
+        self.widget_0.setMinimumSize(QSize(0, 500))
+        self.widget_0.setStyleSheet(u"background-color: rgb(193, 193, 193);")
 
-        self.horizontalLayout_3.addWidget(self.widget_0)
+        self.horizontalLayout_3.addWidget(self.widget_04)
 
         self.stackedWidget.addWidget(self.page_metodo_control)
 
