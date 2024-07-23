@@ -178,9 +178,13 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pushButton_2.setEnabled(True)
         
         # Inicializar el comboBox con los métodos de optimización
-        self.ui.comboBox.addItems(['-----', 'RR Method', 'LP' 'Control 2'])
-        self.ui.comboBox.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
+        self.ui.comboBox.addItems(['-----', 'RR Method', 'Exponential Method',])
+        self.ui.comboBox.setCurrentIndex(2)  # Seleccionar 'Control 1' por defecto
 
+        self.path_lb_6.setText('C:/Users/jorge/Documents/GitHub/Telecontrol_r/PowerSmoothing/ps_data/FV.txt')
+        self.filename = 'C:/Users/jorge/Documents/GitHub/Telecontrol_r/PowerSmoothing/ps_data/FV.txt'
+        self.load_data()
+        
         # Conectar la señal de cambio de selección del comboBox a la función control
         self.ui.comboBox.currentIndexChanged.connect(self.control)
         
@@ -190,13 +194,16 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         
         # inicializar Variables
         self.P_pv = 0
-        self.P_aux = 0
+        self.P_sc = 0
         self.P_res = 0
-        
-        # Variables control 1
+        self.SOC = 50
+        # Variables control 1-----
         self.window_c1 = 3
         self.rampa_base = 0.001
         self.factor_dinamico = 0.05
+        # Variables control 2-----
+        self.alpha = 0.01
+        self.P_pvc = 4.57
         self.data_array = []  # Inicializar el array para almacenar P_pv
         
         self.plot_list = []
@@ -312,10 +319,10 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         axes.clear()
         t = list(range(len(self.data_array_widget_0)))
         axes.plot(t, [val[0] for val in self.data_array_widget_0], label='P_pv')
-        axes.plot(t, [val[1] for val in self.data_array_widget_0], label='P_aux')
+        axes.plot(t, [val[1] for val in self.data_array_widget_0], label='P_sc')
         axes.plot(t, [val[2] for val in self.data_array_widget_0], label='P_res')
         axes.legend()
-        axes.set_ylabel('Potencia [kW]')
+        axes.set_ylabel('Potencia [W]')
         axes.set_xlabel('Muestras')
         canvas = axes.figure.canvas
         canvas.draw()
@@ -355,13 +362,16 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.path_lb_7.setText(selected_control)        
         
         if selected_control == 'RR Method':
-            self.P_aux = control_rr(self.rampa_base, self.data_array)
-            self.P_res = self.P_aux + self.P_pv
-            print(f"Se ha seleccionado Control 1, P_aux: {self.P_aux}")
-            
+            self.P_sc = control_rr(self.data_array, self.SOC, self.rampa_base)
+            self.P_res = self.P_sc + self.P_pv
+            print(f"RR Method, P_sc: {self.P_sc}")
+        elif selected_control == 'Exponential Method':
+            self.P_sc, self.P_pvc = control_e(self.data_array, self.SOC, self.alpha, self.P_pvc)
+            self.P_res = self.P_sc + self.P_pv
+            print(f"Exponential Method, P_sc: {self.P_sc}")
         elif selected_control == 'Control 2':
             print("Se ha seleccionado Control 2")
-            self.P_aux = control1(self.window_c1, self.rampa_base, self.factor_dinamico, self.data_array)
+            self.P_sc = control1(self.data_array, self.SOC, self.window_c1, self.rampa_base, self.factor_dinamico)
         else:
             print("Seleccion no válida")
         
@@ -373,11 +383,13 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # Convierte las líneas en valores flotantes y almacénalos en una lista
         values = [float(line.strip()) for line in lines]
         # self.values_list = values
-        self.values_list = values[164078:280234]
+        # self.values_list = values[164078:280234]
+        self.values_list = values[164078:167078]
         
     def start_loaded_data(self):
         self.pow_index = 0
-        self.pow_timer.start(1000)  # Iniciar el temporizador para setear potencia cada 1 segundos
+        # self.pow_timer.start(self.interval)  # Iniciar el temporizador Real Time
+        self.pow_timer.start(1)  # Iniciar el temporizador para setear potencia cada 1 mili segundos
         
         resultados_path = os.path.join(dir_actual, 'ps_data')
         self.resultados_filename = get_unique_filename(resultados_path, 'resultados', 'txt')        
@@ -385,15 +397,16 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.resultados = open(self.resultados_filename, 'w')
         self.resultados.write('{}\t{}\t{}\n'.format(
             'P_pv',
-            'P_aux',
+            'P_sc',
             'P_resultante'
         ))
 
     def set_pow(self, kpow):
-        try:
-            print(f'kpow: {kpow}')
-        except Exception as e:
-            print(f"Error setting pow: {e}")
+        # try:
+        #     print(f'kpow: {kpow}')
+        # except Exception as e:
+        #     print(f"Error setting pow: {e}")
+        pass
 
     def set_next_pow(self):
         if self.pow_index < len(self.values_list):
@@ -402,12 +415,12 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             if len(self.data_array) > self.window_c1:  # Mantener el array con longitud igual a window_c1
                 self.data_array.pop(0)
             self.control()
-            self.data_array_widget_0.append((self.P_pv, self.P_aux, self.P_res))  # Agregar valores a data_array_widget_0
+            self.data_array_widget_0.append((self.P_pv, self.P_sc, self.P_res))  # Agregar valores a data_array_widget_0
             if len(self.data_array_widget_0) > self.window_length:  # Mantener el array con longitud igual a window_length
                 self.data_array_widget_0.pop(0)    
             self.resultados.write('{}\t{}\t{}\n'.format(
                 self.P_pv,
-                self.P_aux,
+                self.P_sc,
                 self.P_res
             ))
             self.set_pow(self.values_list[self.pow_index])

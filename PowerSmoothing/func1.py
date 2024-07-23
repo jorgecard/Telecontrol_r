@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import scipy.signal as signal
 
 def get_unique_filename(base_path, base_name, extension):
     i = 0
@@ -10,8 +11,22 @@ def get_unique_filename(base_path, base_name, extension):
             return full_path
         i += 1
          
-         
-def control_rr(rr, P_pv):
+def fac_SOC(SOC, P_aux):
+    if (SOC > 80) and (P_aux > 0):
+        k =1
+    elif (SOC > 80) and (P_aux <= 0):
+        k = 0.1
+    elif (SOC >= 20) and (SOC <= 80):
+        k = 1
+    elif (SOC < 20) and (P_aux > 0):
+        k = 0.1
+    elif (SOC < 20) and (P_aux <= 0):
+        k = 1
+    else:
+        k = 0
+    return k
+
+def control_rr(P_pv, P_pvc, SOC, rr):
     """
     RR Method.
     """
@@ -28,40 +43,51 @@ def control_rr(rr, P_pv):
                 roc = -rr
         
         # Compensated Photovoltaic Solar Power
-        P_pvc = P_pv[t - 1] + roc
+        P_pvc = P_pvc + roc
         P_aux = P_pvc - P_pv[t]
         
-        # print(f"Media móvil (últimos {window} valores): {mean_P_pv}")
-        # print(f"Rampa dinámica: {rr}")
-        print(f"Power Change: {roc}")
-        # print(f"Compensated Photovoltaic Solar Power: {P_pvc}")
-        print(f"P_sc_aux: {P_aux}")
+        # SOC
+        k = fac_SOC(SOC, P_aux)
+        P_sc = P_aux * k
         
-        return P_aux
+        return P_sc, P_pvc
     except Exception as e:
         print(f"Error en control1: {e}")
-        return 0
-    
-def control1(window,rampa_base,factor_dinamico, data_array):
+        return 0,0
+
+def control_e(P_pv, P_pvc, SOC, alpha):
     """
-    Calcular la media móvil de los últimos valores en data_array.
+    Exponential Method.
     """
     try:
-        print(f'data_array: {data_array}')
+        t = len(P_pv) - 1
         
+        # Compensated Photovoltaic Solar Power
+        P_pvc = alpha * P_pv[t] + (1 - alpha) * P_pvc
+        P_aux = P_pvc - P_pv[t]
+        
+        # SOC
+        k = fac_SOC(SOC, P_aux)
+        P_sc = P_aux * k
+        
+        return P_sc, P_pvc
+    except Exception as e:
+        print(f"Error en control1: {e}")
+        return 0,0
+
+def control_staggered(P_pv, P_pvc, SOC, rampa_base, factor_dinamico):
+    """
+    Staggered Method.
+    """
+    try:
+        t = len(P_pv) - 1
+
         # Calcular la media móvil
-        if len(data_array) < window:
-            mean_P_pv = sum(data_array) / len(data_array)  # Media de los disponibles si no hay suficientes datos
-        else:
-            mean_P_pv = sum(data_array[-window:]) / window  # Media de los últimos 'window' valores
+        mean_P_pv = sum(P_pv) / len(P_pv)
         
-        t = len(data_array) - 1
-        P_pv_t = data_array[t]
-        P_pv_t_minus_1 = data_array[t - 1]
-        roc = P_pv_t - P_pv_t_minus_1  # Cambio en la potencia del panel solar
-        
+        roc = P_pv[t] - P_pv[t - 1]  # Cambio en la potencia del panel solar
         # Calcular rampa dinámica
-        rr = rampa_base + factor_dinamico * abs(P_pv_t - mean_P_pv)
+        rr = rampa_base + factor_dinamico * abs(P_pv[t] - mean_P_pv)
         
         # Aplicación del control de rampa
         if abs(roc) > rr:
@@ -71,16 +97,97 @@ def control1(window,rampa_base,factor_dinamico, data_array):
                 roc = -rr
         
         # Compensated Photovoltaic Solar Power
-        P_pvc = P_pv_t_minus_1 + roc
-        P_aux = P_pvc - P_pv_t
+        P_pvc = P_pvc + roc
+        P_aux = P_pvc - P_pv[t]
         
-        print(f"Media móvil (últimos {window} valores): {mean_P_pv}")
-        print(f"Rampa dinámica: {rr}")
-        print(f"Power Change: {roc}")
-        print(f"Compensated Photovoltaic Solar Power: {P_pvc}")
-        print(f"P_sc_aux: {P_aux}")
+        # SOC
+        k = fac_SOC(SOC, P_aux)
+        P_sc = P_aux * k
         
-        return P_aux
+        return P_sc, P_pvc
     except Exception as e:
         print(f"Error en control1: {e}")
-        return 0
+        return 0,0
+
+def control_Kalman(P_pv, P_pvc, SOC, P):
+    """
+    Kalman filter.
+    """
+    try:
+        
+        # Parámetros del filtro de Kalman
+        A = 1  # Matriz de transición de estados
+        H = 1  # Matriz de observación
+        Q = 1e-6  # Covarianza del ruido de proceso
+        R = 1e-2  # Covarianza del ruido de observación
+        x = P_pvc  # Estado inicial
+        # P = 1  # Error inicial de covarianza
+        
+        t = len(P_pv) - 1
+
+        # Predicción
+        x_pred = A * x
+        P_pred = A * P * A + Q
+        # Actualización
+        K = P_pred * H / (H * P_pred * H + R)  # Ganancia de Kalman
+        x = x_pred + K * (P_pv[t] - H * x_pred)
+        P = (1 - K * H) * P_pred
+        
+        # Compensated Photovoltaic Solar Power
+        P_pvc = x
+        P_aux = P_pvc - P_pv[t]
+        
+        # SOC
+        k = fac_SOC(SOC, P_aux)
+        P_sc = P_aux * k
+        
+        return P_sc, P_pvc, P
+    except Exception as e:
+        print(f"Error en control1: {e}")
+        return 0,0, 1
+    
+def control_Wiener(P_pv, P_pvc, SOC):
+    """
+    Wiener.
+    """
+    try:
+        t = len(P_pv) - 1
+        
+        # Aplicar el filtro de Wiener a la ventana de tiempo
+        smoothed_window = signal.wiener(P_pv, mysize=len(P_pv))
+        
+        # Compensated Photovoltaic Solar Power
+        P_pvc = smoothed_window[-1]
+        P_aux = P_pvc - P_pv[t]
+        
+        # SOC
+        k = fac_SOC(SOC, P_aux)
+        P_sc = P_aux * k
+        
+        return P_sc, P_pvc
+    except Exception as e:
+        print(f"Error en control1: {e}")
+        return 0,0
+    
+def control_SavitzkyGolay(P_pv, P_pvc, SOC, polynomial_order):
+    """
+    Savitzky-Golay filter.
+    """
+    try:
+        t = len(P_pv) - 1
+
+        # Aplicar el filtro Savitzky-Golay a la ventana de tiempo
+        smoothed_window = signal.savgol_filter(P_pv, len(P_pv), polynomial_order)
+
+        # Compensated Photovoltaic Solar Power
+        P_pvc = smoothed_window[-1]
+        P_aux = P_pvc - P_pv[t]
+
+        # SOC
+        k = fac_SOC(SOC, P_aux)
+        P_sc = P_aux * k
+
+        return P_sc, P_pvc
+    except Exception as e:
+        print(f"Error en control_SavitzkyGolay: {e}")
+        return 0, 0

@@ -1425,10 +1425,6 @@ class Ui_MainWindow(object):
 "background-color: rgb(193, 193, 193);\n"
 "color: rgb(0, 0, 0);")
         self.comboBox = QComboBox(self.control_selected)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
         self.comboBox.setObjectName(u"comboBox")
         self.comboBox.setGeometry(QRect(10, 40, 271, 22))
         self.path_lb_7 = QLabel(self.control_selected)
@@ -1439,7 +1435,7 @@ class Ui_MainWindow(object):
 "border-color: rgb(0, 255, 255);")
         self.frame_5 = QFrame(self.widget_04)
         self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setGeometry(QRect(10, 230, 281, 121))
+        self.frame_5.setGeometry(QRect(10, 230, 311, 121))
         self.frame_5.setStyleSheet(u"QFrame{\n"
 "border-color: rgb(0, 0, 0);\n"
 "background-color: rgb(193, 193, 193);\n"
@@ -1482,13 +1478,13 @@ class Ui_MainWindow(object):
 "color: rgb(0, 0, 0);")
         self.path_lb_6 = QLabel(self.frame_5)
         self.path_lb_6.setObjectName(u"path_lb_6")
-        self.path_lb_6.setGeometry(QRect(10, 40, 191, 20))
+        self.path_lb_6.setGeometry(QRect(10, 40, 261, 20))
         self.path_lb_6.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "color: rgb(0, 0, 0);\n"
 "border-color: rgb(0, 255, 255);")
         self.pushButton_14 = QPushButton(self.frame_5)
         self.pushButton_14.setObjectName(u"pushButton_14")
-        self.pushButton_14.setGeometry(QRect(230, 40, 31, 21))
+        self.pushButton_14.setGeometry(QRect(280, 40, 31, 21))
         self.pushButton_14.setStyleSheet(u"QPushButton{\n"
 "background-color: rgb(193, 193, 193);\n"
 "border-top-left-radius: 2px;\n"
@@ -1712,11 +1708,6 @@ class Ui_MainWindow(object):
         self.pushButton_set_control.setText(QCoreApplication.translate("MainWindow", u"Activar ", None))
         self.pushButton_5.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"M\u00e9todo de Control", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Control 1", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"Control 2", None))
-        self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"Control 3", None))
-        self.comboBox.setItemText(3, QCoreApplication.translate("MainWindow", u"Control 4", None))
-
         self.path_lb_7.setText("")
         self.pushButton_set_pow.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
         self.pushButton_13.setText(QCoreApplication.translate("MainWindow", u"Parar", None))

@@ -3877,26 +3877,6 @@ color: rgb(0, 0, 0);</string>
                        <height>22</height>
                       </rect>
                      </property>
-                     <item>
-                      <property name="text">
-                       <string>Control 1</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>Control 2</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>Control 3</string>
-                      </property>
-                     </item>
-                     <item>
-                      <property name="text">
-                       <string>Control 4</string>
-                      </property>
-                     </item>
                     </widget>
                     <widget class="QLabel" name="path_lb_7">
                      <property name="geometry">
@@ -3922,7 +3902,7 @@ border-color: rgb(0, 255, 255);</string>
                      <rect>
                       <x>10</x>
                       <y>230</y>
-                      <width>281</width>
+                      <width>311</width>
                       <height>121</height>
                      </rect>
                     </property>
@@ -4023,7 +4003,7 @@ color: rgb(0, 0, 0);</string>
                       <rect>
                        <x>10</x>
                        <y>40</y>
-                       <width>191</width>
+                       <width>261</width>
                        <height>20</height>
                       </rect>
                      </property>
@@ -4039,7 +4019,7 @@ border-color: rgb(0, 255, 255);</string>
                     <widget class="QPushButton" name="pushButton_14">
                      <property name="geometry">
                       <rect>
-                       <x>230</x>
+                       <x>280</x>
                        <y>40</y>
                        <width>31</width>
                        <height>21</height>

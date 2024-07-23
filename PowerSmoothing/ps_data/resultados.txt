@@ -1,1 +1,0 @@
-P_pv	P_aux	P_resultante
