@@ -1224,6 +1224,28 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                    </property>
                   </widget>
                  </widget>
+                 <widget class="QPushButton" name="pushButton_Desactivar_2">
+                  <property name="geometry">
+                   <rect>
+                    <x>940</x>
+                    <y>480</y>
+                    <width>101</width>
+                    <height>40</height>
+                   </rect>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">font: 10pt &quot;Segoe UI&quot;;</string>
+                  </property>
+                  <property name="text">
+                   <string>Desactivar</string>
+                  </property>
+                 </widget>
                 </widget>
                </widget>
                <widget class="QWidget" name="page_gr_fv">
@@ -3758,6 +3780,28 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                    <set>Qt::AlignCenter</set>
                   </property>
                  </widget>
+                </widget>
+                <widget class="QPushButton" name="pushButton_Desactivar_3">
+                 <property name="geometry">
+                  <rect>
+                   <x>760</x>
+                   <y>540</y>
+                   <width>101</width>
+                   <height>40</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">font: 10pt &quot;Segoe UI&quot;;</string>
+                 </property>
+                 <property name="text">
+                  <string>Desactivar</string>
+                 </property>
                 </widget>
                </widget>
                <widget class="QWidget" name="page_metodo_control">

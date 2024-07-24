@@ -31,7 +31,7 @@ dic_equipment = {
     'Bat_Li': {'Name': 'Bat_Li', 'Type': 'TCP/IP', 
                'ip' : '192.168.222.12', 'port' : 502, 'timeout':3,
                'widget': 'widget_2', 'data_dict': 'data_dict_2',},
-    'super_C': {'Name': 'super_C', 'Type': 'TCP/IP', 
+    'Super_C': {'Name': 'Super_C', 'Type': 'TCP/IP', 
                'ip' : '192.168.222.14', 'port' : 502, 'timeout':3,
                'widget': 'widget_3', 'data_dict': 'data_dict_3',},
 }
@@ -43,12 +43,12 @@ data_dict_1 = {
     'Corriente':{'label': 'I 1', 'unit': ' [A]',  'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_14'},
     
     'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_18', 'graphic':0,'color': '#ADD8E6'},
-    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_19', 'graphic':0,'color': '#4682B4'},
-    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_20', 'graphic':0,'color': '#00008B'},
+    # 'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_19', 'graphic':0,'color': '#4682B4'},
+    # 'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_20', 'graphic':0,'color': '#00008B'},
     
     'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_21','graphic':1,'color': '#800080'},
-    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_22','graphic':1,'color': '#9370DB'},
-    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_23','graphic':1,'color': '#4B0082'},
+    # 'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_22','graphic':1,'color': '#9370DB'},
+    # 'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_23','graphic':1,'color': '#4B0082'},
     
     'P':  {'label': 'P', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_24','graphic':2,'color': '#FF6347'},
     'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_25','graphic':2,'color': '#FF69B4'},
@@ -64,8 +64,8 @@ data_dict_2 = {
     'SOH_2':      {'label': 'SOH', 'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_48',},
     
     'SOC':      {'label': 'SOC ', 'unit': ' [%]', 'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_52', 'graphic':3, 'color': '#9103A6',},
-    'SOH':      {'label': 'SOH',  'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_53', 'graphic':3, 'color': '#ADD8E6',},
-    'Vol bat':  {'label': 'Vbat', 'unit': ' [V]', 'address': 7,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_54',  'graphic':0, 'color': '#00008B',},
+    # 'SOH':      {'label': 'SOH',  'unit': ' [%]', 'address': 6,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_53', 'graphic':3, 'color': '#ADD8E6',},
+    # 'Vol bat':  {'label': 'Vbat', 'unit': ' [V]', 'address': 7,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_54',  'graphic':0, 'color': '#00008B',},
     
     #Conexión DC
     'V':  {'label': 'V_DC', 'unit': ' [V]',  'address': 25, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_49','graphic':0,'color': '#FF0000'},
@@ -73,13 +73,13 @@ data_dict_2 = {
     'P':  {'label': 'P_DC', 'unit': ' [kW]', 'address': 27, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_51','graphic':2,'color': '#FF0000'},
     
     #Conexión AC
-    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 28, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_27','graphic':0,'color': '#ADD8E6'},
-    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 29, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_28','graphic':0,'color': '#4682B4'},
-    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 30, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_29','graphic':0,'color': '#00008B'},
+    # 'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 28, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_27','graphic':0,'color': '#ADD8E6'},
+    # 'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 29, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_28','graphic':0,'color': '#4682B4'},
+    # 'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 30, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_29','graphic':0,'color': '#00008B'},
     
-    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 34, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_30','graphic':1,'color': '#800080'},
-    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 35, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_31','graphic':1,'color': '#9370DB'},
-    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 36, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_32','graphic':1,'color': '#4B0082'},
+    # 'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 34, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_30','graphic':1,'color': '#800080'},
+    # 'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 35, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_31','graphic':1,'color': '#9370DB'},
+    # 'I t':  {'label': 'It', 'unit': ' [A]', 'address': 36, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_32','graphic':1,'color': '#4B0082'},
     
     'P_tot':  {'label': 'P', 'unit': ' [kW]',  'address': 43, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_33','graphic':2,'color': '#FF6347'},
     'Q_tot':  {'label': 'Q', 'unit': ' [kVAr]','address': 44, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_34','graphic':2,'color': '#FF69B4'},
@@ -101,13 +101,13 @@ data_dict_3 = {
     'P1': {'label': 'P_DC',   'unit': ' [kW]','address': 4, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_60','graphic':1,'color': '#FF0000'},
     
     #Conexión AC
-    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_39','graphic':0,'color': '#ADD8E6'},
-    'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_40','graphic':0,'color': '#4682B4'},
-    'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_41','graphic':0,'color': '#00008B'},
+    # 'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_39','graphic':0,'color': '#ADD8E6'},
+    # 'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_40','graphic':0,'color': '#4682B4'},
+    # 'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_41','graphic':0,'color': '#00008B'},
     
-    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_42','graphic':1,'color': '#800080'},
-    'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_43','graphic':1,'color': '#9370DB'},
-    'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_44','graphic':1,'color': '#4B0082'},
+    # 'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_42','graphic':1,'color': '#800080'},
+    # 'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_43','graphic':1,'color': '#9370DB'},
+    # 'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_44','graphic':1,'color': '#4B0082'},
     
     'P':  {'label': 'P', 'unit': ' [kW]', 'address': 20, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_45','graphic':2,'color': '#FF6347'},
     'Q':  {'label': 'Q', 'unit': ' [kVAr]', 'address': 21, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_46','graphic':2,'color': '#FF69B4'},
@@ -116,10 +116,10 @@ data_dict_3 = {
 
 # Diccionario de labels del eje y para cada gráfico
 y_labels = {
-    0: ' ',
-    1: ' ',
-    2: ' ',
-    3: ' '
+    0: 'Voltaje',
+    1: 'Corriente',
+    2: 'Potencia',
+    3: '%'
 }
 
 dir_actual = os.path.dirname(os.path.abspath(__file__))
@@ -138,7 +138,7 @@ class MplCanvas(FigureCanvas):
 
 class MplSingleCanvas(FigureCanvas):
     def __init__(self, parent=None, width=5, height=4, dpi=100):
-        fig = Figure(figsize{width, height}, dpi=dpi)
+        fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot(111)
         super(MplSingleCanvas, self).__init__(fig)
         fig.tight_layout()
@@ -170,6 +170,9 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pushButton_14.clicked.connect(self.open_dialog_box)
         self.pushButton_set_pow.clicked.connect(self.start_loaded_data)
         self.pushButton_13.clicked.connect(self.set_end_pow)
+        # Mandar o no los datos
+        self.pushButton_Desactivar.clicked.connect(self.Desactivar)
+        self.pushButton_Activar.clicked.connect(self.Activar)
 
         # menu lateral
         self.ui.bt_menu.clicked.connect(self.mover_menu)
@@ -178,25 +181,38 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pushButton_2.setEnabled(True)
         
         # Inicializar el comboBox con los métodos de optimización
-        self.ui.comboBox.addItems(['-----', 'RR Method', 'Control 2'])
-        self.ui.comboBox.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
+        self.ui.comboBox.addItems(['RR Method', 'Exponential Method', 'Staggered Method', 'Kalman Filter', 'Wiener Filter'])
+        self.ui.comboBox.setCurrentIndex(1)  # Seleccionar 'Control 1' por defecto
+        self.ui.comboBox_2.addItems(['Bat_Li', 'Super_C',])
+        self.ui.comboBox_2.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
 
+        self.path_lb_6.setText('C:/Users/jorge/Documents/GitHub/Telecontrol_r/PowerSmoothing/ps_data/FV.txt')
+        self.filename = 'C:/Users/jorge/Documents/GitHub/Telecontrol_r/PowerSmoothing/ps_data/FV.txt'
+        self.load_data()
+        
         # Conectar la señal de cambio de selección del comboBox a la función control
         self.ui.comboBox.currentIndexChanged.connect(self.control)
         
         # Configuraciones de visualización
         self.window_length = 50  # Establece la longitud de la ventana de visualización en milisegundos
         self.interval = 100  # Establece el intervalo de actualización del gráfico en milisegundos.
+        self.flag = False # Bandera para mandar o no a escribir en Sc o Batería
         
         # inicializar Variables
-        self.P_pv = 0
-        self.P_aux = 0
-        self.P_res = 0
-        
-        # Variables control 1
+        self.P_pv = 4.57
+        self.P_sc = 0
+        self.P_res = 4.57
+        self.SOC = 50
+        # Variables control Staggered-----
         self.window_c1 = 3
-        self.rampa_base = 0.001
-        self.factor_dinamico = 0.05
+        self.rampa_base = 0.04
+        self.factor_dinamico = 0.02
+        self.rr = 0.001
+        # Variables control Exponential-----
+        self.alpha = 0.01
+        self.P_pvc = 4.57
+        # Variables control Exponential-----
+        self.P_Kalman = 1
         self.data_array = []  # Inicializar el array para almacenar P_pv
         
         self.plot_list = []
@@ -312,11 +328,11 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         axes.clear()
         t = list(range(len(self.data_array_widget_0)))
         axes.plot(t, [val[0] for val in self.data_array_widget_0], label='P_pv')
-        axes.plot(t, [val[1] for val in self.data_array_widget_0], label='P_aux')
+        axes.plot(t, [val[1] for val in self.data_array_widget_0], label='P_sc')
         axes.plot(t, [val[2] for val in self.data_array_widget_0], label='P_res')
         axes.legend()
-        axes.set_ylabel('Potencia [kW]')
-        axes.set_xlabel('Tiempo [s]')
+        axes.set_ylabel('Potencia [W]')
+        axes.set_xlabel('Muestras')
         canvas = axes.figure.canvas
         canvas.draw()
 
@@ -352,19 +368,42 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     
     def control(self):
         selected_control = self.ui.comboBox.currentText()
-        self.path_lb_7.setText(selected_control)        
+        self.path_lb_7.setText(selected_control)
+        
+        selected_device = self.ui.comboBox_2.currentText()
+        if selected_device == 'Bat_Li':
+            self.SOC = float(self.ui.lineEdit_16.text())
+        elif selected_device == 'Super_C':
+            self.SOC = float(self.ui.lineEdit_17.text())
+        self.lineEdit_36.setText(str(self.SOC))
         
         if selected_control == 'RR Method':
-            self.P_aux = control_rr(self.rampa_base, self.data_array)
-            self.P_res = self.P_aux + self.P_pv
-            print(f"Se ha seleccionado Control 1, P_aux: {self.P_aux}")
-            
-        elif selected_control == 'Control 2':
-            print("Se ha seleccionado Control 2")
-            self.P_aux = control1(self.window_c1, self.rampa_base, self.factor_dinamico, self.data_array)
-            self.P_res = self.P_aux + self.P_pv
+            self.P_sc, self.P_pvc = control_rr(self.data_array, self.P_pvc, self.SOC, self.rr)
+            self.P_res = self.P_sc + self.P_pv
+            # print(f"RR Method, P_sc: {self.P_sc}")
+        elif selected_control == 'Exponential Method':
+            self.P_sc, self.P_pvc = control_e(self.data_array, self.P_pvc, self.SOC, self.alpha)
+            self.P_res = self.P_sc + self.P_pv
+            # print(f"Exponential Method, P_sc: {self.P_sc}")
+        elif selected_control == 'Staggered Method':
+            self.P_sc, self.P_pvc = control_staggered(self.data_array, self.P_pvc, self.SOC, self.rampa_base, self.factor_dinamico)
+            self.P_res = self.P_sc + self.P_pv
+            # print(f"Staggered Method, P_sc: {self.P_sc}")
+        elif selected_control == 'Kalman Filter':
+            self.P_sc, self.P_pvc, self.P_Kalman = control_Kalman(self.data_array, self.P_pvc, self.SOC, self.P_Kalman)
+            self.P_res = self.P_sc + self.P_pv
+            # print(f"Kalman Filter, P_sc: {self.P_sc}")    
+        elif selected_control == 'Wiener Filter':
+            self.P_sc, self.P_pvc = control_Wiener(self.data_array, self.P_pvc, self.SOC)
+            self.P_res = self.P_sc + self.P_pv
+            # print(f"Wiener Filter, P_sc: {self.P_sc}")    
         else:
             print("Seleccion no válida")
+        if (self.flag == True):
+            self.set_pow(self.P_sc)
+            # self.lineEdit_37.setText(str(round(self.P_sc*1000,2)))
+            self.lineEdit_37.setText(str(round(self.P_sc,4)))
+            self.P_res = self.P_sc + self.P_pv
         
     def load_data(self):
         with open(self.filename, 'r') as file:
@@ -374,11 +413,19 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # Convierte las líneas en valores flotantes y almacénalos en una lista
         values = [float(line.strip()) for line in lines]
         # self.values_list = values
-        self.values_list = values[164078:280234]
+        # self.values_list = values[164078:280234]
+        # self.values_list = values[164078:170078] # 10 min
+        self.values_list = values[164078:167078] # 5 min
         
     def start_loaded_data(self):
+        try:
+            self.P_sc = self.P_pv
+        except Exception as e:
+            print(f"Error setting self.P_sc = self.P_pv")
         self.pow_index = 0
-        self.pow_timer.start(1000)  # Iniciar el temporizador para setear potencia cada 1 segundos
+        # self.pow_timer.start(self.interval)  # Iniciar el temporizador Real Time
+        self.pow_timer.start(self.interval)  # Iniciar el temporizador Real Time
+        # self.pow_timer.start(1)  # Iniciar el temporizador para setear potencia cada 1 mili segundos
         
         resultados_path = os.path.join(dir_actual, 'ps_data')
         self.resultados_filename = get_unique_filename(resultados_path, 'resultados', 'txt')        
@@ -386,13 +433,41 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.resultados = open(self.resultados_filename, 'w')
         self.resultados.write('{}\t{}\t{}\n'.format(
             'P_pv',
-            'P_aux',
+            'P_sc',
             'P_resultante'
         ))
 
     def set_pow(self, kpow):
+        selected_device = self.ui.comboBox_2.currentText()
+        if selected_device == 'Bat_Li':
+            ip = '192.168.222.12'  # IP de la batería de Litio
+            adrdress = 38
+        elif selected_device == 'Super_C':
+            ip = '192.168.222.14'  # IP del supercapacitor
+            adrdress = 38
         try:
-            print(f'kpow: {kpow}')
+            client = ModbusTcpClient(ip, port=502, timeout=3)
+            if client.connect():
+                limit = 500
+                value = int(round(kpow*1000/10,2))
+                if (value > 0)  and (value < limit):
+                    print(f'value mandado SC: {value}')
+                    unsigned_value = struct.unpack('H', struct.pack('h', value))[0]
+                    client.write_register(address=adrdress, value=unsigned_value, unit=1)
+                elif (value > 0)  and (value > limit):
+                    print(f'value wind up SC (limit): {value}')
+                    unsigned_value = struct.unpack('H', struct.pack('h', limit))[0]
+                    client.write_register(address=adrdress, value=unsigned_value, unit=1)
+                elif (value < 0)  and (value > -limit):
+                    print(f'value -mandado SC: {value}')
+                    unsigned_value = struct.unpack('H', struct.pack('h', value))[0]
+                    client.write_register(address=adrdress, value=unsigned_value, unit=1)
+                elif (value < 0)  and (value < -limit):
+                    print(f'value -mandado SC (-limit): {value}')
+                    unsigned_value = struct.unpack('H', struct.pack('h', -limit))[0]
+                    client.write_register(address=adrdress, value=unsigned_value, unit=1)
+            else:
+                print("error conexión.")
         except Exception as e:
             print(f"Error setting pow: {e}")
 
@@ -403,16 +478,15 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             if len(self.data_array) > self.window_c1:  # Mantener el array con longitud igual a window_c1
                 self.data_array.pop(0)
             self.control()
-            self.data_array_widget_0.append((self.P_pv, self.P_aux, self.P_res))  # Agregar valores a data_array_widget_0
+            self.data_array_widget_0.append((self.P_pv, self.P_sc, self.P_res))  # Agregar valores a data_array_widget_0
             if len(self.data_array_widget_0) > self.window_length:  # Mantener el array con longitud igual a window_length
                 self.data_array_widget_0.pop(0)    
             self.resultados.write('{}\t{}\t{}\n'.format(
                 self.P_pv,
-                self.P_aux,
+                self.P_sc,
                 self.P_res
             ))
-            self.set_pow(self.values_list[self.pow_index])
-            print(f'setting pow [{self.pow_index}]: {self.values_list[self.pow_index]}')
+            print(f'setting pow [{round(self.pow_index/600,2)}]: {self.values_list[self.pow_index]}')
             self.pow_index += 1
         else:
             self.pow_timer.stop()
@@ -422,7 +496,26 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     def set_end_pow(self):
         self.pow_index = len(self.values_list) + 1
         print('Stop')
-            
+        
+    def Desactivar(self):
+        self.flag = False
+        self.ui.pushButton_Desactivar.setStyleSheet("background-color: red;")
+        self.ui.pushButton_Activar.setStyleSheet("background-color: 193, 193, 193;")
+        ip = '192.168.222.14'  # IP del supercapacitor
+        client = ModbusTcpClient(ip, port=502, timeout=3)
+        if client.connect():
+            value = 0
+            unsigned_value = struct.unpack('H', struct.pack('h', value))[0]
+            client.write_register(address=38, value=unsigned_value, unit=1)
+            print("Supercapacitor seteado a cero.")
+        else:
+            print("No se pudo conectar al supercapacitor.")
+    
+    def Activar(self):
+        self.flag = True
+        self.ui.pushButton_Activar.setStyleSheet("background-color: green;")
+        self.ui.pushButton_Desactivar.setStyleSheet("background-color: 193, 193, 193;")
+    
     def close_instruments(self, event):
         for thread in self.threads:
             if isinstance(thread, ModbusPlot):

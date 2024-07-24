@@ -172,6 +172,8 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pushButton_13.clicked.connect(self.set_end_pow)
         # Mandar o no los datos
         self.pushButton_Desactivar.clicked.connect(self.Desactivar)
+        self.pushButton_Desactivar_2.clicked.connect(self.Desactivar)
+        self.pushButton_Desactivar_3.clicked.connect(self.Desactivar)
         self.pushButton_Activar.clicked.connect(self.Activar)
 
         # menu lateral
@@ -402,7 +404,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         if (self.flag == True):
             self.set_pow(self.P_sc)
             # self.lineEdit_37.setText(str(round(self.P_sc*1000,2)))
-            self.lineEdit_37.setText(str(round(self.P_sc,2)))
+            self.lineEdit_37.setText(str(round(self.P_sc,4)))
             self.P_res = self.P_sc + self.P_pv
         
     def load_data(self):

@@ -26,8 +26,8 @@ client.connect()
 #     print("--------- \n")
 #     time.sleep(2)
 
-value = -5
-# value = 0
+value = -50
+value = 0
 unsigned_value = struct.unpack('H', struct.pack('h', value))[0]
 client.write_register(address = 38, value = unsigned_value, unit=1)  # Escribir en el registro 39
 
