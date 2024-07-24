@@ -21,6 +21,7 @@ from PyQt5.QtCore import pyqtSlot, QTimer
 from PyQt5.QtWidgets import QVBoxLayout, QWidget, QInputDialog, QLineEdit, QFileDialog
 import os
 import pandas as pd
+from func1 import *
 
 # Variables
 dic_equipment = {
@@ -115,10 +116,10 @@ data_dict_3 = {
 
 # Diccionario de labels del eje y para cada gráfico
 y_labels = {
-    0: ' ',
-    1: ' ',
-    2: ' ',
-    3: ' '
+    0: 'Voltaje',
+    1: 'Corriente',
+    2: 'Potencia',
+    3: '%'
 }
 
 dir_actual = os.path.dirname(os.path.abspath(__file__))
@@ -133,6 +134,13 @@ class MplCanvas(FigureCanvas):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = [fig.add_subplot(221), fig.add_subplot(222), fig.add_subplot(223), fig.add_subplot(224)]
         super(MplCanvas, self).__init__(fig)
+        fig.tight_layout()
+
+class MplSingleCanvas(FigureCanvas):
+    def __init__(self, parent=None, width=5, height=4, dpi=100):
+        fig = Figure(figsize=(width, height), dpi=dpi)
+        self.axes = fig.add_subplot(111)
+        super(MplSingleCanvas, self).__init__(fig)
         fig.tight_layout()
 
 class LIVE_PLOT_APP(QtWidgets.QMainWindow):
@@ -170,19 +178,43 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pushButton_2.setEnabled(True)
         
         # Inicializar el comboBox con los métodos de optimización
-        self.ui.comboBox.addItems(['-----', 'Control 1', 'Control 2'])
-        self.ui.comboBox.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
+        self.ui.comboBox.addItems(['RR Method', 'Exponential Method', 'Staggered Method', 'Kalman Filter', 'Wiener Filter'])
+        self.ui.comboBox.setCurrentIndex(1)  # Seleccionar 'Control 1' por defecto
+        self.ui.comboBox_2.addItems(['Bat_Li', 'super_C',])
+        self.ui.comboBox_2.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
 
+        self.path_lb_6.setText('C:/Users/jorge/Documents/GitHub/Telecontrol_r/PowerSmoothing/ps_data/FV.txt')
+        self.filename = 'C:/Users/jorge/Documents/GitHub/Telecontrol_r/PowerSmoothing/ps_data/FV.txt'
+        self.load_data()
+        
         # Conectar la señal de cambio de selección del comboBox a la función control
         self.ui.comboBox.currentIndexChanged.connect(self.control)
         
         # Configuraciones de visualización
         self.window_length = 50  # Establece la longitud de la ventana de visualización en milisegundos
         self.interval = 100  # Establece el intervalo de actualización del gráfico en milisegundos.
-
+        
+        # inicializar Variables
+        self.P_pv = 4.57
+        self.P_sc = 0
+        self.P_res = 4.57
+        self.SOC = 50
+        # Variables control Staggered-----
+        self.window_c1 = 3
+        self.rampa_base = 0.04
+        self.factor_dinamico = 0.02
+        self.rr = 0.001
+        # Variables control Exponential-----
+        self.alpha = 0.01
+        self.P_pvc = 4.57
+        # Variables control Exponential-----
+        self.P_Kalman = 1
+        self.data_array = []  # Inicializar el array para almacenar P_pv
+        
         self.plot_list = []
         self.legends = []
         self.data_store = {}  # Inicializar el data_store
+        self.data_array_widget_0 = []  # Inicializar el array para almacenar P_pv para la gráfica widget_0
         
         # Inicializar gráficos
         self.init_graphics()
@@ -205,16 +237,6 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pow_timer = QTimer()
         self.pow_timer.timeout.connect(self.set_next_pow)
 
-    def control(self):
-        selected_control = self.ui.comboBox.currentText()
-        self.path_lb_7.setText(selected_control)
-        if selected_control == 'Control 1':
-            print("Se ha seleccionado Control 1")
-        elif selected_control == 'Control 2':
-            print("Se ha seleccionado Control 2")
-        else:
-            print("Seleccion no válida")
-
     def init_graphics(self):
         self.graphs = {}
         for key, val in dic_equipment.items():
@@ -225,6 +247,13 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             layout.addWidget(canvas)
             widget.setLayout(layout)
             self.graphs[widget_name] = canvas.axes
+        # Inicializar el gráfico de widget_0 como una sola gráfica
+        widget_0 = self.ui.widget_0
+        layout_0 = QVBoxLayout()
+        canvas_0 = MplSingleCanvas(self, width=5, height=4, dpi=100)
+        layout_0.addWidget(canvas_0)
+        widget_0.setLayout(layout_0)
+        self.graphs['widget_0'] = [canvas_0.axes]
  
     def init_serial_threads(self):
         for equipment in dic_equipment.values():
@@ -260,6 +289,9 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     def update_all_plots(self):
         for widget_id, data in self.data_store.items():
             self.update_plot(data, widget_id)
+        # Actualizar el gráfico de widget_0
+        if len(self.data_array_widget_0) > 0:
+            self.update_widget_0_plot()
 
     def update_plot(self, data, widget_id):
         axes_list = self.graphs[widget_id]
@@ -285,6 +317,19 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             ax.legend()
         # Utilizamos el canvas del gráfico para actualizar el widget
         canvas = axes_list[0].figure.canvas
+        canvas.draw()
+
+    def update_widget_0_plot(self):
+        axes = self.graphs['widget_0'][0]
+        axes.clear()
+        t = list(range(len(self.data_array_widget_0)))
+        axes.plot(t, [val[0] for val in self.data_array_widget_0], label='P_pv')
+        axes.plot(t, [val[1] for val in self.data_array_widget_0], label='P_sc')
+        axes.plot(t, [val[2] for val in self.data_array_widget_0], label='P_res')
+        axes.legend()
+        axes.set_ylabel('Potencia [W]')
+        axes.set_xlabel('Muestras')
+        canvas = axes.figure.canvas
         canvas.draw()
 
     def find_data_dict_name(self, widget_id):
@@ -316,6 +361,33 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.filename, _ = QFileDialog.getOpenFileName(self, 'Open File', dir_actual, 'All Files (*)')
         self.path_lb_6.setText(self.filename)
         self.load_data()
+    
+    def control(self):
+        selected_control = self.ui.comboBox.currentText()
+        self.path_lb_7.setText(selected_control)        
+        
+        if selected_control == 'RR Method':
+            self.P_sc, self.P_pvc = control_rr(self.data_array, self.P_pvc, self.SOC, self.rr)
+            self.P_res = self.P_sc + self.P_pv
+            print(f"RR Method, P_sc: {self.P_sc}")
+        elif selected_control == 'Exponential Method':
+            self.P_sc, self.P_pvc = control_e(self.data_array, self.P_pvc, self.SOC, self.alpha)
+            self.P_res = self.P_sc + self.P_pv
+            print(f"Exponential Method, P_sc: {self.P_sc}")
+        elif selected_control == 'Staggered Method':
+            self.P_sc, self.P_pvc = control_staggered(self.data_array, self.P_pvc, self.SOC, self.rampa_base, self.factor_dinamico)
+            self.P_res = self.P_sc + self.P_pv
+            print(f"Staggered Method, P_sc: {self.P_sc}")
+        elif selected_control == 'Kalman Filter':
+            self.P_sc, self.P_pvc, self.P_Kalman = control_Kalman(self.data_array, self.P_pvc, self.SOC, self.P_Kalman)
+            self.P_res = self.P_sc + self.P_pv
+            print(f"Kalman Filter, P_sc: {self.P_sc}")    
+        elif selected_control == 'Wiener Filter':
+            self.P_sc, self.P_pvc = control_Wiener(self.data_array, self.P_pvc, self.SOC)
+            self.P_res = self.P_sc + self.P_pv
+            print(f"Wiener Filter, P_sc: {self.P_sc}")    
+        else:
+            print("Seleccion no válida")
         
     def load_data(self):
         with open(self.filename, 'r') as file:
@@ -325,30 +397,61 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # Convierte las líneas en valores flotantes y almacénalos en una lista
         values = [float(line.strip()) for line in lines]
         # self.values_list = values
-        self.values_list = values[164078:280234]
+        # self.values_list = values[164078:280234]
+        self.values_list = values[164078:170078]
         
     def start_loaded_data(self):
-        self.pow_index = 0
-        self.pow_timer.start(1000)  # Iniciar el temporizador para setear potencia cada 1 segundos
-    
-    def set_pow(self, kpow):
         try:
-            print(f'kpow: {kpow}')
+            self.P_sc = self.P_pv
         except Exception as e:
-            print(f"Error setting pow: {e}")
+            print(f"Error setting self.P_sc = self.P_pv")
+        self.pow_index = 0
+        # self.pow_timer.start(self.interval)  # Iniciar el temporizador Real Time
+        self.pow_timer.start(1)  # Iniciar el temporizador para setear potencia cada 1 mili segundos
+        
+        resultados_path = os.path.join(dir_actual, 'ps_data')
+        self.resultados_filename = get_unique_filename(resultados_path, 'resultados', 'txt')        
+        print(f'archivo creado: {self.resultados_filename}')
+        self.resultados = open(self.resultados_filename, 'w')
+        self.resultados.write('{}\t{}\t{}\n'.format(
+            'P_pv',
+            'P_sc',
+            'P_resultante'
+        ))
+
+    def set_pow(self, kpow):
+        # try:
+        #     print(f'kpow: {kpow}')
+        # except Exception as e:
+        #     print(f"Error setting pow: {e}")
+        pass
 
     def set_next_pow(self):
         if self.pow_index < len(self.values_list):
+            self.P_pv = self.values_list[self.pow_index]
+            self.data_array.append(self.P_pv)  # Agregar el valor a data_array
+            if len(self.data_array) > self.window_c1:  # Mantener el array con longitud igual a window_c1
+                self.data_array.pop(0)
+            self.control()
+            self.data_array_widget_0.append((self.P_pv, self.P_sc, self.P_res))  # Agregar valores a data_array_widget_0
+            if len(self.data_array_widget_0) > self.window_length:  # Mantener el array con longitud igual a window_length
+                self.data_array_widget_0.pop(0)    
+            self.resultados.write('{}\t{}\t{}\n'.format(
+                self.P_pv,
+                self.P_sc,
+                self.P_res
+            ))
             self.set_pow(self.values_list[self.pow_index])
             print(f'setting pow [{self.pow_index}]: {self.values_list[self.pow_index]}')
             self.pow_index += 1
         else:
             self.pow_timer.stop()
             print('Fin lista')
+            self.resultados.close()
             
     def set_end_pow(self):
         self.pow_index = len(self.values_list) + 1
-        print('End')
+        print('Stop')
             
     def close_instruments(self, event):
         for thread in self.threads:

@@ -1383,7 +1383,7 @@ class Ui_MainWindow(object):
         self.widget_04.setStyleSheet(u"background-color: rgb(193, 193, 193);")
         self.control_selected = QFrame(self.widget_04)
         self.control_selected.setObjectName(u"control_selected")
-        self.control_selected.setGeometry(QRect(10, 20, 281, 181))
+        self.control_selected.setGeometry(QRect(10, 20, 281, 251))
         self.control_selected.setStyleSheet(u"QFrame{\n"
 "\n"
 "background-color: rgb(193, 193, 193);\n"
@@ -1407,15 +1407,15 @@ class Ui_MainWindow(object):
 "}")
         self.control_selected.setFrameShape(QFrame.StyledPanel)
         self.control_selected.setFrameShadow(QFrame.Raised)
-        self.pushButton_activar = QPushButton(self.control_selected)
-        self.pushButton_activar.setObjectName(u"pushButton_activar")
-        self.pushButton_activar.setGeometry(QRect(20, 110, 101, 40))
-        self.pushButton_activar.setMinimumSize(QSize(0, 40))
-        self.pushButton_activar.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+        self.pushButton_Activar = QPushButton(self.control_selected)
+        self.pushButton_Activar.setObjectName(u"pushButton_Activar")
+        self.pushButton_Activar.setGeometry(QRect(20, 190, 101, 40))
+        self.pushButton_Activar.setMinimumSize(QSize(0, 40))
+        self.pushButton_Activar.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "border-bottom-color: rgb(0, 0, 0);")
         self.pushButton_Desactivar = QPushButton(self.control_selected)
         self.pushButton_Desactivar.setObjectName(u"pushButton_Desactivar")
-        self.pushButton_Desactivar.setGeometry(QRect(150, 110, 101, 40))
+        self.pushButton_Desactivar.setGeometry(QRect(150, 190, 101, 40))
         self.pushButton_Desactivar.setMinimumSize(QSize(0, 40))
         self.pushButton_Desactivar.setStyleSheet(u"font: 10pt \"Segoe UI\";")
         self.label_14 = QLabel(self.control_selected)
@@ -1436,9 +1436,33 @@ class Ui_MainWindow(object):
         self.comboBox_2 = QComboBox(self.control_selected)
         self.comboBox_2.setObjectName(u"comboBox_2")
         self.comboBox_2.setGeometry(QRect(10, 80, 271, 22))
+        self.lineEdit_36 = QLabel(self.control_selected)
+        self.lineEdit_36.setObjectName(u"lineEdit_36")
+        self.lineEdit_36.setGeometry(QRect(150, 120, 71, 21))
+        self.lineEdit_36.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
+        self.label_81 = QLabel(self.control_selected)
+        self.label_81.setObjectName(u"label_81")
+        self.label_81.setGeometry(QRect(70, 120, 71, 21))
+        self.label_81.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+"background-color: rgb(193, 193, 193);\n"
+"color: rgb(0, 0, 0);")
+        self.label_82 = QLabel(self.control_selected)
+        self.label_82.setObjectName(u"label_82")
+        self.label_82.setGeometry(QRect(70, 160, 71, 21))
+        self.label_82.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+"background-color: rgb(193, 193, 193);\n"
+"color: rgb(0, 0, 0);")
+        self.lineEdit_37 = QLabel(self.control_selected)
+        self.lineEdit_37.setObjectName(u"lineEdit_37")
+        self.lineEdit_37.setGeometry(QRect(150, 160, 71, 21))
+        self.lineEdit_37.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 10pt \"Segoe UI\";")
         self.frame_5 = QFrame(self.widget_04)
         self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setGeometry(QRect(10, 230, 311, 121))
+        self.frame_5.setGeometry(QRect(10, 300, 311, 121))
         self.frame_5.setStyleSheet(u"QFrame{\n"
 "border-color: rgb(0, 0, 0);\n"
 "background-color: rgb(193, 193, 193);\n"
@@ -1708,10 +1732,14 @@ class Ui_MainWindow(object):
         self.label_139.setText(QCoreApplication.translate("MainWindow", u"SOC", None))
         self.lineEdit_61.setText("")
         self.label_140.setText(QCoreApplication.translate("MainWindow", u"%", None))
-        self.pushButton_activar.setText(QCoreApplication.translate("MainWindow", u"Activar ", None))
-        self.pushButton_Desactivar.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
+        self.pushButton_Activar.setText(QCoreApplication.translate("MainWindow", u"Activado", None))
+        self.pushButton_Desactivar.setText(QCoreApplication.translate("MainWindow", u"Desactivado", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"M\u00e9todo de Control", None))
         self.path_lb_7.setText("")
+        self.lineEdit_36.setText("")
+        self.label_81.setText(QCoreApplication.translate("MainWindow", u"SOC", None))
+        self.label_82.setText(QCoreApplication.translate("MainWindow", u"P_sc", None))
+        self.lineEdit_37.setText("")
         self.pushButton_set_pow.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
         self.pushButton_13.setText(QCoreApplication.translate("MainWindow", u"Parar", None))
         self.label_26.setText(QCoreApplication.translate("MainWindow", u"Perfil Fotovoltaico", None))

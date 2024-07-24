@@ -118,7 +118,7 @@ def control_Kalman(P_pv, P_pvc, SOC, P):
         # Parámetros del filtro de Kalman
         A = 1  # Matriz de transición de estados
         H = 1  # Matriz de observación
-        Q = 1e-6  # Covarianza del ruido de proceso
+        Q = 1e-7  # Covarianza del ruido de proceso
         R = 1e-2  # Covarianza del ruido de observación
         x = P_pvc  # Estado inicial
         # P = 1  # Error inicial de covarianza
