@@ -16,8 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
-    QLabel, QMainWindow, QPushButton, QSizePolicy,
-    QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
+    QLabel, QLineEdit, QMainWindow, QPushButton,
+    QSizePolicy, QSpacerItem, QStackedWidget, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -529,11 +530,6 @@ class Ui_MainWindow(object):
         self.label_38.setStyleSheet(u"background-color: rgb(193, 193, 193);\n"
 "color: rgb(0, 0, 0);\n"
 "font: 700 14pt \"Segoe UI\";")
-        self.pushButton_Desactivar_2 = QPushButton(self.frame_10)
-        self.pushButton_Desactivar_2.setObjectName(u"pushButton_Desactivar_2")
-        self.pushButton_Desactivar_2.setGeometry(QRect(940, 480, 101, 40))
-        self.pushButton_Desactivar_2.setMinimumSize(QSize(0, 40))
-        self.pushButton_Desactivar_2.setStyleSheet(u"font: 10pt \"Segoe UI\";")
         self.stackedWidget.addWidget(self.page_general)
         self.page_gr_fv = QWidget()
         self.page_gr_fv.setObjectName(u"page_gr_fv")
@@ -1088,7 +1084,7 @@ class Ui_MainWindow(object):
         self.widget_3.setStyleSheet(u"background-color: rgb(193, 193, 193);")
         self.frame_17 = QFrame(self.page_gr_sc)
         self.frame_17.setObjectName(u"frame_17")
-        self.frame_17.setGeometry(QRect(880, 20, 221, 141))
+        self.frame_17.setGeometry(QRect(880, 360, 221, 141))
         self.frame_17.setStyleSheet(u"background-color: rgb(193, 193, 193);")
         self.frame_17.setFrameShape(QFrame.StyledPanel)
         self.frame_17.setFrameShadow(QFrame.Raised)
@@ -1157,7 +1153,7 @@ class Ui_MainWindow(object):
         self.label_94.setAlignment(Qt.AlignCenter)
         self.frame_18 = QFrame(self.page_gr_sc)
         self.frame_18.setObjectName(u"frame_18")
-        self.frame_18.setGeometry(QRect(880, 160, 221, 141))
+        self.frame_18.setGeometry(QRect(880, 500, 221, 141))
         self.frame_18.setStyleSheet(u"background-color: rgb(193, 193, 193);")
         self.frame_18.setFrameShape(QFrame.StyledPanel)
         self.frame_18.setFrameShadow(QFrame.Raised)
@@ -1226,7 +1222,7 @@ class Ui_MainWindow(object):
         self.label_101.setAlignment(Qt.AlignCenter)
         self.frame_19 = QFrame(self.page_gr_sc)
         self.frame_19.setObjectName(u"frame_19")
-        self.frame_19.setGeometry(QRect(880, 300, 221, 141))
+        self.frame_19.setGeometry(QRect(880, 220, 221, 141))
         self.frame_19.setStyleSheet(u"background-color: rgb(193, 193, 193);")
         self.frame_19.setFrameShape(QFrame.StyledPanel)
         self.frame_19.setFrameShadow(QFrame.Raised)
@@ -1292,7 +1288,7 @@ class Ui_MainWindow(object):
 "font: 700 14pt \"Segoe UI\";")
         self.frame_21 = QFrame(self.page_gr_sc)
         self.frame_21.setObjectName(u"frame_21")
-        self.frame_21.setGeometry(QRect(880, 440, 221, 171))
+        self.frame_21.setGeometry(QRect(880, 10, 221, 171))
         self.frame_21.setStyleSheet(u"background-color: rgb(193, 193, 193);")
         self.frame_21.setFrameShape(QFrame.StyledPanel)
         self.frame_21.setFrameShadow(QFrame.Raised)
@@ -1378,11 +1374,42 @@ class Ui_MainWindow(object):
 "color: rgb(0, 0, 0);\n"
 "font: 700 14pt \"Segoe UI\";")
         self.label_140.setAlignment(Qt.AlignCenter)
-        self.pushButton_Desactivar_3 = QPushButton(self.page_gr_sc)
-        self.pushButton_Desactivar_3.setObjectName(u"pushButton_Desactivar_3")
-        self.pushButton_Desactivar_3.setGeometry(QRect(760, 540, 101, 40))
-        self.pushButton_Desactivar_3.setMinimumSize(QSize(0, 40))
-        self.pushButton_Desactivar_3.setStyleSheet(u"font: 10pt \"Segoe UI\";")
+        self.frame_22 = QFrame(self.page_gr_sc)
+        self.frame_22.setObjectName(u"frame_22")
+        self.frame_22.setGeometry(QRect(880, 180, 221, 41))
+        self.frame_22.setStyleSheet(u"background-color: rgb(193, 193, 193);")
+        self.frame_22.setFrameShape(QFrame.StyledPanel)
+        self.frame_22.setFrameShadow(QFrame.Raised)
+        self.pushButton_set_pow = QPushButton(self.frame_22)
+        self.pushButton_set_pow.setObjectName(u"pushButton_set_pow")
+        self.pushButton_set_pow.setGeometry(QRect(10, 10, 41, 24))
+        self.pushButton_set_pow.setStyleSheet(u"QPushButton{\n"
+"background-color: rgb(193, 193, 193);\n"
+"border-top-left-radius: 20px;\n"
+"border-bottom-left-radius:20px;\n"
+"color: rgb(0,0,0);\n"
+"font: 77 10pt \"Arial Black\"\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: white;\n"
+"border-top-left-radius: 20px;\n"
+"border-bottom-left-radius:20px;\n"
+"color: rgb(0,0,0);\n"
+"font: 77 10pt \"Arial Black\"\n"
+"}")
+        self.lineEdit = QLineEdit(self.frame_22)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setGeometry(QRect(70, 10, 91, 22))
+        self.lineEdit.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
+"color: rgb(0, 0, 0);")
+        self.label_150 = QLabel(self.frame_22)
+        self.label_150.setObjectName(u"label_150")
+        self.label_150.setGeometry(QRect(170, 10, 31, 21))
+        self.label_150.setStyleSheet(u"background-color: rgb(193, 193, 193);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 700 14pt \"Segoe UI\";")
+        self.label_150.setAlignment(Qt.AlignCenter)
         self.stackedWidget.addWidget(self.page_gr_sc)
         self.page_metodo_control = QWidget()
         self.page_metodo_control.setObjectName(u"page_metodo_control")
@@ -1508,11 +1535,11 @@ class Ui_MainWindow(object):
 "}")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
-        self.pushButton_set_pow = QPushButton(self.frame_5)
-        self.pushButton_set_pow.setObjectName(u"pushButton_set_pow")
-        self.pushButton_set_pow.setGeometry(QRect(10, 70, 101, 40))
-        self.pushButton_set_pow.setMinimumSize(QSize(0, 40))
-        self.pushButton_set_pow.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
+        self.pushButton_set_fv = QPushButton(self.frame_5)
+        self.pushButton_set_fv.setObjectName(u"pushButton_set_fv")
+        self.pushButton_set_fv.setGeometry(QRect(10, 70, 101, 40))
+        self.pushButton_set_fv.setMinimumSize(QSize(0, 40))
+        self.pushButton_set_fv.setStyleSheet(u"font: 10pt \"Segoe UI\";\n"
 "border-bottom-color: rgb(0, 0, 0);")
         self.pushButton_13 = QPushButton(self.frame_5)
         self.pushButton_13.setObjectName(u"pushButton_13")
@@ -1576,7 +1603,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1632,7 +1659,6 @@ class Ui_MainWindow(object):
         self.label_37.setText(QCoreApplication.translate("MainWindow", u"SOC", None))
         self.lineEdit_17.setText("")
         self.label_38.setText(QCoreApplication.translate("MainWindow", u"%", None))
-        self.pushButton_Desactivar_2.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
         self.label_39.setText(QCoreApplication.translate("MainWindow", u"Vr", None))
         self.label_40.setText(QCoreApplication.translate("MainWindow", u"Vs", None))
         self.label_41.setText(QCoreApplication.translate("MainWindow", u"Vt", None))
@@ -1755,7 +1781,8 @@ class Ui_MainWindow(object):
         self.label_139.setText(QCoreApplication.translate("MainWindow", u"SOC", None))
         self.lineEdit_61.setText("")
         self.label_140.setText(QCoreApplication.translate("MainWindow", u"%", None))
-        self.pushButton_Desactivar_3.setText(QCoreApplication.translate("MainWindow", u"Desactivar", None))
+        self.pushButton_set_pow.setText(QCoreApplication.translate("MainWindow", u"SET", None))
+        self.label_150.setText(QCoreApplication.translate("MainWindow", u"kW", None))
         self.pushButton_Activar.setText(QCoreApplication.translate("MainWindow", u"Activado", None))
         self.pushButton_Desactivar.setText(QCoreApplication.translate("MainWindow", u"Desactivado", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"M\u00e9todo de Control", None))
@@ -1766,7 +1793,7 @@ class Ui_MainWindow(object):
         self.lineEdit_37.setText("")
         self.label_83.setText(QCoreApplication.translate("MainWindow", u"kW", None))
         self.label_84.setText(QCoreApplication.translate("MainWindow", u"%", None))
-        self.pushButton_set_pow.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
+        self.pushButton_set_fv.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
         self.pushButton_13.setText(QCoreApplication.translate("MainWindow", u"Parar", None))
         self.label_26.setText(QCoreApplication.translate("MainWindow", u"Perfil Fotovoltaico", None))
         self.path_lb_6.setText(QCoreApplication.translate("MainWindow", u"Path", None))

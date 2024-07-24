@@ -168,10 +168,13 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.ui.pushButton_2.clicked.connect(lambda: self.change_page(self.ui.page_gr_bat, "Batería de Litio"))
         self.ui.pushButton_3.clicked.connect(lambda: self.change_page(self.ui.page_gr_sc, "Super Capacitores"))
         self.pushButton_14.clicked.connect(self.open_dialog_box)
-        self.pushButton_set_pow.clicked.connect(self.start_loaded_data)
+        self.pushButton_set_pow.clicked.connect(self.handle_set_pow_click)
+        self.pushButton_set_fv.clicked.connect(self.start_loaded_data)
         self.pushButton_13.clicked.connect(self.set_end_pow)
         # Mandar o no los datos
         self.pushButton_Desactivar.clicked.connect(self.Desactivar)
+        # self.pushButton_Desactivar_2.clicked.connect(self.Desactivar)
+        # self.pushButton_Desactivar_3.clicked.connect(self.Desactivar)
         self.pushButton_Activar.clicked.connect(self.Activar)
 
         # menu lateral
@@ -183,7 +186,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # Inicializar el comboBox con los métodos de optimización
         self.ui.comboBox.addItems(['RR Method', 'Exponential Method', 'Staggered Method', 'Kalman Filter', 'Wiener Filter'])
         self.ui.comboBox.setCurrentIndex(1)  # Seleccionar 'Control 1' por defecto
-        self.ui.comboBox_2.addItems(['Bat_Li', 'Super_C',])
+        self.ui.comboBox_2.addItems(['Super_C','Bat_Li'])
         self.ui.comboBox_2.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
 
         self.path_lb_6.setText('C:/Users/jorge/Documents/GitHub/Telecontrol_r/PowerSmoothing/ps_data/FV.txt')
@@ -191,7 +194,11 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.load_data()
         
         # Conectar la señal de cambio de selección del comboBox a la función control
-        self.ui.comboBox.currentIndexChanged.connect(self.control)
+        # self.ui.comboBox.currentIndexChanged.connect(self.control)
+        self.ui.comboBox_2.currentIndexChanged.connect(self.update_selected_device)
+        self.ui.comboBox.currentIndexChanged.connect(self.update_selected_control)
+        self.selected_device = self.ui.comboBox_2.currentText()
+        self.selected_control = self.ui.comboBox.currentText()
         
         # Configuraciones de visualización
         self.window_length = 50  # Establece la longitud de la ventana de visualización en milisegundos
@@ -240,6 +247,13 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pow_index = 0
         self.pow_timer = QTimer()
         self.pow_timer.timeout.connect(self.set_next_pow)
+
+    def update_selected_control(self):
+        self.selected_control = self.ui.comboBox.currentText()
+        self.path_lb_7.setText(self.selected_control)
+
+    def update_selected_device(self):
+        self.selected_device = self.ui.comboBox_2.currentText()
 
     def init_graphics(self):
         self.graphs = {}
@@ -331,7 +345,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         axes.plot(t, [val[1] for val in self.data_array_widget_0], label='P_sc')
         axes.plot(t, [val[2] for val in self.data_array_widget_0], label='P_res')
         axes.legend()
-        axes.set_ylabel('Potencia [W]')
+        axes.set_ylabel('Potencia [kW]')
         axes.set_xlabel('Muestras')
         canvas = axes.figure.canvas
         canvas.draw()
@@ -366,43 +380,55 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.path_lb_6.setText(self.filename)
         self.load_data()
     
+    def read_register_value(self, ip, address):
+        try:
+            client = ModbusTcpClient(ip, port=502, timeout=3)
+            if client.connect():
+                response = client.read_holding_registers(address, 1, unit=1)
+                client.close()
+                if not response.isError():
+                    value = struct.unpack('<h', struct.pack('<H', response.registers[0]))[0] * 1/10
+                    return value
+                else:
+                    print(f"Error reading register {address} from {ip}")
+            else:
+                print(f"Unable to connect to {ip}")
+        except Exception as e:
+            print(f"Error reading register: {e}")
+        return 0  # Valor por defecto si no se puede leer el registro
+    
     def control(self):
-        selected_control = self.ui.comboBox.currentText()
-        self.path_lb_7.setText(selected_control)
+        self.path_lb_7.setText(self.selected_control)
         
-        selected_device = self.ui.comboBox_2.currentText()
-        if selected_device == 'Bat_Li':
-            self.SOC = float(self.ui.lineEdit_16.text())
-        elif selected_device == 'Super_C':
-            self.SOC = float(self.ui.lineEdit_17.text())
-        self.lineEdit_36.setText(str(self.SOC))
+        # Obtener el valor de SOC directamente desde el registro correspondiente
+        if self.selected_device == 'Bat_Li':
+            self.SOC = self.read_register_value('192.168.222.12', 5)  # IP de la batería de litio, dirección 5
+        elif self.selected_device == 'Super_C':
+            self.SOC = self.read_register_value('192.168.222.14', 31)  # IP del supercapacitor, dirección 31
+        # self.lineEdit_36.setText(str(self.SOC))
         
-        if selected_control == 'RR Method':
+        if self.selected_control == 'RR Method':
             self.P_sc, self.P_pvc = control_rr(self.data_array, self.P_pvc, self.SOC, self.rr)
             self.P_res = self.P_sc + self.P_pv
-            # print(f"RR Method, P_sc: {self.P_sc}")
-        elif selected_control == 'Exponential Method':
+        elif self.selected_control == 'Exponential Method':
             self.P_sc, self.P_pvc = control_e(self.data_array, self.P_pvc, self.SOC, self.alpha)
             self.P_res = self.P_sc + self.P_pv
-            # print(f"Exponential Method, P_sc: {self.P_sc}")
-        elif selected_control == 'Staggered Method':
+        elif self.selected_control == 'Staggered Method':
             self.P_sc, self.P_pvc = control_staggered(self.data_array, self.P_pvc, self.SOC, self.rampa_base, self.factor_dinamico)
             self.P_res = self.P_sc + self.P_pv
-            # print(f"Staggered Method, P_sc: {self.P_sc}")
-        elif selected_control == 'Kalman Filter':
+        elif self.selected_control == 'Kalman Filter':
             self.P_sc, self.P_pvc, self.P_Kalman = control_Kalman(self.data_array, self.P_pvc, self.SOC, self.P_Kalman)
             self.P_res = self.P_sc + self.P_pv
-            # print(f"Kalman Filter, P_sc: {self.P_sc}")    
-        elif selected_control == 'Wiener Filter':
+        elif self.selected_control == 'Wiener Filter':
             self.P_sc, self.P_pvc = control_Wiener(self.data_array, self.P_pvc, self.SOC)
             self.P_res = self.P_sc + self.P_pv
             # print(f"Wiener Filter, P_sc: {self.P_sc}")    
         else:
             print("Seleccion no válida")
-        if (self.flag == True):
+        
+        if self.flag:
             self.set_pow(self.P_sc)
-            # self.lineEdit_37.setText(str(round(self.P_sc*1000,2)))
-            self.lineEdit_37.setText(str(round(self.P_sc,4)))
+            # self.lineEdit_37.setText(str(round(self.P_sc,4)))
             self.P_res = self.P_sc + self.P_pv
         
     def load_data(self):
@@ -424,7 +450,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             print(f"Error setting self.P_sc = self.P_pv")
         self.pow_index = 0
         # self.pow_timer.start(self.interval)  # Iniciar el temporizador Real Time
-        self.pow_timer.start(self.interval)  # Iniciar el temporizador Real Time
+        self.pow_timer.start(1)  # Iniciar el temporizador Real Time
         # self.pow_timer.start(1)  # Iniciar el temporizador para setear potencia cada 1 mili segundos
         
         resultados_path = os.path.join(dir_actual, 'ps_data')
@@ -438,34 +464,35 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         ))
 
     def set_pow(self, kpow):
-        selected_device = self.ui.comboBox_2.currentText()
-        if selected_device == 'Bat_Li':
+        if self.selected_device == 'Bat_Li':
             ip = '192.168.222.12'  # IP de la batería de Litio
             adrdress = 38
-        elif selected_device == 'Super_C':
+        elif self.selected_device == 'Super_C':
             ip = '192.168.222.14'  # IP del supercapacitor
             adrdress = 38
         try:
             client = ModbusTcpClient(ip, port=502, timeout=3)
             if client.connect():
-                limit = 500
-                value = int(round(kpow*1000/10,2))
-                if (value > 0)  and (value < limit):
-                    print(f'value mandado SC: {value}')
-                    unsigned_value = struct.unpack('H', struct.pack('h', value))[0]
-                    client.write_register(address=adrdress, value=unsigned_value, unit=1)
+                value = round(kpow*1000,2)
+                limit = 5000
+                if (value >= 0)  and (value < limit):
+                    pass
                 elif (value > 0)  and (value > limit):
-                    print(f'value wind up SC (limit): {value}')
-                    unsigned_value = struct.unpack('H', struct.pack('h', limit))[0]
-                    client.write_register(address=adrdress, value=unsigned_value, unit=1)
+                    # print(f'value wind up (limit): {value}')
+                    value = limit
                 elif (value < 0)  and (value > -limit):
-                    print(f'value -mandado SC: {value}')
-                    unsigned_value = struct.unpack('H', struct.pack('h', value))[0]
-                    client.write_register(address=adrdress, value=unsigned_value, unit=1)
+                    # print(f'value -neg: {value}')
+                    pass
                 elif (value < 0)  and (value < -limit):
-                    print(f'value -mandado SC (-limit): {value}')
-                    unsigned_value = struct.unpack('H', struct.pack('h', -limit))[0]
-                    client.write_register(address=adrdress, value=unsigned_value, unit=1)
+                    # print(f'value (-limit): {value}')
+                    value = -limit
+                else:
+                    value = 0
+                # print(f'value mandado SC: {value}')
+                value = int(value/100)
+                # print(f'value mandado/10 SC: {value}')
+                unsigned_value = struct.unpack('H', struct.pack('h', value))[0]
+                client.write_register(address=adrdress, value=unsigned_value, unit=1)
             else:
                 print("error conexión.")
         except Exception as e:
@@ -496,6 +523,13 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     def set_end_pow(self):
         self.pow_index = len(self.values_list) + 1
         print('Stop')
+    
+    def handle_set_pow_click(self):
+        try:
+            kpow = float(self.ui.lineEdit.text())
+            self.set_pow(kpow)
+        except ValueError:
+            print("Error: Please enter a valid number in the line_c_pow field.")
         
     def Desactivar(self):
         self.flag = False
@@ -548,7 +582,7 @@ class SerialPlot(QtCore.QThread):
                     line = self.ser.readline().decode('utf-8').strip()
                     self.process_data(line)
                     self.new_data.emit(self.data_buffer, self.widget_id)
-                time.sleep(1)
+                time.sleep(0.01)  # Ajustar el tiempo de espera según sea necesario
             except Exception as e:
                 print(f"Error reading serial data: {e}")
 
@@ -583,7 +617,7 @@ class ModbusPlot(QtCore.QThread):
                     value = struct.unpack('<h', struct.pack('<H', response.registers[0]))[0] * settings['factor']
                     self.data_buffer[key].append(value)
                 self.new_data.emit(self.data_buffer, self.widget_id)
-                time.sleep(1)
+                time.sleep(0.01)  # Ajustar el tiempo de espera según sea necesario
             except Exception as e:
                 print(f"Error reading Modbus data: {e}")
 

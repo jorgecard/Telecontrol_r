@@ -391,7 +391,7 @@ font-size: 12;
                 <number>1</number>
                </property>
                <property name="currentIndex">
-                <number>4</number>
+                <number>3</number>
                </property>
                <widget class="QWidget" name="page_general">
                 <widget class="QFrame" name="frame_10">
@@ -1223,28 +1223,6 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                     <string>%</string>
                    </property>
                   </widget>
-                 </widget>
-                 <widget class="QPushButton" name="pushButton_Desactivar_2">
-                  <property name="geometry">
-                   <rect>
-                    <x>940</x>
-                    <y>480</y>
-                    <width>101</width>
-                    <height>40</height>
-                   </rect>
-                  </property>
-                  <property name="minimumSize">
-                   <size>
-                    <width>0</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                  <property name="styleSheet">
-                   <string notr="true">font: 10pt &quot;Segoe UI&quot;;</string>
-                  </property>
-                  <property name="text">
-                   <string>Desactivar</string>
-                  </property>
                  </widget>
                 </widget>
                </widget>
@@ -2905,7 +2883,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                  <property name="geometry">
                   <rect>
                    <x>880</x>
-                   <y>20</y>
+                   <y>360</y>
                    <width>221</width>
                    <height>141</height>
                   </rect>
@@ -3113,7 +3091,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                  <property name="geometry">
                   <rect>
                    <x>880</x>
-                   <y>160</y>
+                   <y>500</y>
                    <width>221</width>
                    <height>141</height>
                   </rect>
@@ -3321,7 +3299,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                  <property name="geometry">
                   <rect>
                    <x>880</x>
-                   <y>300</y>
+                   <y>220</y>
                    <width>221</width>
                    <height>141</height>
                   </rect>
@@ -3520,7 +3498,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                  <property name="geometry">
                   <rect>
                    <x>880</x>
-                   <y>440</y>
+                   <y>10</y>
                    <width>221</width>
                    <height>171</height>
                   </rect>
@@ -3781,27 +3759,89 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
                   </property>
                  </widget>
                 </widget>
-                <widget class="QPushButton" name="pushButton_Desactivar_3">
+                <widget class="QFrame" name="frame_22">
                  <property name="geometry">
                   <rect>
-                   <x>760</x>
-                   <y>540</y>
-                   <width>101</width>
-                   <height>40</height>
+                   <x>880</x>
+                   <y>180</y>
+                   <width>221</width>
+                   <height>41</height>
                   </rect>
                  </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>40</height>
-                  </size>
-                 </property>
                  <property name="styleSheet">
-                  <string notr="true">font: 10pt &quot;Segoe UI&quot;;</string>
+                  <string notr="true">background-color: rgb(193, 193, 193);</string>
                  </property>
-                 <property name="text">
-                  <string>Desactivar</string>
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
                  </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <widget class="QPushButton" name="pushButton_set_pow">
+                  <property name="geometry">
+                   <rect>
+                    <x>10</x>
+                    <y>10</y>
+                    <width>41</width>
+                    <height>24</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton{
+background-color: rgb(193, 193, 193);
+border-top-left-radius: 20px;
+border-bottom-left-radius:20px;
+color: rgb(0,0,0);
+font: 77 10pt &quot;Arial Black&quot;
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius: 20px;
+border-bottom-left-radius:20px;
+color: rgb(0,0,0);
+font: 77 10pt &quot;Arial Black&quot;
+}</string>
+                  </property>
+                  <property name="text">
+                   <string>SET</string>
+                  </property>
+                 </widget>
+                 <widget class="QLineEdit" name="lineEdit">
+                  <property name="geometry">
+                   <rect>
+                    <x>70</x>
+                    <y>10</y>
+                    <width>91</width>
+                    <height>22</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+                  </property>
+                 </widget>
+                 <widget class="QLabel" name="label_150">
+                  <property name="geometry">
+                   <rect>
+                    <x>170</x>
+                    <y>10</y>
+                    <width>31</width>
+                    <height>21</height>
+                   </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(193, 193, 193);
+color: rgb(0, 0, 0);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+                  </property>
+                  <property name="text">
+                   <string>kW</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
+                  </property>
+                 </widget>
                 </widget>
                </widget>
                <widget class="QWidget" name="page_metodo_control">
@@ -4097,7 +4137,7 @@ font: 77 10pt &quot;Arial Black&quot;
                     <property name="frameShadow">
                      <enum>QFrame::Raised</enum>
                     </property>
-                    <widget class="QPushButton" name="pushButton_set_pow">
+                    <widget class="QPushButton" name="pushButton_set_fv">
                      <property name="geometry">
                       <rect>
                        <x>10</x>
