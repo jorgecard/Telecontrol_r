@@ -448,8 +448,8 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         values = [float(line.strip()) for line in lines]
         # self.values_list = values
         # self.values_list = values[164078:280234]
-        # self.values_list = values[164078:170078] # 10 min
-        self.values_list = values[164078:167078] # 5 min
+        self.values_list = values[164078:170078] # 10 min
+        # self.values_list = values[164078:167078] # 5 min
         
     def start_loaded_data(self):
         try:
@@ -458,7 +458,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             print(f"Error setting self.P_sc = self.P_pv")
         self.pow_index = 0
         # self.pow_timer.start(self.interval)  # Iniciar el temporizador Real Time
-        self.pow_timer.start(1)  # Iniciar el temporizador Real Time
+        self.pow_timer.start(100)  # Iniciar el temporizador Real Time
         # self.pow_timer.start(1)  # Iniciar el temporizador para setear potencia cada 1 mili segundos
         # self.pow_timer.start(1000)  # Iniciar el temporizador para setear potencia cada 1 mili segundos
         

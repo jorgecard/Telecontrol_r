@@ -129,19 +129,19 @@ ruta_interfaz = os.path.join(dir_interfaz, nombre_interfaz)
 nombre_logo = "nano.png"
 ruta_logo = os.path.join(dir_interfaz, nombre_logo)
 
-class MplCanvas(FigureCanvas):
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
-        fig = Figure(figsize=(width, height), dpi=dpi)
-        self.axes = [fig.add_subplot(221), fig.add_subplot(222), fig.add_subplot(223), fig.add_subplot(224)]
-        super(MplCanvas, self).__init__(fig)
-        fig.tight_layout()
+# class MplCanvas(FigureCanvas):
+#     def __init__(self, parent=None, width=5, height=4, dpi=100):
+#         fig = Figure(figsize=(width, height), dpi=dpi)
+#         self.axes = [fig.add_subplot(221), fig.add_subplot(222), fig.add_subplot(223), fig.add_subplot(224)]
+#         super(MplCanvas, self).__init__(fig)
+#         fig.tight_layout()
 
-class MplSingleCanvas(FigureCanvas):
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
-        fig = Figure(figsize=(width, height), dpi=dpi)
-        self.axes = fig.add_subplot(111)
-        super(MplSingleCanvas, self).__init__(fig)
-        fig.tight_layout()
+# class MplSingleCanvas(FigureCanvas):
+#     def __init__(self, parent=None, width=5, height=4, dpi=100):
+#         fig = Figure(figsize=(width, height), dpi=dpi)
+#         self.axes = fig.add_subplot(111)
+#         super(MplSingleCanvas, self).__init__(fig)
+#         fig.tight_layout()
 
 class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     def __init__(self):
@@ -229,7 +229,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.data_array_widget_0 = []  # Inicializar el array para almacenar P_pv para la gráfica widget_0
         
         # Inicializar gráficos
-        self.init_graphics()
+        # self.init_graphics()
 
         # Iniciar los hilos de lectura de los dispositivos
         self.threads = []
@@ -256,23 +256,23 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
     def update_selected_device(self):
         self.selected_device = self.ui.comboBox_2.currentText()
 
-    def init_graphics(self):
-        self.graphs = {}
-        for key, val in dic_equipment.items():
-            widget_name = val['widget']
-            widget = getattr(self.ui, widget_name)
-            layout = QVBoxLayout()
-            canvas = MplCanvas(self, width=5, height=4, dpi=100)
-            layout.addWidget(canvas)
-            widget.setLayout(layout)
-            self.graphs[widget_name] = canvas.axes
-        # # Inicializar el gráfico de widget_0 como una sola gráfica
-        # widget_0 = self.ui.widget_0
-        # layout_0 = QVBoxLayout()
-        # canvas_0 = MplSingleCanvas(self, width=5, height=4, dpi=100)
-        # layout_0.addWidget(canvas_0)
-        # widget_0.setLayout(layout_0)
-        # self.graphs['widget_0'] = [canvas_0.axes]
+    # def init_graphics(self):
+    #     self.graphs = {}
+    #     for key, val in dic_equipment.items():
+    #         widget_name = val['widget']
+    #         widget = getattr(self.ui, widget_name)
+    #         layout = QVBoxLayout()
+    #         canvas = MplCanvas(self, width=5, height=4, dpi=100)
+    #         layout.addWidget(canvas)
+    #         widget.setLayout(layout)
+    #         self.graphs[widget_name] = canvas.axes
+    #     # # Inicializar el gráfico de widget_0 como una sola gráfica
+    #     # widget_0 = self.ui.widget_0
+    #     # layout_0 = QVBoxLayout()
+    #     # canvas_0 = MplSingleCanvas(self, width=5, height=4, dpi=100)
+    #     # layout_0.addWidget(canvas_0)
+    #     # widget_0.setLayout(layout_0)
+    #     # self.graphs['widget_0'] = [canvas_0.axes]
  
     def init_serial_threads(self):
         for equipment in dic_equipment.values():
@@ -313,30 +313,30 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         #     self.update_widget_0_plot()
 
     def update_plot(self, data, widget_id):
-        axes_list = self.graphs[widget_id]
-        for ax in axes_list:
-            ax.clear()
+        # axes_list = self.graphs[widget_id]
+        # for ax in axes_list:
+        #     ax.clear()
         data_dict_name = self.find_data_dict_name(widget_id)
         for key, value in data.items():
-            if 'graphic' in globals()[data_dict_name][key]:
-                color = self.find_color(data_dict_name, key)
-                graphic_id = self.find_graphic_id(data_dict_name, key)
-                if len(value) > self.window_length:
-                    value_to_plot = value[-self.window_length:]
-                else:
-                    value_to_plot = value
-                label = f"{globals()[data_dict_name][key]['label']} {globals()[data_dict_name][key]['unit']}"
-                axes_list[graphic_id].plot(value_to_plot, label=label, color=color)
-                axes_list[graphic_id].set_ylabel(y_labels[graphic_id])  # Establecer el label del eje y
+            # if 'graphic' in globals()[data_dict_name][key]:
+            #     color = self.find_color(data_dict_name, key)
+            #     graphic_id = self.find_graphic_id(data_dict_name, key)
+            #     if len(value) > self.window_length:
+            #         value_to_plot = value[-self.window_length:]
+            #     else:
+            #         value_to_plot = value
+            #     label = f"{globals()[data_dict_name][key]['label']} {globals()[data_dict_name][key]['unit']}"
+            #     axes_list[graphic_id].plot(value_to_plot, label=label, color=color)
+            #     axes_list[graphic_id].set_ylabel(y_labels[graphic_id])  # Establecer el label del eje y
             if 'QLabel' in globals()[data_dict_name][key]:
                 qlabel_name = globals()[data_dict_name][key]['QLabel']
                 qlabel = getattr(self.ui, qlabel_name)
                 qlabel.setText(f"{value[-1]:.2f}")
-        for ax in axes_list:
-            ax.legend()
-        # Utilizamos el canvas del gráfico para actualizar el widget
-        canvas = axes_list[0].figure.canvas
-        canvas.draw()
+        # for ax in axes_list:
+        #     ax.legend()
+        # # Utilizamos el canvas del gráfico para actualizar el widget
+        # canvas = axes_list[0].figure.canvas
+        # canvas.draw()
 
     # def update_widget_0_plot(self):
     #     axes = self.graphs['widget_0'][0]
@@ -436,6 +436,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             # self.lineEdit_37.setText(str(round(self.P_sc,4)))
             self.P_res = self.P_inyectada + self.P_pv
         else:
+            print(self.P_sc)
             self.P_res = self.P_sc + self.P_pv
         
     def load_data(self):
@@ -457,8 +458,9 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             print(f"Error setting self.P_sc = self.P_pv")
         self.pow_index = 0
         # self.pow_timer.start(self.interval)  # Iniciar el temporizador Real Time
-        self.pow_timer.start(1)  # Iniciar el temporizador Real Time
+        self.pow_timer.start(100)  # Iniciar el temporizador Real Time
         # self.pow_timer.start(1)  # Iniciar el temporizador para setear potencia cada 1 mili segundos
+        # self.pow_timer.start(1000)  # Iniciar el temporizador para setear potencia cada 1 mili segundos
         
         resultados_path = os.path.join(dir_actual, 'ps_data')
         self.resultados_filename = get_unique_filename(resultados_path, 'resultados', 'txt')        
