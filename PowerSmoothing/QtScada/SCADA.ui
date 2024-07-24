@@ -3993,7 +3993,7 @@ color: rgb(0, 0, 0);
 font: 700 14pt &quot;Segoe UI&quot;;</string>
                      </property>
                      <property name="text">
-                      <string>W</string>
+                      <string>kW</string>
                      </property>
                     </widget>
                     <widget class="QLabel" name="label_84">

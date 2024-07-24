@@ -1460,6 +1460,18 @@ class Ui_MainWindow(object):
         self.lineEdit_37.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
 "color: rgb(0, 0, 0);\n"
 "font: 10pt \"Segoe UI\";")
+        self.label_83 = QLabel(self.control_selected)
+        self.label_83.setObjectName(u"label_83")
+        self.label_83.setGeometry(QRect(240, 160, 31, 21))
+        self.label_83.setStyleSheet(u"background-color: rgb(193, 193, 193);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 700 14pt \"Segoe UI\";")
+        self.label_84 = QLabel(self.control_selected)
+        self.label_84.setObjectName(u"label_84")
+        self.label_84.setGeometry(QRect(240, 120, 31, 21))
+        self.label_84.setStyleSheet(u"background-color: rgb(193, 193, 193);\n"
+"color: rgb(0, 0, 0);\n"
+"font: 700 14pt \"Segoe UI\";")
         self.frame_5 = QFrame(self.widget_04)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setGeometry(QRect(10, 300, 311, 121))
@@ -1740,6 +1752,8 @@ class Ui_MainWindow(object):
         self.label_81.setText(QCoreApplication.translate("MainWindow", u"SOC", None))
         self.label_82.setText(QCoreApplication.translate("MainWindow", u"P_sc", None))
         self.lineEdit_37.setText("")
+        self.label_83.setText(QCoreApplication.translate("MainWindow", u"kW", None))
+        self.label_84.setText(QCoreApplication.translate("MainWindow", u"%", None))
         self.pushButton_set_pow.setText(QCoreApplication.translate("MainWindow", u"Enviar", None))
         self.pushButton_13.setText(QCoreApplication.translate("MainWindow", u"Parar", None))
         self.label_26.setText(QCoreApplication.translate("MainWindow", u"Perfil Fotovoltaico", None))

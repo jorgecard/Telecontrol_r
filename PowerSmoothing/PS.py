@@ -42,11 +42,11 @@ data_dict_1 = {
     'Voltaje':  {'label': 'V 1', 'unit': ' [V]',  'address': 5,  'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_13'},
     'Corriente':{'label': 'I 1', 'unit': ' [A]',  'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_14'},
     
-    # 'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_18', 'graphic':0,'color': '#ADD8E6'},
+    'V r':  {'label': 'Vr', 'unit': ' [V]', 'address': 5, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_18', 'graphic':0,'color': '#ADD8E6'},
     # 'V s':  {'label': 'Vs', 'unit': ' [V]', 'address': 6, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_19', 'graphic':0,'color': '#4682B4'},
     # 'V t':  {'label': 'Vt', 'unit': ' [V]', 'address': 7, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_20', 'graphic':0,'color': '#00008B'},
     
-    # 'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_21','graphic':1,'color': '#800080'},
+    'I r':  {'label': 'Ir', 'unit': ' [A]', 'address': 11, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_21','graphic':1,'color': '#800080'},
     # 'I s':  {'label': 'Is', 'unit': ' [A]', 'address': 12, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_22','graphic':1,'color': '#9370DB'},
     # 'I t':  {'label': 'It', 'unit': ' [A]', 'address': 13, 'count': 1, 'factor':1/10, 'QLabel': 'lineEdit_23','graphic':1,'color': '#4B0082'},
     
@@ -401,7 +401,8 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             print("Seleccion no válida")
         if (self.flag == True):
             self.set_pow(self.P_sc)
-            self.lineEdit_37.setText(str(round(self.P_sc*1000,2)))
+            # self.lineEdit_37.setText(str(round(self.P_sc*1000,2)))
+            self.lineEdit_37.setText(str(round(self.P_sc,2)))
             self.P_res = self.P_sc + self.P_pv
         
     def load_data(self):
@@ -423,7 +424,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             print(f"Error setting self.P_sc = self.P_pv")
         self.pow_index = 0
         # self.pow_timer.start(self.interval)  # Iniciar el temporizador Real Time
-        self.pow_timer.start(self.interval-20)  # Iniciar el temporizador Real Time
+        self.pow_timer.start(self.interval)  # Iniciar el temporizador Real Time
         # self.pow_timer.start(1)  # Iniciar el temporizador para setear potencia cada 1 mili segundos
         
         resultados_path = os.path.join(dir_actual, 'ps_data')
