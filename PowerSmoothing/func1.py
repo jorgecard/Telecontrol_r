@@ -145,7 +145,44 @@ def control_Kalman(P_pv, P_pvc, SOC, P):
     except Exception as e:
         print(f"Error en control1: {e}")
         return 0,0, 1
-    
+
+def control_Kalman_Exponential(P_pv, P_pvc, SOC, P, alpha = 0.01):
+    """
+    Kalman Exponential
+    """
+    try:
+        
+        # Parámetros del filtro de Kalman
+        A = 1  # Matriz de transición de estados
+        H = 1  # Matriz de observación
+        Q = 0.01  # Covarianza del ruido de proceso
+        R = 0.1  # Covarianza del ruido de observación
+        x = P_pvc  # Estado inicial
+        # P = 1  # Error inicial de covarianza
+        
+        t = len(P_pv) - 1
+
+        # Predicción
+        x_pred = A * x
+        P_pred = A * P * A + Q
+        # Actualización
+        K = P_pred * H / (H * P_pred * H + R)  # Ganancia de Kalman
+        x = x_pred + K * (P_pv[t] - H * x_pred)
+        P = (1 - K * H) * P_pred
+        
+        # Compensated Photovoltaic Solar Power
+        P_pvc = alpha * x + (1 - alpha) * P_pvc
+        P_aux = P_pvc - P_pv[t]
+        
+        # SOC
+        k = fac_SOC(SOC, P_aux)
+        P_sc = P_aux * k
+        
+        return P_sc, P_pvc, P
+    except Exception as e:
+        print(f"Error en control1: {e}")
+        return 0,0, 1
+
 def control_Wiener(P_pv, P_pvc, SOC):
     """
     Wiener Filter.

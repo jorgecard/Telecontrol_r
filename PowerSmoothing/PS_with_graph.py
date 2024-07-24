@@ -424,6 +424,9 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         elif self.selected_control == 'Kalman Filter':
             self.P_sc, self.P_pvc, self.P_Kalman = control_Kalman(self.data_array, self.P_pvc, self.SOC, self.P_Kalman)
             # self.P_res = self.P_sc + self.P_pv
+        elif self.selected_control == 'Kalman Eponential':
+            self.P_sc, self.P_pvc, self.P_Kalman = control_Kalman_Exponential(self.data_array, self.P_pvc, self.SOC, self.P_Kalman)
+            # self.P_res = self.P_sc + self.P_pv
         elif self.selected_control == 'Wiener Filter':
             self.P_sc, self.P_pvc = control_Wiener(self.data_array, self.P_pvc, self.SOC)
             # self.P_res = self.P_sc + self.P_pv
