@@ -184,7 +184,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pushButton_2.setEnabled(True)
         
         # Inicializar el comboBox con los métodos de optimización
-        self.ui.comboBox.addItems(['RR Method', 'Exponential Method', 'Staggered Method', 'Kalman Filter', 'Wiener Filter'])
+        self.ui.comboBox.addItems(['RR Method', 'Exponential Method', 'Staggered Method', 'Kalman Filter', 'Kalman Exponential', 'Butterworth'])
         self.ui.comboBox.setCurrentIndex(1)  # Seleccionar 'Control 1' por defecto
         self.ui.comboBox_2.addItems(['Super_C','Bat_Li'])
         self.ui.comboBox_2.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto
@@ -222,6 +222,11 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         # Variables control Exponential-----
         self.P_Kalman = 1
         self.data_array = []  # Inicializar el array para almacenar P_pv
+        # Variables Butterworth
+        self.a_Butterworth = np.array([1, -3.950744090477214, 5.853441719482108, -3.854633844371359, 0.951936338552047])
+        self.b_Butterworth = np.array([7.699098914705779e-09, 3.079639565882312e-08, 4.619459348823468e-08, 3.079639565882312e-08, 7.699098914705779e-09])
+        self.x_prev = np.zeros(4)
+        self.y_prev = np.zeros(4)
         
         self.plot_list = []
         self.legends = []
@@ -424,11 +429,11 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         elif self.selected_control == 'Kalman Filter':
             self.P_sc, self.P_pvc, self.P_Kalman = control_Kalman(self.data_array, self.P_pvc, self.SOC, self.P_Kalman)
             # self.P_res = self.P_sc + self.P_pv
-        elif self.selected_control == 'Kalman Eponential':
+        elif self.selected_control == 'Kalman Exponential':
             self.P_sc, self.P_pvc, self.P_Kalman = control_Kalman_Exponential(self.data_array, self.P_pvc, self.SOC, self.P_Kalman)
             # self.P_res = self.P_sc + self.P_pv
-        elif self.selected_control == 'Wiener Filter':
-            self.P_sc, self.P_pvc = control_Wiener(self.data_array, self.P_pvc, self.SOC)
+        elif self.selected_control == 'Butterworth':
+            self.P_sc, self.P_pvc, self.a_Butterworth, self.b_Butterworth, self.x_prev, self.y_prev = control_Butterworth(self.data_array, self.P_pvc, self.SOC, self.a_Butterworth, self.b_Butterworth, self.x_prev, self.y_prev)
             # self.P_res = self.P_sc + self.P_pv
             # print(f"Wiener Filter, P_sc: {self.P_sc}")    
         else:
@@ -486,7 +491,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
             client = ModbusTcpClient(ip, port=502, timeout=3)
             if client.connect():
                 value = round(kpow*1000,2)
-                limit = 5000
+                limit = 6000
                 if (value >= 0)  and (value < limit):
                     pass
                 elif (value > 0)  and (value > limit):

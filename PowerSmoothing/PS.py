@@ -184,7 +184,7 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.pushButton_2.setEnabled(True)
         
         # Inicializar el comboBox con los métodos de optimización
-        self.ui.comboBox.addItems(['RR Method', 'Exponential Method', 'Staggered Method', 'Kalman Filter', 'Wiener Filter'])
+        self.ui.comboBox.addItems(['RR Method', 'Exponential Method', 'Staggered Method', 'Kalman Filter', 'Kalman Exponential'])
         self.ui.comboBox.setCurrentIndex(1)  # Seleccionar 'Control 1' por defecto
         self.ui.comboBox_2.addItems(['Super_C','Bat_Li'])
         self.ui.comboBox_2.setCurrentIndex(0)  # Seleccionar 'Control 1' por defecto

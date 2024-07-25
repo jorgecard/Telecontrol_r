@@ -1,6 +1,5 @@
 import os
-import pandas as pd
-import scipy.signal as signal
+import numpy as np
 
 def get_unique_filename(base_path, base_name, extension):
     i = 0
@@ -183,49 +182,32 @@ def control_Kalman_Exponential(P_pv, P_pvc, SOC, P, alpha = 0.01):
         print(f"Error en control1: {e}")
         return 0,0, 1
 
-def control_Wiener(P_pv, P_pvc, SOC):
+def control_Butterworth(P_pv, P_pvc, SOC, a, b, x_prev, y_prev, alpha=0.01):
     """
-    Wiener Filter.
-    """
-    try:
-        t = len(P_pv) - 1
-        
-        # Aplicar el filtro de Wiener a la ventana de tiempo
-        smoothed_window = signal.wiener(P_pv, mysize=len(P_pv))
-        
-        # Compensated Photovoltaic Solar Power
-        P_pvc = smoothed_window[-1]
-        P_aux = P_pvc - P_pv[t]
-        
-        # SOC
-        k = fac_SOC(SOC, P_aux)
-        P_sc = P_aux * k
-        
-        return P_sc, P_pvc
-    except Exception as e:
-        print(f"Error en control1: {e}")
-        return 0,0
-    
-def control_Gaussian(P_pv, P_pvc, SOC, sigma = 10):
-    """
-    Gaussian Filter.
+    Butterworth Filter with Exponential Smoothing
     """
     try:
         t = len(P_pv) - 1
-        
-        # Aplicar el filtro Gaussiano a la ventana de tiempo
-        smoothed_window = signal.gaussian(len(P_pv), std=sigma)
-        smoothed_window = signal.convolve(P_pv, smoothed_window/sum(smoothed_window), mode='same')
-        
-        # Compensated Photovoltaic Solar Power
-        P_pvc = smoothed_window[-1]
-        P_aux = P_pvc - P_pv[t]
-        
-        # SOC
-        k = fac_SOC(SOC, P_aux)
-        P_sc = P_aux * k
-        
-        return P_sc, P_pvc
+
+        for t in range(len(P_pv)):
+            P_pvc = (b[0] * P_pv[t] + b[1] * x_prev[0] + b[2] * x_prev[1] + b[3] * x_prev[2] + b[4] * x_prev[3] 
+                              - a[1] * y_prev[0] - a[2] * y_prev[1] - a[3] * y_prev[2] - a[4] * y_prev[3]) / a[0]
+
+            # Actualizar condiciones iniciales
+            x_prev = np.roll(x_prev, 1)
+            x_prev[0] = P_pv[t]
+            y_prev = np.roll(y_prev, 1)
+            y_prev[0] = P_pvc
+
+            # Potencia Fotovoltaica Compensada con suavizado exponencial
+            P_pvc = alpha * P_pv[t] + (1 - alpha) * P_pvc
+            P_aux = P_pvc - P_pv[t]
+            # SOC
+            k = fac_SOC(SOC, P_aux)
+            # Ajuste de la potencia de la batería para suavizar
+            P_sc = P_aux * k
+
+        return P_sc, P_pvc, a, b, x_prev, y_prev
     except Exception as e:
-        print(f"Error en control_Gaussian: {e}")
-        return 0, 0
+        print(f"Error en control_Butterworth: {e}")
+        # return np.zeros_like(P_pv), 0, np.zeros_like(P_pv)
