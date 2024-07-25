@@ -223,8 +223,6 @@ class LIVE_PLOT_APP(QtWidgets.QMainWindow):
         self.P_Kalman = 1
         self.data_array = []  # Inicializar el array para almacenar P_pv
         # Variables Butterworth
-        self.a_Butterworth = np.array([1, -3.950744090477214, 5.853441719482108, -3.854633844371359, 0.951936338552047])
-        self.b_Butterworth = np.array([7.699098914705779e-09, 3.079639565882312e-08, 4.619459348823468e-08, 3.079639565882312e-08, 7.699098914705779e-09])
         self.a_Butterworth = np.array([1,-3.983581258658520,5.950878429266698,-3.951012436572833,0.983715267510478])
         self.b_Butterworth = np.array([9.661396633990794e-11,3.864558653596318e-10,5.796837980394477e-10,3.864558653596318e-10,9.661396633990794e-11])
         self.x_prev = np.zeros(4)
